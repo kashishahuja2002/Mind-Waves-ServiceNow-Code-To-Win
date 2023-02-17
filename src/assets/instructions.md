@@ -1,0 +1,1 @@
+for basic assets like images, fonts, etc.
