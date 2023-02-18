@@ -41,7 +41,7 @@ const Navbar = (props) => {
                     </IconButton>
 
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        Logo
+                        LOGO
                     </Typography>
                     
                     <div>
@@ -70,6 +70,17 @@ const Navbar = (props) => {
                             }}
                             open={Boolean(anchorEl)}
                             onClose={handleClose}
+                            sx={{
+                                ".MuiPaper-elevation": {
+                                    top: "50px !important",
+                                    backgroundColor: "var(--dark-blue)",
+                                    color: "#ffffff",
+                                },
+
+                                ".MuiMenuItem-root:hover": {
+                                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                                }
+                            }}
                         >
                             <MenuItem onClick={handleClose}>Profile</MenuItem>
                             <MenuItem onClick={handleClose}>Logout</MenuItem>
