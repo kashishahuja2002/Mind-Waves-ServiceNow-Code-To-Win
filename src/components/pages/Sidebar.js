@@ -58,7 +58,7 @@ export const SidebarContents = () => {
                             {index===1 &&
                                 <>
                                     <span className="dot"></span>
-                                    <img src={SidebarCurve} className="sidebarCurve" width="15px" />
+                                    <img src={SidebarCurve} alt="" className="sidebarCurve" width="15px" />
                                 </>
                             }
 
