@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
@@ -70,19 +70,15 @@ export const SidebarContents = () => {
     )
 }
 
-export const Sidebar = () => {
+export const Sidebar = (props) => {
 
-    const [showSidebar, setShowSidebar] = useState(true);
-
-    const toggleDrawer = (value) => {
-        setShowSidebar(value);
-    }
+    const { showSidebar, toggleSidebar } = props;
 
     return (
         <Drawer
             anchor={"left"}
             open={showSidebar}
-            onClose={() => toggleDrawer(false)}
+            onClose={() => toggleSidebar(false)}
             className="sidebar"
         >
            {SidebarContents()}
