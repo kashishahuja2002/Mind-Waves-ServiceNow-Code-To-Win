@@ -10,11 +10,28 @@ const PagesContainer = () => {
             container
             direction="row"
             justifyContent="flex-start"
-            alignItems="center"
+            alignItems="flex-start"
             spacing={2}
         >
-            <Grid item><Sidebar /></Grid>
-            <Grid item className="sidebar" style={{ paddingLeft: "0px" }}><SidebarContents /></Grid>
+            <Grid item sx={{ display: { xs: 'block', lg: 'none' } }}>
+                <Sidebar />
+            </Grid>
+
+            <Grid item className="sidebar" sx={{ paddingLeft: "0px", display: { xs: 'none', lg: 'block' } }}>
+                <SidebarContents />
+            </Grid>
+
+            <Grid item>
+                <Grid
+                    container
+                    direction="column"
+                    justifyContent="flex-start"
+                    alignItems="flex-start"
+                >
+                    <Grid item>navbar</Grid>
+                    <Grid item>Outlet</Grid>
+                </Grid>
+            </Grid>
         </Grid>
     );
 }

@@ -1,1 +1,0 @@
-for all the pages in the product.
