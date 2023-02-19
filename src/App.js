@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import PagesContainer from "./components/pages/PagesContainer";
+import Dashboard from "./components/pages/dashboard/Dashboard";
 
 import './App.scss';
 
@@ -16,7 +17,7 @@ function App() {
         </Route>
 
         <Route path="/pages/" element={<PagesContainer />}>
-          <Route path="dashboard" element={"dashboard"} />
+          <Route path="dashboard" element={<Dashboard />} />
           <Route path="eap" element={"eap"} />
           <Route path="reminders-breaks" element={"reminders-breaks"} />
           <Route path="daily-activities" element={"daily-activities"} />
