@@ -39,7 +39,7 @@ const PagesContainer = () => {
                         <Navbar toggleSidebar={toggleSidebar} />
                     </Grid>
 
-                    <Grid item>
+                    <Grid item sx={{ padding: "20px", width: "100%" }}>
                         <Outlet />
                     </Grid>
                 </Grid>
