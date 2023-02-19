@@ -8,13 +8,14 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import Divider from "@mui/material/Divider";
+import Typography from '@mui/material/Typography';
 import DashboardIcon from '@mui/icons-material/Dashboard';  // Dashboard Icon
 import PsychologyIcon from '@mui/icons-material/Psychology';    // EAP Icon
 import ScheduleIcon from '@mui/icons-material/Schedule';    // Reminders/Breaks Icon
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';  // Daily activities Icon
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';    // Educational resources Icon
 
-import logo from '../../assets/images/logo.png';
 import SidebarCurve from '../../assets/images/SidebarCurve.svg';
 import '../../styles/pages/sidebar.scss';
 
@@ -31,12 +32,16 @@ export const SidebarContents = () => {
     ];
 
     return (
-        <Box className="sidebarContents">
+        <Box className="sidebarContents" sx={{ padding: "10px 0" }}>
             <List>
                 <ListItem disablePadding>
-                    <img src={logo} alt="Logo" width={100} className="center"></img>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: "center" }}>
+                        Mind Waves
+                    </Typography>
                 </ListItem>
                 
+                <Divider className="driver" sx={{ margin: "13px 0" }} />
+
                 {sidebarList.map((obj, index) => (
                     <ListItem key={index} disablePadding className={obj.link===activeLink ? 'active' : ''}>
                         <ListItemButton onClick={() => navigate(obj.link)}>
