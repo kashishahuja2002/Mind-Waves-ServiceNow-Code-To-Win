@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 import DailyStats from "./DailyStats";
+import WeeklyStats from "./WeeklyStats";
 
 import '../../../styles/pages/dashboard/dashboard.scss';
 
@@ -23,6 +24,7 @@ const Dashboard = () => {
 
             <Grid item>
                 <Typography variant="body" gutterBottom className="stat-title">Weekly Stats</Typography>
+                <WeeklyStats />
             </Grid>
         </Grid>
     );

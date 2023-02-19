@@ -13,7 +13,7 @@
         }
         
         .sidebarContents {
-            height: calc(100vh - 60px);
+            min-height: calc(100vh - 60px);
             background-color: var(--dark-blue);
             color: #ffffff;
             border-radius: 10px;
@@ -70,7 +70,7 @@
 
     // Outlet styles
     .outlet-box {
-        padding: 10px 25px;
+        padding: 10px 25px 0px;
         width: 100%;
     }
 
@@ -82,7 +82,7 @@
         }
 
         .outlet-box {
-            padding: 10px 0px ;
+            padding: 10px 0px 0px;
         }
     }
 }
