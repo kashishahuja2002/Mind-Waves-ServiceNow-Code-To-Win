@@ -26,7 +26,7 @@ export const SidebarContents = () => {
     const sidebarList = [
         {name: "Dashboard", link: "/pages/dashboard", icon: <DashboardIcon />},
         {name: "EAP", link: "/pages/eap", icon: <PsychologyIcon />},
-        {name: "Reminders/Breaks", link: "/pages/reminders-breaks", icon: <ScheduleIcon />},
+        {name: "Reminders / Breaks", link: "/pages/reminders-breaks", icon: <ScheduleIcon />},
         {name: "Daily activities", link: "/pages/daily-activities", icon: <VolunteerActivismIcon />},
         {name: "Educational resources", link: "/pages/educational-resources", icon: <LocalLibraryIcon />},
     ];
