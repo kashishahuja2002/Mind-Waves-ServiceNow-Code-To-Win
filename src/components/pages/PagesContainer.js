@@ -21,9 +21,8 @@ const PagesContainer = () => {
             direction="row"
             justifyContent="flex-start"
             alignItems="flex-start"
-            className="pages-container"
         >
-            <Grid item>
+            <Grid item className="sidebar" sx={{ display: { xs: 'block', lg: 'none' } }}>
                 <Sidebar showSidebar={showSidebar} toggleSidebar={toggleSidebar} />
             </Grid>
 
