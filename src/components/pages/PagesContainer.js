@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Outlet } from "react-router-dom";
 
 import Grid from '@mui/material/Grid';
 
@@ -38,7 +39,9 @@ const PagesContainer = () => {
                         <Navbar toggleSidebar={toggleSidebar} />
                     </Grid>
 
-                    <Grid item>Outlet</Grid>
+                    <Grid item>
+                        <Outlet />
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>
