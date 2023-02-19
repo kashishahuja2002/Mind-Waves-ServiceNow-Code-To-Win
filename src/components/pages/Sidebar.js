@@ -17,7 +17,6 @@ import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';  // D
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';    // Educational resources Icon
 
 import SidebarCurve from '../../assets/images/SidebarCurve.svg';
-import '../../styles/pages/sidebar.scss';
 
 export const SidebarContents = () => {
     const activeLink = useLocation().pathname;

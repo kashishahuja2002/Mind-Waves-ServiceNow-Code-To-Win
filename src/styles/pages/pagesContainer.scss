@@ -1,0 +1,90 @@
+@import '../variables.scss';
+
+.pages-container {
+
+    // Sidebar styles
+    .sidebar {
+        overflow-y: auto;
+        background-color: var(--dark-blue);
+        border-radius: 10px;
+
+        .MuiPaper-root {
+            box-shadow: 0px 8px 10px 5px rgb(0 0 0 / 20%), 0px 16px 24px 2px rgb(0 0 0 / 34%), 0px 6px 30px 5px rgb(0 0 0 / 12%);
+        }
+        
+        .sidebarContents {
+            height: calc(100vh - 60px);
+            background-color: var(--dark-blue);
+            color: #ffffff;
+            border-radius: 10px;
+
+            svg {
+                color: #ffffff;
+            }
+
+            .MuiListItemButton-root {
+                height: 50px;
+                margin: 0 0 3px;
+            }
+
+            .MuiListItemButton-root:hover {
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+
+            .active {
+                .MuiListItemButton-root {
+                    background-color: rgba(0, 0, 0, 0.3);
+                }
+            }
+
+            .sidebarCurve {
+                position: relative;
+                left: 16px;
+            }
+
+            .dot {
+                height: 7px;
+                width: 7px;
+                background-color: var(--dark-blue);
+                border-radius: 50%;
+                z-index: 1;
+                position: absolute;
+                right: 1px;
+                top: 22px;
+            }
+        }
+
+        .MuiBackdrop-root {
+            background-color: #ffffff !important;
+        }
+    }
+
+    // Navbar styles
+    .navbar {
+        .MuiAppBar-root {
+            background-color: var(--light-grey);
+            color: var(--dark-blue);
+            box-shadow: none;
+        }
+    }
+
+    // Outlet styles
+    .outlet-box {
+        padding: 10px 25px;
+        width: 100%;
+    }
+
+    // Responsive styles
+    @media screen and (max-width: 1200px) {
+        .sidebarContents {
+            height: 100vh;
+            border-radius: 0px;
+        }
+
+        .outlet-box {
+            padding: 10px 0px ;
+        }
+    }
+}
+
+

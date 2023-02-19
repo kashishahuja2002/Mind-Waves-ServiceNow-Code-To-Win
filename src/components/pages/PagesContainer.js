@@ -6,6 +6,8 @@ import Grid from '@mui/material/Grid';
 import { Sidebar, SidebarContents } from "./Sidebar";
 import Navbar from "./Navbar";
 
+import '../../styles/pages/pagesContainer.scss';
+
 const PagesContainer = () => {
     const [showSidebar, setShowSidebar] = useState(false);
 
@@ -19,6 +21,7 @@ const PagesContainer = () => {
             direction="row"
             justifyContent="flex-start"
             alignItems="flex-start"
+            className="pages-container"
         >
             <Grid item>
                 <Sidebar showSidebar={showSidebar} toggleSidebar={toggleSidebar} />
@@ -39,7 +42,7 @@ const PagesContainer = () => {
                         <Navbar toggleSidebar={toggleSidebar} />
                     </Grid>
 
-                    <Grid item sx={{ padding: "10px 25px", width: "100%" }}>
+                    <Grid item className="outlet-box">
                         <Outlet />
                     </Grid>
                 </Grid>
