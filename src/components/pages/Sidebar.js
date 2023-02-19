@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
@@ -17,29 +18,18 @@ import logo from '../../assets/images/logo.png';
 import SidebarCurve from '../../assets/images/SidebarCurve.svg';
 import '../../styles/pages/sidebar.scss';
 
-const getIcon = (index) => {
-    switch(index) {
-        case 0:
-            return <DashboardIcon />;
-
-        case 1:
-            return <PsychologyIcon />;
-
-        case 2:
-            return <ScheduleIcon />;
-
-        case 3:
-            return <VolunteerActivismIcon />;
-
-        case 4:
-            return <LocalLibraryIcon />;
-
-        default:
-            return <></> 
-    }
-}
-
 export const SidebarContents = () => {
+    const activeLink = useLocation().pathname;
+    const navigate = useNavigate();
+
+    const sidebarList = [
+        {name: "Dashboard", link: "/pages/dashboard", icon: <DashboardIcon />},
+        {name: "EAP", link: "/pages/eap", icon: <PsychologyIcon />},
+        {name: "Reminders/Breaks", link: "/pages/reminders-breaks", icon: <ScheduleIcon />},
+        {name: "Daily activities", link: "/pages/daily-activities", icon: <VolunteerActivismIcon />},
+        {name: "Educational resources", link: "/pages/educational-resources", icon: <LocalLibraryIcon />},
+    ];
+
     return (
         <Box className="sidebarContents">
             <List>
@@ -47,15 +37,15 @@ export const SidebarContents = () => {
                     <img src={logo} alt="Logo" width={100} className="center"></img>
                 </ListItem>
                 
-                {['Dashboard', 'EAP', 'Reminders/Breaks', 'Daily activities', 'Educational resources'].map((text, index) => (
-                    <ListItem key={text} disablePadding className={index===1 ? 'active' : ''}>
-                        <ListItemButton>
+                {sidebarList.map((obj, index) => (
+                    <ListItem key={index} disablePadding className={obj.link===activeLink ? 'active' : ''}>
+                        <ListItemButton onClick={() => navigate(obj.link)}>
                             <ListItemIcon>
-                                {getIcon(index)}
+                                {obj.icon}
                             </ListItemIcon>
-                            <ListItemText primary={text} />
+                            <ListItemText primary={obj.name} />
                             
-                            {index===1 &&
+                            {obj.link===activeLink &&
                                 <>
                                     <span className="dot"></span>
                                     <img src={SidebarCurve} alt="" className="sidebarCurve" width="15px" />
