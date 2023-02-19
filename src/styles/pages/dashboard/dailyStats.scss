@@ -1,0 +1,11 @@
+@import '../../variables.scss';
+
+.dashboard {
+    .daily-stats {
+        background-color: var(--light-blue);
+        color: #000000;
+        border-radius: 20px;
+        padding: 20px;
+        height: 300px;
+    }
+}
