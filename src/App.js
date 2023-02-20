@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import Eap from "./components/pages/eap/Eap";
 import PagesContainer from "./components/pages/PagesContainer";
 import Dashboard from "./components/pages/dashboard/Dashboard";
 
@@ -19,7 +19,7 @@ function App() {
 
           <Route path="/pages/" element={<PagesContainer />}>
             <Route path="dashboard" element={<Dashboard />} />
-            <Route path="eap" element={"eap"} />
+            <Route path="eap" element={<Eap />} />
             <Route path="reminders-breaks" element={"reminders-breaks"} />
             <Route path="daily-activities" element={"daily-activities"} />
             <Route path="educational-resources" element={"educational-resources"} />
