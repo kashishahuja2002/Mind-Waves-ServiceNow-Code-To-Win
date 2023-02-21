@@ -5,15 +5,16 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 
 import { statsList } from "../../Constants";
+import ChartImage from '../../../assets/images/chart.png';
 
 const GraphCard = (obj) => {
   return (
     <Card variant="outlined" className="weekly-stat-card" >
       <Box className="container-box">
         <Box className="chart-box"
-          sx={{ backgroundColor: `${obj.color}` }}
+          sx={{ backgroundColor: `${obj.color}`, overflow: "hidden" }}
         >
-            Chart
+          <img src={ChartImage} alt="stat-chart" />
         </Box>
         <Box className="title-box">
             {obj.title}

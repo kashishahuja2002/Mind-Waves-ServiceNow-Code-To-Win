@@ -22,9 +22,7 @@ const PagesContainer = () => {
             justifyContent="flex-start"
             alignItems="flex-start"
         >
-            <Grid item className="sidebar" sx={{ display: { xs: 'block', lg: 'none' } }}>
-                <Sidebar showSidebar={showSidebar} toggleSidebar={toggleSidebar} />
-            </Grid>
+            <Sidebar showSidebar={showSidebar} toggleSidebar={toggleSidebar} />
 
             <Grid item className="sidebar" sx={{ display: { xs: 'none', lg: 'block' } }} xs={2}>
                 <SidebarContents />
