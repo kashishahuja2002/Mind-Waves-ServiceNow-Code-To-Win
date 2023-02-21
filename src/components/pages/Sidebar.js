@@ -10,25 +10,13 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from "@mui/material/Divider";
 import Typography from '@mui/material/Typography';
-import DashboardIcon from '@mui/icons-material/Dashboard';  // Dashboard Icon
-import PsychologyIcon from '@mui/icons-material/Psychology';    // EAP Icon
-import ScheduleIcon from '@mui/icons-material/Schedule';    // Reminders/Breaks Icon
-import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';  // Daily activities Icon
-import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';    // Educational resources Icon
 
 import SidebarCurve from '../../assets/images/SidebarCurve.svg';
+import { sidebarList } from "../Constants"; 
 
 export const SidebarContents = () => {
     const activeLink = useLocation().pathname;
     const navigate = useNavigate();
-
-    const sidebarList = [
-        {name: "Dashboard", link: "/pages/dashboard", icon: <DashboardIcon />},
-        {name: "EAP", link: "/pages/eap", icon: <PsychologyIcon />},
-        {name: "Reminders / Breaks", link: "/pages/reminders-breaks", icon: <ScheduleIcon />},
-        {name: "Daily activities", link: "/pages/daily-activities", icon: <VolunteerActivismIcon />},
-        {name: "Educational resources", link: "/pages/educational-resources", icon: <LocalLibraryIcon />},
-    ];
 
     return (
         <Box className="sidebarContents" sx={{ padding: "10px 0" }}>
