@@ -12,11 +12,11 @@ const StatCard = (obj) => {
     <Card variant="outlined" className="daily-stat-card ">
         <Box className="icon-box"
           sx={{ 
-            backgroundColor: `${obj.color}`,
-            // backgroundColor: "#fff",
-            // svg :{
-            //   color: `${obj.color}`
-            // }
+            // backgroundColor: `${obj.color}`,
+            backgroundColor: "#fff",
+            svg :{
+              color: `${obj.color}`
+            }
           }}
         >
           {obj.icon}

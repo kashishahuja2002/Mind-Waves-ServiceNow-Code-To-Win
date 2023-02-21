@@ -13,9 +13,9 @@
     
     .sidebarContents {
         height: calc(100vh - 60px);
-        position: -webkit-sticky;
         position: sticky;
-        top: 0;
+        left: 0;
+        width: 100%;
         background-color: var(--dark-blue);
         color: #ffffff;
         border-radius: 10px;
@@ -65,7 +65,7 @@
 // Navbar styles
 .navbar {
     .MuiAppBar-root {
-        background-color: #ffffff;
+        background-color: var(--base-background);
         color: var(--dark-blue);
         box-shadow: none;
     }

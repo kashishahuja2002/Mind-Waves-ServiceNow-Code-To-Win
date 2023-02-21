@@ -6,19 +6,12 @@
         font-size: 18px;
         color: #000000;
     }
-
-    .daily-stats, .weekly-stats {
-        background-color: var(--light-grey);
-        padding: 20px 10px;
-        border-radius: 10px;
+    
+    // Daily Stat Cards
+    .daily-stats{
         margin-top: 10px;
     }
 
-    .weekly-stats {
-        padding: 0px 10px 20px;
-    }
-
-    // Daily Stat Cards
     .daily-stat-card {
         background-color: #ffffff;
         color: var(--text-blue);
@@ -61,8 +54,12 @@
     }
 
     // Weekly Stat Cards
+    .weekly-stats {
+        margin-top: 20px;
+    }
+
     .weekly-stat-card {
-        margin: 60px 10px 5px;
+        margin: 25px 10px;
         overflow: visible;
         border-radius: 0.75rem;
         box-shadow: 0rem 0rem 0rem 0rem rgb(0 0 0 / 14%), 0rem 0.1rem 0.5rem 0rem rgb(64 64 64 / 40%);
@@ -95,7 +92,6 @@
             padding: 20px 8px 8px;
             color: #000000;
             font-size: 18px;
-            text-align: right;
             box-shadow: none;
         }
     }
