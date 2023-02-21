@@ -11,10 +11,6 @@ import '../../styles/pages/pagesContainer.scss';
 const PagesContainer = () => {
     const [showSidebar, setShowSidebar] = useState(false);
 
-    const toggleSidebar = (value) => {
-        setShowSidebar(value);
-    }
-
     return (
         <Grid
             container
@@ -22,7 +18,7 @@ const PagesContainer = () => {
             justifyContent="flex-start"
             alignItems="flex-start"
         >
-            <Sidebar showSidebar={showSidebar} toggleSidebar={toggleSidebar} />
+            <Sidebar showSidebar={showSidebar} toggleSidebar={setShowSidebar} />
 
             <Grid item className="sidebar" sx={{ display: { xs: 'none', lg: 'block' } }} xs={2}>
                 <SidebarContents />
@@ -36,7 +32,7 @@ const PagesContainer = () => {
                     alignItems="flex-start"
                 >
                     <Grid item sx={{ width: "100%" }}>
-                        <Navbar toggleSidebar={toggleSidebar} />
+                        <Navbar toggleSidebar={setShowSidebar} />
                     </Grid>
 
                     <Grid item className="outlet-box">

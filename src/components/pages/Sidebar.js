@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import Drawer from '@mui/material/Drawer';
@@ -14,9 +14,15 @@ import Typography from '@mui/material/Typography';
 import SidebarCurve from '../../assets/images/SidebarCurve.svg';
 import { sidebarList } from "../Constants"; 
 
-export const SidebarContents = () => {
+export const SidebarContents = (props) => {
+
     const activeLink = useLocation().pathname;
     const navigate = useNavigate();
+
+    const handleSidebarItemClick = (link) => {
+        navigate(link);
+        props.toggleSidebar(false);
+    }
 
     return (
         <Box className="sidebarContents" sx={{ padding: "10px 0" }}>
@@ -31,7 +37,7 @@ export const SidebarContents = () => {
 
                 {sidebarList.map((obj, index) => (
                     <ListItem key={index} disablePadding className={obj.link===activeLink ? 'active' : ''}>
-                        <ListItemButton onClick={() => navigate(obj.link)}>
+                        <ListItemButton onClick={() => handleSidebarItemClick(obj.link)}>
                             <ListItemIcon>
                                 {obj.icon}
                             </ListItemIcon>
@@ -63,7 +69,7 @@ export const Sidebar = (props) => {
             onClose={() => toggleSidebar(false)}
             className="sidebar"
         >
-           {SidebarContents()}
+           <SidebarContents toggleSidebar={toggleSidebar} />
         </Drawer>
     );
 }
