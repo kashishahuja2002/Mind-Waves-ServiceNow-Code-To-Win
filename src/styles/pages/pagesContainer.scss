@@ -10,7 +10,8 @@
     }
     
     .sidebarContents {
-        min-height: calc(100vh - 60px);
+        // height: calc(100vh - 60px);
+        height: 100vh;
         background-color: var(--dark-blue);
         color: #ffffff;
         border-radius: 10px;
@@ -55,7 +56,7 @@
 // Navbar styles
 .navbar {
     .MuiAppBar-root {
-        background-color: var(--light-grey);
+        background-color: #ffffff;
         color: var(--dark-blue);
         box-shadow: none;
     }
@@ -63,7 +64,7 @@
 
 // Outlet styles
 .outlet-box {
-    padding: 10px 25px 0px;
+    padding: 10px 0px 0px 20px;
     width: 100%;
 }
 

@@ -3,13 +3,18 @@ import React from "react";
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import Typography from '@mui/material/Typography';
-import DashboardIcon from '@mui/icons-material/Dashboard';  // Dashboard Icon
 
-const StatCard = () => {
+const GraphCard = () => {
   return (
-    <Card variant="outlined" className="weekly-stat-card ">
-        <span> Steps count </span>
+    <Card variant="outlined" className="weekly-stat-card" >
+      <Box className="container-box">
+        <Box className="chart-box">
+            Chart
+        </Box>
+        <Box className="title-box">
+            Description/ title
+        </Box>
+      </Box>
     </Card>
   );
 }
@@ -19,18 +24,17 @@ const WeeklyStats = () => {
     <Grid
       container
       direction="row"
-      justifyContent="space-between"
+      justifyContent="flex-start"
       alignItems="centre"
       className="weekly-stats"
     >
-        Graphs
-      {/* <Grid item xs> {StatCard()} </Grid>
-      <Grid item xs> {StatCard()} </Grid>
-      <Grid item xs> {StatCard()} </Grid>
-      <Grid item xs> {StatCard()} </Grid>
-      <Grid item xs> {StatCard()} </Grid>
-      <Grid item xs> {StatCard()} </Grid>
-      <Grid item xs> {StatCard()} </Grid> */}
+        <Grid item xs={12} sm={6} md={4}>{GraphCard()}</Grid>
+        <Grid item xs={12} sm={6} md={4}>{GraphCard()}</Grid>
+        <Grid item xs={12} sm={6} md={4}>{GraphCard()}</Grid>
+        <Grid item xs={12} sm={6} md={4}>{GraphCard()}</Grid>
+        <Grid item xs={12} sm={6} md={4}>{GraphCard()}</Grid>
+        <Grid item xs={12} sm={6} md={4}>{GraphCard()}</Grid>
+        <Grid item xs={12} sm={6} md={4}>{GraphCard()}</Grid>
     </Grid>
   );
 }

@@ -23,17 +23,17 @@ const DailyStats = () => {
     <Grid
       container
       direction="row"
-      justifyContent="space-between"
+      justifyContent="flex-start"
       alignItems="centre"
       className="daily-stats"
     >
-      <Grid item xs> {StatCard()} </Grid>
-      <Grid item xs> {StatCard()} </Grid>
-      <Grid item xs> {StatCard()} </Grid>
-      <Grid item xs> {StatCard()} </Grid>
-      <Grid item xs> {StatCard()} </Grid>
-      <Grid item xs> {StatCard()} </Grid>
-      <Grid item xs> {StatCard()} </Grid>
+      <Grid item xs={12} sm={6} md={4} lg={3}> {StatCard()} </Grid>
+      <Grid item xs={12} sm={6} md={4} lg={3}> {StatCard()} </Grid>
+      <Grid item xs={12} sm={6} md={4} lg={3}> {StatCard()} </Grid>
+      <Grid item xs={12} sm={6} md={4} lg={3}> {StatCard()} </Grid>
+      <Grid item xs={12} sm={6} md={4} lg={3}> {StatCard()} </Grid>
+      <Grid item xs={12} sm={6} md={4} lg={3}> {StatCard()} </Grid>
+      <Grid item xs={12} sm={6} md={4} lg={3}> {StatCard()} </Grid>
     </Grid>
   );
 }
