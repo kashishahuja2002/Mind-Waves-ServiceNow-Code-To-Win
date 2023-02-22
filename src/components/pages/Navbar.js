@@ -41,7 +41,7 @@ const Navbar = (props) => {
                 text = null;
         }
         setHeadRoute(text);
-    });
+    }, [pathname]);
 
     const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
