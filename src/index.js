@@ -10,6 +10,7 @@ root.render(
     <App />
   </React.StrictMode>
 );
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

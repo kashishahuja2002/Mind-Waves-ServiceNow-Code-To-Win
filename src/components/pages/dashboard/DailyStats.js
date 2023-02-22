@@ -9,11 +9,11 @@ import DashboardIcon from '@mui/icons-material/Dashboard';  // Dashboard Icon
 const StatCard = () => {
   return (
     <Card variant="outlined" className="daily-stat-card ">
-        <Box className="icon-box"><DashboardIcon /></Box>
-        <Box>
-          <span> Steps count </span>
-          <Typography variant="h4" gutterBottom> 2,300 </Typography>
-        </Box>
+      <Box className="icon-box"><DashboardIcon /></Box>
+      <Box>
+        <span> Steps count </span>
+        <Typography variant="h4" gutterBottom> 2,300 </Typography>
+      </Box>
     </Card>
   );
 }
