@@ -20,11 +20,11 @@ export const sidebarList = [
 ];
 
 export const statsList = [
-    {title: "Steps count", icon: <FontAwesomeIcon icon={faPersonWalking} />, color: "#2e88ec" },
-    {title: "Heart points", icon: <FontAwesomeIcon icon={faHeartPulse} />, color: "#51ab55" },
+    {title: "Steps count", icon: <FontAwesomeIcon icon={faPersonWalking} />, color: "#e23270" },
+    {title: "Heart points", icon: <FontAwesomeIcon icon={faHeartPulse} />, color: "#f44335" },
     {title: "Calories burned", icon: <ElectricBoltIcon />, color: "#f4d247" },
-    {title: "Hydration rate", icon: <FontAwesomeIcon icon={faGlassWater} />, color: "#e23270" },
-    {title: "Exercise duration", icon: <FontAwesomeIcon icon={faDumbbell} />, color: "#f44335" },
-    {title: "Meditation time", icon: <SelfImprovementIcon />, color: "#652fa1" },
+    {title: "Hydration rate", icon: <FontAwesomeIcon icon={faGlassWater} />, color: "#2e88ec" },
+    {title: "Exercise duration", icon: <FontAwesomeIcon icon={faDumbbell} />, color: "#652fa1" },
+    {title: "Meditation time", icon: <SelfImprovementIcon />, color: "#51ab55" },
     {title: "Mood", icon: <EmojiEmotionsIcon />, color: "#fb8c00" }
 ]
