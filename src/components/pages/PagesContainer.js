@@ -20,7 +20,7 @@ const PagesContainer = () => {
         >
             <Sidebar showSidebar={showSidebar} toggleSidebar={setShowSidebar} />
 
-            <Grid item className="sidebar" sx={{ display: { xs: 'none', lg: 'block' } }} xs={2}>
+            <Grid item className="sidebar" sx={{ display: { xs: 'none', lg: 'block' }, backgroundColor: "var(--dark-blue)" }} xs={2}>
                 <SidebarContents />
             </Grid>
 

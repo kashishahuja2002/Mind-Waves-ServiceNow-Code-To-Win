@@ -99,7 +99,7 @@ const Navbar = (props) => {
                             onClose={handleClose}
                             sx={{
                                 ".MuiPaper-elevation": {
-                                    top: "50px !important",
+                                    top: "70px !important",
                                     backgroundColor: "var(--dark-blue)",
                                     color: "#ffffff",
                                 },

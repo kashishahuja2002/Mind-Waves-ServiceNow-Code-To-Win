@@ -30,7 +30,7 @@ export const SidebarContents = (props) => {
         <Box className="sidebarContents" sx={{ padding: "10px 0" }}>
             <List>
                 <ListItem disablePadding>
-                    <img src={logoWhite} alt="logo" width="50%" style={{ margin: "auto" }} />
+                    <img src={logoWhite} alt="logo" width="100px" style={{ margin: "auto" }} />
                 </ListItem>
                 
                 <Divider className="divider" sx={{ margin: "13px 0" }} />

@@ -4,6 +4,9 @@
 .sidebar {
     overflow-y: auto;
     border-radius: 10px;
+    position: sticky;
+    top: 20px;
+    height: calc(100vh - 40px);
 
     .MuiPaper-root {
         background-color: var(--dark-blue);
@@ -12,7 +15,6 @@
     }
     
     .sidebarContents {
-        height: calc(100vh - 40px);
         background-color: var(--dark-blue);
         color: #ffffff;
         border-radius: 10px;
