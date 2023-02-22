@@ -9,10 +9,10 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from "@mui/material/Divider";
-import Typography from '@mui/material/Typography';
 
 import SidebarCurve from '../../assets/images/SidebarCurve.svg';
 import { sidebarList } from "../Constants"; 
+import logoWhite from '../../assets/images/logoWhite.png';
 
 export const SidebarContents = (props) => {
 
@@ -30,9 +30,7 @@ export const SidebarContents = (props) => {
         <Box className="sidebarContents" sx={{ padding: "10px 0" }}>
             <List>
                 <ListItem disablePadding>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: "center" }}>
-                        Mind Waves
-                    </Typography>
+                    <img src={logoWhite} alt="logo" width="50%" style={{ margin: "auto" }} />
                 </ListItem>
                 
                 <Divider className="divider" sx={{ margin: "13px 0" }} />
