@@ -4,6 +4,7 @@ import PagesContainer from "./components/pages/PagesContainer";
 import Dashboard from "./components/pages/dashboard/Dashboard";
 
 import './App.scss';
+import DailyActivities from "./components/pages/daily-activities/DailyActivities";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="Eap" element={<Eap />} />
             <Route path="reminders-breaks" element={"reminders-breaks"} />
-            <Route path="daily-activities" element={"daily-activities"} />
+            <Route path="daily-activities" element={<DailyActivities />} />
             <Route path="educational-resources" element={"educational-resources"} />
           </Route>
         </Routes>
