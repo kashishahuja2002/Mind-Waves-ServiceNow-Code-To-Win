@@ -22,7 +22,7 @@ export const sidebarList = [
 export const statsList = [
     {title: "Steps count", icon: <FontAwesomeIcon icon={faPersonWalking} />, color: "#2e88ec" },
     {title: "Heart points", icon: <FontAwesomeIcon icon={faHeartPulse} />, color: "#51ab55" },
-    {title: "Calories burned", icon: <ElectricBoltIcon />, color: "#333338" },
+    {title: "Calories burned", icon: <ElectricBoltIcon />, color: "#f4d247" },
     {title: "Hydration rate", icon: <FontAwesomeIcon icon={faGlassWater} />, color: "#e23270" },
     {title: "Exercise duration", icon: <FontAwesomeIcon icon={faDumbbell} />, color: "#f44335" },
     {title: "Meditation time", icon: <SelfImprovementIcon />, color: "#652fa1" },
