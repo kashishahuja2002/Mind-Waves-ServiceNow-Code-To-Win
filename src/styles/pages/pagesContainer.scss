@@ -7,7 +7,7 @@
 
     .MuiPaper-root {
         background-color: var(--dark-blue);
-        box-shadow: 0rem 0rem 0rem 0rem rgb(0 0 0 / 14%), 0rem 0.1rem 0.5rem 0rem rgb(64 64 64 / 40%);
+        box-shadow: 0rem 0rem 0rem 0rem rgb(0 0 0 / 14%), 0rem 0.2rem 0.8rem 0rem rgb(64 64 64 / 40%);
         // box-shadow: 0px 8px 10px 5px rgb(0 0 0 / 20%), 0px 16px 24px 2px rgb(0 0 0 / 34%), 0px 6px 30px 5px rgb(0 0 0 / 12%);
     }
     
@@ -83,6 +83,10 @@
     .sidebarContents {
         height: 100vh;
         border-radius: 0px !important;
+    }
+    
+    .MuiToolbar-root {
+        padding: 0px !important;
     }
 
     .outlet-box {

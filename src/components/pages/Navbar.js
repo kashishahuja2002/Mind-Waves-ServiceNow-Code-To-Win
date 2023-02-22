@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -9,11 +9,39 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
+import HomeIcon from '@mui/icons-material/Home';
+import { useLocation } from 'react-router-dom';
 
 const Navbar = (props) => {
     const { toggleSidebar } = props;
 
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const [headRoute, setHeadRoute] = React.useState(null);
+
+    const pathname = useLocation().pathname;
+    useEffect(() => {
+        let text = '';
+        switch(pathname) {
+            case "/pages/dashboard":
+                text = "Dashboard";
+                break;
+            case "/pages/eap":
+                text = "EAP";
+                break;
+            case "/pages/set-reminders":
+                text = "Set Reminders";
+                break;
+            case "/pages/daily-activities":
+                text = "Daily Activities";
+                break;
+            case "/pages/educational-resources":
+                text = "Educational Resources";
+                break;
+            default:
+                text = null;
+        }
+        setHeadRoute(text);
+    });
 
     const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
@@ -38,8 +66,9 @@ const Navbar = (props) => {
                         <MenuIcon />
                     </IconButton>
 
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        LOGO
+                    <HomeIcon sx={{ fontSize: "20px" }} />
+                    <Typography variant="body" sx={{ flexGrow: 1 }}>
+                        {headRoute !== null ? `/ ${headRoute}` : ''}
                     </Typography>
                     
                     <div>

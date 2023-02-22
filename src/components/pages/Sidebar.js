@@ -16,12 +16,14 @@ import { sidebarList } from "../Constants";
 
 export const SidebarContents = (props) => {
 
+    const { toggleSidebar } = props;
+
     const activeLink = useLocation().pathname;
     const navigate = useNavigate();
 
     const handleSidebarItemClick = (link) => {
         navigate(link);
-        props.toggleSidebar(false);
+        toggleSidebar(false);
     }
 
     return (
@@ -33,7 +35,7 @@ export const SidebarContents = (props) => {
                     </Typography>
                 </ListItem>
                 
-                <Divider className="driver" sx={{ margin: "13px 0" }} />
+                <Divider className="divider" sx={{ margin: "13px 0" }} />
 
                 {sidebarList.map((obj, index) => (
                     <ListItem key={index} disablePadding className={obj.link===activeLink ? 'active' : ''}>
