@@ -1,1 +1,0 @@
-for styles of all the pages.
