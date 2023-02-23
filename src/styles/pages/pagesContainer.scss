@@ -1,5 +1,11 @@
 @import '../variables.scss';
 
+// Pages container styles 
+.pagesContainer {
+    padding: 20px;
+    background-color: var(--base-background);
+}
+
 // Sidebar styles
 .sidebar {
     overflow-y: auto;

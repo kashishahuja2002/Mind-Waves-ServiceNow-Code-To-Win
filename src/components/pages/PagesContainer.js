@@ -17,6 +17,7 @@ const PagesContainer = () => {
             direction="row"
             justifyContent="flex-start"
             alignItems="flex-start"
+            className="pagesContainer"
         >
             <Sidebar showSidebar={showSidebar} toggleSidebar={setShowSidebar} />
 
