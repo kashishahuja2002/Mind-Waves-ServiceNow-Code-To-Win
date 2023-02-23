@@ -69,13 +69,42 @@ $section-bg-color: #ffffff;
 
 
 .section-bubble-top {
-    position: absolute;
-    top: 0;
-    width: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .section-bubble-bottom {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+
+// Google Auth
+.googleAuthContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.authCard {
+  position: absolute;
+  top: calc((100% - 430px) / 2 );
+  padding: 100px 30px 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 999;
+  box-shadow: 0rem 0rem 0rem 0rem rgb(0 0 0 / 14%), 0rem 0.2rem 0.8rem 0rem rgb(64 64 64 / 50%) !important;
+
+  img {
+    margin: 0px auto 30px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .authCard {
+    padding: 100px 0px 150px;
+  }
 }

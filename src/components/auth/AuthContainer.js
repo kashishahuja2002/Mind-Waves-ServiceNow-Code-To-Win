@@ -1,15 +1,15 @@
 import React from "react";
 
+import GoogleAuth from "./GoogleAuth";
+
 import '../../styles/auth.scss';
 
 const AuthContainer = () => {
     return (
         <>
-            <section class="section-bubble-top"></section>
-            
-            {/* <div>sss</div> */}
-
-            <section class="section-bubble-bottom"></section>
+            <div className="googleAuthContainer"><GoogleAuth /></div>
+            <section className="section-bubble-top"></section>
+            <section className="section-bubble-bottom"></section>
         </>
     );
 }
