@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import DailyStats from "./DailyStats";
 import WeeklyStats from "./WeeklyStats";
 
-import '../../../styles/pages/dashboard/Dashboard.scss';
+import '../../../styles/pages/Dashboard.scss';
 
 const Dashboard = () => {
     return (
