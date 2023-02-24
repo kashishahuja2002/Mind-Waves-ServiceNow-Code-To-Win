@@ -49,7 +49,6 @@ export const SidebarContents = (props) => {
                                     <img src={SidebarCurve} alt="" className="sidebarCurve" width="15px" />
                                 </>
                             }
-
                         </ListItemButton>
                     </ListItem>
                 ))}
