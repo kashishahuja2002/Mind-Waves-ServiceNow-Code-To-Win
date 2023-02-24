@@ -6,7 +6,7 @@ import Grid from '@mui/material/Grid';
 import { Sidebar, SidebarContents } from "./Sidebar";
 import Navbar from "./Navbar";
 
-import '../../styles/pages/pagesContainer.scss';
+import '../../styles/pages/PagesContainer.scss';
 
 const PagesContainer = () => {
     const [showSidebar, setShowSidebar] = useState(false);
