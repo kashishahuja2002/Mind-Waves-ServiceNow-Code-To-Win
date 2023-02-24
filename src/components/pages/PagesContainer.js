@@ -5,7 +5,6 @@ import Grid from '@mui/material/Grid';
 
 import { Sidebar, SidebarContents } from "./Sidebar";
 import Navbar from "./Navbar";
-
 import '../../styles/pages/PagesContainer.scss';
 
 const PagesContainer = () => {
@@ -13,10 +12,10 @@ const PagesContainer = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
-        if(!token) {
+        const session = sessionStorage.getItem('isMySessionActive');
+        if(!session) {
             navigate('/auth/login');
-        } 
+        }
     }, []);
 
     const [showSidebar, setShowSidebar] = useState(false);

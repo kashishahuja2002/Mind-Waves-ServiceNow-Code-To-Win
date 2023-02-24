@@ -17,6 +17,7 @@ const GoogleAuth = () => {
     const googleLogin = useGoogleLogin({
         onSuccess: async (tokenResponse) => {
             localStorage.setItem("token", tokenResponse.access_token);
+            sessionStorage.setItem("isMySessionActive", true);
             const userInfo = await axios.get(
                 'https://www.googleapis.com/oauth2/v3/userinfo',
                 { headers: { Authorization: `Bearer ${tokenResponse.access_token}` } },

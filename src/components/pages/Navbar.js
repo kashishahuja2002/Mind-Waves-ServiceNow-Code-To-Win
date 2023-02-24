@@ -54,6 +54,7 @@ const Navbar = (props) => {
 
     const handleLogout = () => {
         localStorage.removeItem("token");
+        sessionStorage.removeItem("isMySessionActive");
         navigate("/auth/login");
     }
 
