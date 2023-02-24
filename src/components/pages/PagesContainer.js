@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Outlet } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 
 import Grid from '@mui/material/Grid';
 
@@ -9,6 +9,16 @@ import Navbar from "./Navbar";
 import '../../styles/pages/PagesContainer.scss';
 
 const PagesContainer = () => {
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if(!token) {
+            navigate('/auth/login');
+        } 
+    }, []);
+
     const [showSidebar, setShowSidebar] = useState(false);
 
     return (
