@@ -98,8 +98,14 @@ $section-bg-color: #ffffff;
   z-index: 999;
   box-shadow: 0rem 0rem 0rem 0rem rgb(0 0 0 / 14%), 0rem 0.2rem 0.8rem 0rem rgb(64 64 64 / 50%) !important;
 
-  img {
+  .logo {
     margin: 0px auto 30px;
+  }
+
+  .authButton {
+    color: var(--text-blue);
+    border: 1px solid rgb(171, 170, 170);
+    box-shadow: 0rem 0rem 0rem 0rem rgb(0 0 0 / 14%), 0rem 0.2rem 0.8rem 0rem rgb(64 64 64 / 20%) !important;
   }
 }
 

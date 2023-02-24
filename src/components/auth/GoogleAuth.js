@@ -1,37 +1,30 @@
 import React from "react";
-import { GoogleOAuthProvider } from '@react-oauth/google';
-import { GoogleLogin } from '@react-oauth/google';
+import { useGoogleLogin } from '@react-oauth/google';
+import axios from "axios";
 
-import Card from '@mui/material/Card';
-
-import logoColoured from '../../assets/images/logoColoured.png';
-import '../../styles/auth.scss';
+import { Button } from "@mui/material";
+import googleIcon from '../../assets/images/googleIcon.png';
 
 const GoogleAuth = () => {
 
-    return (
-        <Card className="authCard">
-            <img src={logoColoured} alt="logo" width="150px" />
+    const googleLogin = useGoogleLogin({
+        onSuccess: async (tokenResponse) => {
+            console.log(tokenResponse);
+            const userInfo = await axios.get(
+                'https://www.googleapis.com/oauth2/v3/userinfo',
+                { headers: { Authorization: `Bearer ${tokenResponse.access_token}` } },
+            );
 
-            <GoogleOAuthProvider clientId="1039207877766-8cptjj8eua65kmj3bk660p0k3j1e0fii.apps.googleusercontent.com">
-                <GoogleLogin
-                    onSuccess={credentialResponse => {
-                        console.log(credentialResponse);
-                        
-                        //    const responsePayload = decodeJwtResponse(response.credential);
-                        //     console.log("ID: " + responsePayload.sub);
-                        //     console.log('Full Name: ' + responsePayload.name);
-                        //     console.log('Given Name: ' + responsePayload.given_name);
-                        //     console.log('Family Name: ' + responsePayload.family_name);
-                        //     console.log("Image URL: " + responsePayload.picture);
-                        //     console.log("Email: " + responsePayload.email);
-                    }}
-                    onError={() => {
-                        console.log('Login Failed');
-                    }}
-                />
-            </GoogleOAuthProvider>
-        </Card>
+            console.log(userInfo);
+        },
+        onError: errorResponse => console.log(errorResponse),
+    });
+
+    return (    
+        <Button className="authButton" onClick={googleLogin}>
+            Sign in with Google &nbsp;
+            <img src={googleIcon} alt="google logo" width="20px" />
+        </Button>
     );
 }
 

@@ -1,1 +1,0 @@
-for auth components like sign up and sign in
