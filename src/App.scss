@@ -17,3 +17,9 @@
 ::-webkit-scrollbar {
   width: 0px;
 }
+
+.whiteBox {
+  // background-color: #ffffff;
+  border-radius: 10px !important;
+  box-shadow: 0rem 0rem 0rem 0rem rgb(0 0 0 / 14%), 0rem 0.2rem 0.8rem 0rem rgb(64 64 64 / 20%) !important;
+}

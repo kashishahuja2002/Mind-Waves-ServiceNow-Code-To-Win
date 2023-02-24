@@ -9,10 +9,9 @@ import { statsList } from "../../Constants";
 
 const StatCard = (obj) => {
   return (
-    <Card variant="outlined" className="daily-stat-card ">
-        <Box className="icon-box"
+    <Card variant="outlined" className="whiteBox daily-stat-card ">
+        <Box className="whiteBox icon-box"
           sx={{ 
-            // backgroundColor: `${obj.color}`,
             backgroundColor: "#fff",
             svg :{
               color: `${obj.color}`

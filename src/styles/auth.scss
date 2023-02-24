@@ -96,7 +96,6 @@ $section-bg-color: #ffffff;
   flex-direction: column;
   align-items: center;
   z-index: 999;
-  box-shadow: 0rem 0rem 0rem 0rem rgb(0 0 0 / 14%), 0rem 0.2rem 0.8rem 0rem rgb(64 64 64 / 50%) !important;
 
   .logo {
     margin: 0px auto 30px;
@@ -104,8 +103,8 @@ $section-bg-color: #ffffff;
 
   .authButton {
     color: var(--text-blue);
-    border: 1px solid rgb(171, 170, 170);
-    box-shadow: 0rem 0rem 0rem 0rem rgb(0 0 0 / 14%), 0rem 0.2rem 0.8rem 0rem rgb(64 64 64 / 20%) !important;
+    border: 1px solid rgb(178, 178, 178);
+    box-shadow: 0rem 0rem 0rem 0rem rgb(0 0 0 / 14%), 0rem 0.1rem 0.5rem 0rem rgb(64 64 64 / 20%) !important;
   }
 }
 

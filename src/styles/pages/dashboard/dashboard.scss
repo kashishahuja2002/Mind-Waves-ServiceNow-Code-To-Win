@@ -13,15 +13,11 @@
     }
 
     .daily-stat-card {
-        background-color: #ffffff;
         color: var(--text-blue);
         margin: 10px;
         padding: 20px;
-        border-radius: 10px;
         overflow: visible;
         border: 0 solid rgba(0, 0, 0, 0.125);
-        box-shadow: 0rem 0rem 0rem 0rem rgb(0 0 0 / 14%), 0rem 0.2rem 0.8rem 0rem rgb(64 64 64 / 20%);
-        // box-shadow: 0rem 0.25rem 0.375rem -0.0625rem rgb(0 0 0 / 10%), 0rem 0.125rem 0.25rem -0.0625rem rgb(0 0 0 / 6%);
         word-wrap: break-word;
         background-clip: border-box;
         display: flex;
@@ -35,9 +31,6 @@
             width: 4rem;
             height: 4rem;
             margin-top: -30px;
-            border-radius: 0.75rem;
-            box-shadow: 0rem 0rem 0rem 0rem rgb(0 0 0 / 14%), 0rem 0.2rem 0.8rem 0rem rgb(64 64 64 / 20%);
-            // box-shadow: 0rem 0.25rem 1.25rem 0rem rgb(0 0 0 / 14%), 0rem 0.4375rem 0.625rem -0.3125rem rgb(64 64 64 / 20%);
 
             svg {
                 font-size: 28px;
@@ -60,10 +53,6 @@
     .weekly-stat-card {
         margin: 25px 10px;
         overflow: visible;
-        border-radius: 0.75rem;
-        box-shadow: 0rem 0rem 0rem 0rem rgb(0 0 0 / 14%), 0rem 0.2rem 0.8rem 0rem rgb(64 64 64 / 20%);
-        // box-shadow: 0rem 0.25rem 0.375rem -0.0625rem rgb(0 0 0 / 10%), 0rem 0.125rem 0.25rem -0.0625rem rgb(0 0 0 / 6%);
-        background-color: #ffffff;
         background-clip: border-box;
 
         .MuiPaper-root  {
@@ -81,9 +70,7 @@
             padding: 15px 5px;
             margin-top: -50px;
             height: 12.5rem;
-            border-radius: 0.5rem;
             box-sizing: border-box;
-            box-shadow: 0rem 0rem 0rem 0rem rgb(0 0 0 / 14%), 0rem 0.2rem 0.8rem 0rem rgb(64 64 64 / 20%);
         }
 
         .title-box {
