@@ -1,4 +1,10 @@
-@import '../variables.scss';
+@import '../Variables.scss';
+
+// Pages container styles 
+.pagesContainer {
+    padding: 20px;
+    background-color: var(--base-background);
+}
 
 // Sidebar styles
 .sidebar {

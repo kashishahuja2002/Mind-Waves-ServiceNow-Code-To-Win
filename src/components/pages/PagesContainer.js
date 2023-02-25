@@ -1,14 +1,23 @@
-import React, { useState } from "react";
-import { Outlet } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 
 import Grid from '@mui/material/Grid';
 
 import { Sidebar, SidebarContents } from "./Sidebar";
 import Navbar from "./Navbar";
-
-import '../../styles/pages/pagesContainer.scss';
+import '../../styles/pages/PagesContainer.scss';
 
 const PagesContainer = () => {
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const session = sessionStorage.getItem('isMySessionActive');
+        if(!session) {
+            navigate('/auth/login');
+        }
+    }, []);
+
     const [showSidebar, setShowSidebar] = useState(false);
 
     return (
@@ -17,6 +26,7 @@ const PagesContainer = () => {
             direction="row"
             justifyContent="flex-start"
             alignItems="flex-start"
+            className="pagesContainer"
         >
             <Sidebar showSidebar={showSidebar} toggleSidebar={setShowSidebar} />
 

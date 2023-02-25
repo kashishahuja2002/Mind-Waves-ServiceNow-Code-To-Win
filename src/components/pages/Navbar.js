@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -14,6 +14,7 @@ import HomeIcon from '@mui/icons-material/Home';
 
 const Navbar = (props) => {
     const { toggleSidebar } = props;
+    const navigate = useNavigate();
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [headRoute, setHeadRoute] = React.useState(null);
@@ -50,6 +51,12 @@ const Navbar = (props) => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        sessionStorage.removeItem("isMySessionActive");
+        navigate("/auth/login");
+    }
 
     return (
         <Box sx={{ flexGrow: 1 }} className="navbar">
@@ -110,7 +117,7 @@ const Navbar = (props) => {
                             }}
                         >
                             <MenuItem onClick={handleClose}>Profile</MenuItem>
-                            <MenuItem onClick={handleClose}>Logout</MenuItem>
+                            <MenuItem onClick={handleLogout}>Logout</MenuItem>
                         </Menu>
                     </div>
                 </Toolbar>
