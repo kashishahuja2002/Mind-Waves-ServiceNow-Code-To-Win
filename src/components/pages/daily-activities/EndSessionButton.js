@@ -1,57 +1,49 @@
 import React from 'react';
 import History from './History';
-import ListSubheader from '@mui/material/ListSubheader';
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
-import '../../../styles/pages/daily-activities/Excersize/stopwatch.scss';
-class StopwatchHistory extends React.Component {
+import StopwatchHistory from './StopwatchHistory';
+import { Grid } from '@mui/material';
+import 'react-circular-progressbar/dist/styles.css';
+import Card from '@mui/material/Card';
+
+
+class EndSessionButton extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
             history: [],
-            data: []
         };
     }
 
     componentDidMount() {
         this.setHistoryState();
     }
+
     setHistoryState = () => {
         if (localStorage.times) {
-
-            this.setState({
-                history: localStorage.times.split('|'),
-                data: localStorage.times.split('|').slice(0, 3)
-            });
-        }
-        else {
-            this.setState({ history: [], data: [] });
+            this.setState({ history: localStorage.times.split('|') });
+        } else {
+            this.setState({ history: [] });
         }
     };
     saveToLocalStorage = () => {
         if (localStorage.times) {
             localStorage.times =
-
-                `${this.props.formatTime(
+                `${new Date().toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" })} ::
+                 ${this.props.formatTime(
                     this.props.currentTimeMin
                 )}:${this.props.formatTime(
                     this.props.currentTimeSec
-                )} ::   ${new Date().toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" })} | ` +
-                localStorage.times
-
+                )}|` +
+                localStorage.times;
         } else {
-            localStorage.times = `${this.props.formatTime(
+            localStorage.times = `${new Date().toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" })} :: ${this.props.formatTime(
                 this.props.currentTimeMin
             )}:${this.props.formatTime(
                 this.props.currentTimeSec
-            )} ::   ${new Date().toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" })} | `;
+            )}|`;
         }
     };
-
     saveTime = () => {
         if (typeof Storage !== 'undefined') {
             this.saveToLocalStorage();
@@ -59,8 +51,6 @@ class StopwatchHistory extends React.Component {
             console.error('local storage not supported');
         }
         this.setHistoryState();
-
-
     };
 
     resetHistory = () => {
@@ -91,22 +81,9 @@ class StopwatchHistory extends React.Component {
                 <div onClick={this.saveTime}>
                     <div onClick={this.props.reset} className="end-session-button">End Session</div>
                 </div>
-                <ul>
-
-                    {this.state.data.map((item, index) => <div key={index}>
-                        <List>
-                            <ListItemButton>
-                                <ListItemIcon>
-                                    {this.state.data.length > 0 && <DirectionsRunIcon />}
-                                </ListItemIcon>
-                                <ListItemText primary={item} />
-                            </ListItemButton>
-                        </List>
-                    </div>)}
-                </ul>
             </div>
         );
     }
 }
 
-export default StopwatchHistory;
+export default EndSessionButton;

@@ -3,7 +3,7 @@ import '../../../styles/pages/daily-activities/WaterTracker/WaterTracker.scss';
 import { Box, Tab, Tabs, Typography } from '@mui/material';
 import { useState } from 'react';
 import WaterTracker from './WaterTracker';
-import Excersize from './Excersize';
+import Exercise from './Exercise';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPersonWalking, faHeartPulse, faGlassWater, faDumbbell } from '@fortawesome/free-solid-svg-icons'
 import SelfImprovementIcon from '@mui/icons-material/SelfImprovement';
@@ -38,7 +38,7 @@ export default function DailyActivities() {
                 )}
                 {tabIndex === 1 && (
                     <Box>
-                        {<Excersize />}
+                        {<Exercise />}
                     </Box>
                 )}
                 {tabIndex === 2 && (

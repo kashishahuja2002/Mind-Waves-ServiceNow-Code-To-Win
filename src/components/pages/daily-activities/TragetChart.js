@@ -5,7 +5,6 @@ import { days } from '../../Constants';
 
 export default function TragetChart(props) {
     const { color } = props;
-    console.log(color)
     return (
         <div>
             <Grid item xs={12} display="flex"
