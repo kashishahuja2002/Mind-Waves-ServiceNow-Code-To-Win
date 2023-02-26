@@ -38,6 +38,15 @@ const Navbar = (props) => {
             case "/pages/educational-resources":
                 text = "Educational Resources";
                 break;
+            case "/pages/profile":
+                text = "Profile";
+                break;
+            case "/pages/achivements":
+                text = "Achivements";
+                break;
+            case "/pages/leaderboard":
+                text = "Leaderboard";
+                break;
             default:
                 text = null;
         }
@@ -52,10 +61,22 @@ const Navbar = (props) => {
         setAnchorEl(null);
     };
 
-    const handleLogout = () => {
+    const handleProfileClick = () => {
+        navigate("/pages/profile");
+    }
+
+    const handleLogoutClick = () => {
         localStorage.removeItem("token");
         sessionStorage.removeItem("isMySessionActive");
         navigate("/auth/login");
+    }
+
+    const handleMyAchivementsClick = () => {
+        navigate("/pages/achivements");
+    }
+
+    const handleLeaderboardClick = () => {
+        navigate("/pages/leaderboard");
     }
 
     return (
@@ -116,8 +137,10 @@ const Navbar = (props) => {
                                 }
                             }}
                         >
-                            <MenuItem onClick={handleClose}>Profile</MenuItem>
-                            <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                            <MenuItem onClick={handleProfileClick}>Profile</MenuItem>
+                            <MenuItem onClick={handleLogoutClick}>Logout</MenuItem>
+                            <MenuItem onClick={handleMyAchivementsClick}>My Achivements</MenuItem>
+                            <MenuItem onClick={handleLeaderboardClick}>Leaderboard</MenuItem>
                         </Menu>
                     </div>
                 </Toolbar>
