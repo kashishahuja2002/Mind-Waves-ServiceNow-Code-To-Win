@@ -1,0 +1,16 @@
+@import '../Variables.scss';
+
+.monthlyAchivements {
+    padding: 15px 30px;
+    margin-bottom: 20px;
+
+    .title {
+        font-weight: 600;
+        font-size: 18px;
+        color: #000000;
+    }
+
+    .MuiGrid-container {
+        margin-top: 0px;
+    }
+}

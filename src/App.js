@@ -7,6 +7,7 @@ import Dashboard from "./components/pages/dashboard/Dashboard";
 import Eap from "./components/pages/eap/Eap";
 import EducationalResources from "./components/pages/educational-resources/EducationalResources";
 import Profile from "./components/pages/profile/Profile";
+import Achivements from "./components/pages/achivements/Achivements";
 
 import './App.scss';
 
@@ -26,6 +27,8 @@ function App() {
             <Route path="daily-activities" element={"daily-activities"} />
             <Route path="educational-resources" element={<EducationalResources />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="achivements" element={<Achivements />} />
+            <Route path="leaderboard" element={"Leaderboard"} />
           </Route>
         </Routes>
       </BrowserRouter>
