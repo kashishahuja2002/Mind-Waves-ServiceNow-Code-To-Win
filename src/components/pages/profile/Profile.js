@@ -9,7 +9,7 @@ import '../../../styles/pages/Profile.scss';
 
 const Profile = () => {
     return (
-        <div className="profile">
+        <div className="profile whiteBox">
             <Typography variant="body" gutterBottom className="title">Personal Information</Typography>
             
             <Grid
