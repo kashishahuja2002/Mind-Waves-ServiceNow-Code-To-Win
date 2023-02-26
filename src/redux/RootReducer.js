@@ -3,7 +3,7 @@ import { combineReducers } from "redux";
 import AuthReducer from "./auth/AuthReducer";
 
 const RootReducer = combineReducers({
-   user: AuthReducer,
+   auth: AuthReducer,
 });
 
 export default RootReducer;

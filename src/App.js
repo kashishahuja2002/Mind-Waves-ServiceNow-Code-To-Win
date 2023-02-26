@@ -6,6 +6,7 @@ import PagesContainer from "./components/pages/PagesContainer";
 import Dashboard from "./components/pages/dashboard/Dashboard";
 import Eap from "./components/pages/eap/Eap";
 import EducationalResources from "./components/pages/educational-resources/EducationalResources";
+import Profile from "./components/pages/profile/Profile";
 
 import './App.scss';
 
@@ -24,6 +25,7 @@ function App() {
             <Route path="set-reminders" element={"set-reminders"} />
             <Route path="daily-activities" element={"daily-activities"} />
             <Route path="educational-resources" element={<EducationalResources />} />
+            <Route path="profile" element={<Profile />} />
           </Route>
         </Routes>
       </BrowserRouter>

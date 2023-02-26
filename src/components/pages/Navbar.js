@@ -38,6 +38,9 @@ const Navbar = (props) => {
             case "/pages/educational-resources":
                 text = "Educational Resources";
                 break;
+            case "/pages/profile":
+                text = "Profile";
+                break;
             default:
                 text = null;
         }
@@ -56,6 +59,10 @@ const Navbar = (props) => {
         localStorage.removeItem("token");
         sessionStorage.removeItem("isMySessionActive");
         navigate("/auth/login");
+    }
+
+    const handleProfile = () => {
+        navigate("/pages/profile");
     }
 
     return (
@@ -116,7 +123,7 @@ const Navbar = (props) => {
                                 }
                             }}
                         >
-                            <MenuItem onClick={handleClose}>Profile</MenuItem>
+                            <MenuItem onClick={handleProfile}>Profile</MenuItem>
                             <MenuItem onClick={handleLogout}>Logout</MenuItem>
                         </Menu>
                     </div>
