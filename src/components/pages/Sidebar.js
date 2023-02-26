@@ -9,41 +9,35 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from "@mui/material/Divider";
-import Typography from '@mui/material/Typography';
-import DashboardIcon from '@mui/icons-material/Dashboard';  // Dashboard Icon
-import PsychologyIcon from '@mui/icons-material/Psychology';    // EAP Icon
-import ScheduleIcon from '@mui/icons-material/Schedule';    // Reminders/Breaks Icon
-import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';  // Daily activities Icon
-import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';    // Educational resources Icon
 
 import SidebarCurve from '../../assets/images/SidebarCurve.svg';
+import { sidebarList } from "../Constants"; 
+import logoWhite from '../../assets/images/logoWhite.png';
 
-export const SidebarContents = () => {
+export const SidebarContents = (props) => {
+
+    const { toggleSidebar } = props;
+
     const activeLink = useLocation().pathname;
     const navigate = useNavigate();
 
-    const sidebarList = [
-        {name: "Dashboard", link: "/pages/dashboard", icon: <DashboardIcon />},
-        {name: "EAP", link: "/pages/eap", icon: <PsychologyIcon />},
-        {name: "Reminders / Breaks", link: "/pages/reminders-breaks", icon: <ScheduleIcon />},
-        {name: "Daily activities", link: "/pages/daily-activities", icon: <VolunteerActivismIcon />},
-        {name: "Educational resources", link: "/pages/educational-resources", icon: <LocalLibraryIcon />},
-    ];
+    const handleSidebarItemClick = (link) => {
+        navigate(link);
+        toggleSidebar(false);
+    }
 
     return (
         <Box className="sidebarContents" sx={{ padding: "10px 0" }}>
             <List>
                 <ListItem disablePadding>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: "center" }}>
-                        Mind Waves
-                    </Typography>
+                    <img src={logoWhite} alt="logo" width="100px" style={{ margin: "auto" }} />
                 </ListItem>
                 
-                <Divider className="driver" sx={{ margin: "13px 0" }} />
+                <Divider className="divider" sx={{ margin: "13px 0" }} />
 
                 {sidebarList.map((obj, index) => (
                     <ListItem key={index} disablePadding className={obj.link===activeLink ? 'active' : ''}>
-                        <ListItemButton onClick={() => navigate(obj.link)}>
+                        <ListItemButton onClick={() => handleSidebarItemClick(obj.link)}>
                             <ListItemIcon>
                                 {obj.icon}
                             </ListItemIcon>
@@ -75,7 +69,7 @@ export const Sidebar = (props) => {
             onClose={() => toggleSidebar(false)}
             className="sidebar"
         >
-           {SidebarContents()}
+           <SidebarContents toggleSidebar={toggleSidebar} />
         </Drawer>
     );
 }

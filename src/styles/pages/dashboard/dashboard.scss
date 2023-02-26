@@ -4,27 +4,24 @@
     .stat-title {
         font-weight: 600;
         font-size: 18px;
-        color: var(--dark-blue);
+        color: #000000;
     }
 
-    .daily-stats,
-    .weekly-stats {
-        background-color: var(--light-blue);
-        padding: 10px 20px 20px;
-        border-radius: 10px;
+    // Daily Stat Cards
+    .daily-stats {
         margin-top: 10px;
     }
 
     .daily-stat-card {
         background-color: #ffffff;
         color: var(--text-blue);
-        margin: 20px 10px 10px;
+        margin: 10px;
         padding: 20px;
-        width: 200px;
         border-radius: 10px;
         overflow: visible;
         border: 0 solid rgba(0, 0, 0, 0.125);
-        box-shadow: 0rem 0.25rem 0.375rem -0.0625rem rgb(0 0 0 / 10%), 0rem 0.125rem 0.25rem -0.0625rem rgb(0 0 0 / 6%);
+        box-shadow: 0rem 0rem 0rem 0rem rgb(0 0 0 / 14%), 0rem 0.2rem 0.8rem 0rem rgb(64 64 64 / 20%);
+        // box-shadow: 0rem 0.25rem 0.375rem -0.0625rem rgb(0 0 0 / 10%), 0rem 0.125rem 0.25rem -0.0625rem rgb(0 0 0 / 6%);
         word-wrap: break-word;
         background-clip: border-box;
         display: flex;
@@ -38,16 +35,63 @@
             width: 4rem;
             height: 4rem;
             margin-top: -30px;
-            background: linear-gradient(195deg, #42424a, #191919);
-            color: #ffffff;
             border-radius: 0.75rem;
-            box-shadow: 0rem 0.25rem 1.25rem 0rem rgb(0 0 0 / 14%), 0rem 0.4375rem 0.625rem -0.3125rem rgb(64 64 64 / 40%);
+            box-shadow: 0rem 0rem 0rem 0rem rgb(0 0 0 / 14%), 0rem 0.2rem 0.8rem 0rem rgb(64 64 64 / 20%);
+            // box-shadow: 0rem 0.25rem 1.25rem 0rem rgb(0 0 0 / 14%), 0rem 0.4375rem 0.625rem -0.3125rem rgb(64 64 64 / 20%);
+
+            svg {
+                font-size: 28px;
+            }
         }
 
         .MuiTypography-root {
             font-weight: 700;
             font-size: 1.5rem;
             text-align: right;
+            color: var(--text-blue);
+        }
+    }
+
+    // Weekly Stat Cards
+    .weekly-stats {
+        margin-top: 20px;
+    }
+
+    .weekly-stat-card {
+        margin: 25px 10px;
+        overflow: visible;
+        border-radius: 0.75rem;
+        box-shadow: 0rem 0rem 0rem 0rem rgb(0 0 0 / 14%), 0rem 0.2rem 0.8rem 0rem rgb(64 64 64 / 20%);
+        // box-shadow: 0rem 0.25rem 0.375rem -0.0625rem rgb(0 0 0 / 10%), 0rem 0.125rem 0.25rem -0.0625rem rgb(0 0 0 / 6%);
+        background-color: #ffffff;
+        background-clip: border-box;
+
+        .MuiPaper-root {
+            min-width: 0;
+            border: 0 solid rgba(0, 0, 0, 0.125);
+        }
+
+        .container-box {
+            padding: 1.5rem 1.5rem 1rem;
+            opacity: 1;
+            box-shadow: none;
+        }
+
+        .chart-box {
+            padding: 15px 5px;
+            margin-top: -50px;
+            height: 12.5rem;
+            border-radius: 0.5rem;
+            box-sizing: border-box;
+            box-shadow: 0rem 0rem 0rem 0rem rgb(0 0 0 / 14%), 0rem 0.2rem 0.8rem 0rem rgb(64 64 64 / 20%);
+        }
+
+        .title-box {
+            padding: 15px 8px 0px;
+            color: var(--text-blue);
+            font-weight: 500;
+            font-size: 18px;
+            box-shadow: none;
         }
     }
 }

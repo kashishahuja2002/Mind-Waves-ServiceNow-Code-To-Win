@@ -22,7 +22,7 @@ const Dashboard = () => {
                 <DailyStats />
             </Grid>
 
-            <Grid item>
+            <Grid item sx={{ width: "100%" }}>
                 <Typography variant="body" gutterBottom className="stat-title">Weekly Stats</Typography>
                 <WeeklyStats />
             </Grid>

@@ -1,0 +1,223 @@
+.container {
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    gap: 30px;
+}
+
+.side-info {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-info:hover {
+    transform: scale(1.1);
+    transition: 0.5s ease-in-out;
+}
+
+.glass {
+    position: relative;
+    width: 150px;
+    height: 300px;
+    margin: 0 auto;
+    border: 4px solid #ddd;
+    border-radius: 50px;
+    background-color: #f2f2f2;
+}
+
+.water {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #80c5de;
+    box-shadow: inset 0 0 50px #1c637c;
+    transition: height 0.5s ease-in-out;
+    animation: wave duration timing-function delay iteration-count direction fill-mode;
+}
+
+/* Icon.css */
+.icon {
+
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}
+
+.current-litres {
+    font-size: 50px;
+}
+
+.side-info svg {
+    width: 50%;
+    height: auto;
+}
+
+.side-info span {
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+.container div {
+    border: 1px solid;
+}
+
+.buttons {
+    grid-column: -1/1;
+}
+
+.percentage-container {
+    background-color: #dceaf4;
+    color: black;
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    margin: auto;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    position: relative;
+    z-index: 2000;
+}
+
+.progress {
+    background-color: #242f53;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    transition: 0.5 ease;
+    height: 40%;
+    color: white;
+
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.circle {
+    overflow: hidden;
+}
+
+
+.target-chart {
+    justify-content: center;
+    margin-top: 3%;
+}
+
+
+
+.stamp-txt {
+    display: flex;
+    justify-content: center;
+    margin-top: 6px;
+    font-weight: 300;
+}
+
+.wave-01 {
+    position: absolute;
+    width: 300%;
+    height: 300%;
+    left: -100%;
+    top: 50%;
+    background-color: rgba(0, 190, 255, 0.4);
+    border-radius: 45%;
+    animation: rotate 10s linear infinite;
+}
+
+.waterTracker-card {
+    display: flex;
+    justify-content: center;
+    border-radius: 1.5rem;
+    margin: 1rem;
+}
+
+.waterCard {
+    border-radius: 1.5rem;
+    display: flex;
+    justify-content: center;
+    height: 94%;
+    margin: 0px 10px 0px 10px
+}
+
+.waterTracker-buttonCard {
+    display: flex;
+    justify-content: center;
+    border-radius: 1.5rem;
+    margin: 1rem;
+    width: 150px
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10%;
+}
+
+.card-content-heading {
+    font-size: 30px;
+    font-weight: 600;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    color: #242f53;
+}
+
+.card-content-heading-target-head {
+    font-size: 30px;
+    font-weight: 600;
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    color: #242f53;
+}
+
+.tab {
+    flex-direction: row !important;
+}
+
+.tab-icon {
+    display: flex;
+    justify-content: center;
+    margin: 1.6%;
+}
+
+.target-chart-grid {
+    margin-top: 20px;
+}
+
+.play-button {
+    height: 80px !important;
+    width: 80px !important;
+    position: absolute;
+    margin-top: 45px;
+    color: #652fa1;
+}
+
+@media only screen and (max-width: 600px) {
+    .stamp-txt {
+        font-size: 12px;
+    }
+}
+
+.circleTimer {
+    padding: 20px;
+}

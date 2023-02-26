@@ -4,16 +4,26 @@
 .sidebar {
     overflow-y: auto;
     border-radius: 10px;
+    position: sticky;
+    top: 20px;
+    height: calc(100vh - 40px);
 
     .MuiPaper-root {
-        box-shadow: 0px 8px 10px 5px rgb(0 0 0 / 20%), 0px 16px 24px 2px rgb(0 0 0 / 34%), 0px 6px 30px 5px rgb(0 0 0 / 12%);
+        background-color: var(--dark-blue);
+        box-shadow: 0rem 0rem 0rem 0rem rgb(0 0 0 / 14%), 0rem 0.2rem 0.8rem 0rem rgb(64 64 64 / 20%);
+        // box-shadow: 0px 8px 10px 5px rgb(0 0 0 / 20%), 0px 16px 24px 2px rgb(0 0 0 / 34%), 0px 6px 30px 5px rgb(0 0 0 / 12%);
     }
     
     .sidebarContents {
-        min-height: calc(100vh - 60px);
         background-color: var(--dark-blue);
         color: #ffffff;
         border-radius: 10px;
+        padding: 0;
+
+        .MuiListItemIcon-root {
+            min-width: auto;
+            padding: 0 10px;
+        }
 
         svg {
             color: #ffffff;
@@ -55,7 +65,7 @@
 // Navbar styles
 .navbar {
     .MuiAppBar-root {
-        background-color: var(--light-grey);
+        background-color: var(--base-background);
         color: var(--dark-blue);
         box-shadow: none;
     }
@@ -63,7 +73,7 @@
 
 // Outlet styles
 .outlet-box {
-    padding: 10px 25px 0px;
+    padding: 10px 0px 0px 20px;
     width: 100%;
 }
 
@@ -73,6 +83,10 @@
     .sidebarContents {
         height: 100vh;
         border-radius: 0px !important;
+    }
+    
+    .MuiToolbar-root {
+        padding: 0px !important;
     }
 
     .outlet-box {

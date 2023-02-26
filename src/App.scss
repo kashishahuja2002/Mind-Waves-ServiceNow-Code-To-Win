@@ -1,7 +1,7 @@
 .app {
   min-height: calc(100vh - 40px);
   padding: 20px;
-  background-color: var(--light-grey);
+  background-color: var(--base-background);
 }
 
 .center {
@@ -10,11 +10,12 @@
   margin-right: auto;
 }
 
-.driver {
+.divider {
   height: 0.0625rem;
   margin: 1rem 0;
   border-bottom: none;
   opacity: 0.25;
+  background-color: #ffffff;
   background-color: transparent;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0), #ffffff, rgba(255, 255, 255, 0))!important;
 }
