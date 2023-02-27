@@ -1,7 +1,7 @@
 import actionTypes from "./DashboardActionTypes";
 
 const initialState = {
-    stepCount: [],
+    stepsCount: [],
     heartPoints: [],
     caloriesBurned: [],
 };
@@ -11,7 +11,7 @@ const DashboardReducer = (state = initialState, action) => {
         case actionTypes.STEP_COUNT:
             return {
                 ...state,
-                stepCount: action.payload 
+                stepsCount: action.payload 
             };
 
         case actionTypes.HEART_POINTS: 

@@ -8,6 +8,7 @@ import DailyStats from "./DailyStats";
 import WeeklyStats from "./WeeklyStats";
 
 import '../../../styles/pages/Dashboard.scss';
+import { formatDate, getMilliSecond } from "../../Helper";
 import { getGoogleFitData } from "../../../redux/dashboard/DashboardAction";
 import { updateBarLoading } from "../../../redux/Actions";
 
@@ -28,18 +29,6 @@ const Dashboard = () => {
         }
 
         return prevMonday;
-    }
-
-    const formatDate = (value) => {
-        var date = new Date(value);
-
-        date = ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear();
-
-        return date;
-    }
-
-    const getMilliSecond = (date) => {
-        return (new Date(`${date} 00:00:00`).getTime());
     }
 
     const getStartEndTime = () => {
