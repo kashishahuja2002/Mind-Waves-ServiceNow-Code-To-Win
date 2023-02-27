@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 
 import GoogleIcon from '../../assets/images/GoogleIcon.png';
-import { Auth } from "../../redux/auth/AuthActions";
+import { Auth } from "../../redux/Actions";
 
 const GoogleAuth = () => {
 
@@ -15,6 +15,7 @@ const GoogleAuth = () => {
     const navigate = useNavigate();
 
     const googleLogin = useGoogleLogin({
+        scope: "https://www.googleapis.com/auth/fitness.activity.read  https://www.googleapis.com/auth/fitness.heart_rate.read",
         onSuccess: async (tokenResponse) => {
             localStorage.setItem("token", tokenResponse.access_token);
             sessionStorage.setItem("isMySessionActive", true);
