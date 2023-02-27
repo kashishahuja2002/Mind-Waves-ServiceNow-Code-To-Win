@@ -1,0 +1,9 @@
+const STEP_COUNT = 'STEP_COUNT';
+const HEART_POINTS = 'HEART_POINTS';
+const CALORIES_BURNED = 'CALORIES_BURNED';
+
+export default {
+    STEP_COUNT,
+    HEART_POINTS,
+    CALORIES_BURNED,
+}
