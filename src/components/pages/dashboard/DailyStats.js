@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import { statsList } from "../../Constants";
 import { formatDate, getMilliSecond } from '../../Helper';
 
-const StatCard = (obj, dailyStats) => {
+const StatCard = (obj, dailyData) => {
   return (
     <Card variant="outlined" className="whiteBox daily-stat-card ">
         <Box className="whiteBox icon-box"
@@ -24,7 +24,7 @@ const StatCard = (obj, dailyStats) => {
         </Box>
         <Box sx={{textAlign: "right"}}>
           <span> {obj.title} </span>
-          <Typography variant="h4" gutterBottom> {dailyStats[obj.key]} </Typography>
+          <Typography variant="h4" gutterBottom> {dailyData[obj.key]} </Typography>
         </Box>
     </Card>
   );
@@ -33,7 +33,7 @@ const StatCard = (obj, dailyStats) => {
 const DailyStats = () => {
   const dashboard = useSelector((store) => store.dashboard);
 
-  const [dailyStats, setDailyStats] = useState(
+  const [dailyData, setDailyData] = useState(
     {
       stepsCount: 0,
       heartPoints: 0,
@@ -62,7 +62,7 @@ const DailyStats = () => {
 
     if(dashboard.stepsCount.length > 0) {
       const stat = getStat("stepsCount", todayTime)
-      setDailyStats((prev) => ({
+      setDailyData((prev) => ({
         ...prev,
         stepsCount: stat ? stat.intVal : 0,
       }))
@@ -70,7 +70,7 @@ const DailyStats = () => {
 
     if(dashboard.heartPoints.length > 0) {
       const stat = getStat("heartPoints", todayTime)
-      setDailyStats((prev) => ({
+      setDailyData((prev) => ({
         ...prev,
         heartPoints: stat ? Math.ceil(stat.fpVal) : 0,
       }))
@@ -78,7 +78,7 @@ const DailyStats = () => {
 
     if(dashboard.caloriesBurned.length > 0) {
       const stat = getStat("caloriesBurned", todayTime)
-      setDailyStats((prev) => ({
+      setDailyData((prev) => ({
         ...prev,
         caloriesBurned: stat ? Math.ceil(stat.fpVal) : 0,
       }))
@@ -94,7 +94,7 @@ const DailyStats = () => {
       className="daily-stats"
     >
       {statsList.map((obj) => (
-          <Grid item key={`daily-stat-${obj.key}`} xs={12} sm={6} md={4} lg={3}> {StatCard(obj, dailyStats)} </Grid>
+          <Grid item key={`daily-stat-${obj.key}`} xs={12} sm={6} md={4} lg={3}> {StatCard(obj, dailyData)} </Grid>
         )
       )}
     </Grid>

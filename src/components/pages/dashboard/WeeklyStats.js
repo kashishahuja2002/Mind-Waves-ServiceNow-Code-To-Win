@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -7,50 +8,17 @@ import Card from '@mui/material/Card';
 import { statsList } from "../../Constants";
 import Graph from "./Graph";
 
-const UserData = [
-  {
-    id: 1,
-    year: 2016,
-    userGain: 80000,
-    userLost: 823,
-  },
-  {
-    id: 2,
-    year: 2017,
-    userGain: 45677,
-    userLost: 345,
-  },
-  {
-    id: 3,
-    year: 2018,
-    userGain: 78888,
-    userLost: 555,
-  },
-  {
-    id: 4,
-    year: 2019,
-    userGain: 90000,
-    userLost: 4555,
-  },
-  {
-    id: 5,
-    year: 2020,
-    userGain: 4300,
-    userLost: 234,
-  },
-];
-
-const GraphCard = (obj) => {
+const GraphCard = (obj, weeklyData) => {
   return (
     <Card variant="outlined" className="whiteBox weekly-stat-card" >
       <Box className="container-box">
         <Box className="whiteBox chart-box"
           sx={{
             backgroundColor: "#ffffff",
-            width: "100%"
+            width: "100%",
           }}
         >
-          <Graph graphData={UserData} color={obj.color} />
+          <Graph graphData={weeklyData[obj.key]} color={obj.color} />
         </Box>
         <Box className="title-box">
             {obj.title}
@@ -61,6 +29,61 @@ const GraphCard = (obj) => {
 }
 
 const WeeklyStats = () => {
+  const dashboard = useSelector((store) => store.dashboard);
+
+  const [weeklyData, setWeeklyData] = useState(
+    {
+      stepsCount: [0, 0, 0, 0, 0, 0, 0],
+      heartPoints: [0, 0, 0, 0, 0, 0, 0],
+      caloriesBurned: [0, 0, 0, 0, 0, 0, 0],
+      hydrationRate: [0, 0, 0, 0, 0, 0, 0],
+      exerciseDuration: [0, 0, 0, 0, 0, 0, 0],
+      meditationTime: [0, 0, 0, 0, 0, 0, 0],
+      mood: [0, 0, 0, 0, 0, 0, 0]
+    }
+  );
+
+  const getStat = (element) => {
+    const result = element.dataset[0].point;
+    if(result.length > 0) {
+      return result[0].value[0];
+    }
+    return 0;
+  }
+
+  useEffect(() => {
+    let sc = [], hp = [], cb = [];
+
+    if(dashboard.stepsCount.length > 0) {
+      dashboard.stepsCount.forEach(element => {
+        const stat = getStat(element);
+        sc.push(stat ? stat.intVal : 0);
+      })
+    }
+
+    if(dashboard.heartPoints.length > 0) {
+      dashboard.heartPoints.forEach(element => {
+        const stat = getStat(element);
+        hp.push(stat ? Math.ceil(stat.fpVal) : 0);
+      })
+    }
+
+    if(dashboard.caloriesBurned.length > 0) {
+      dashboard.caloriesBurned.forEach(element => {
+        const stat = getStat(element);
+        cb.push(stat ? Math.ceil(stat.fpVal) : 0);
+      })
+    }
+
+    setWeeklyData((prev) => ({
+      ...prev,
+      stepsCount: sc,
+      heartPoints: hp,
+      caloriesBurned: cb,
+    }))
+
+  }, [dashboard])
+
   return (
     <Grid
       container
@@ -70,7 +93,7 @@ const WeeklyStats = () => {
       className="weekly-stats"
     >
       {statsList.map((obj, index) => (
-          <Grid item key={`weekly-stat-${index}`} xs={12} sm={6} md={4}>{GraphCard(obj)}</Grid>
+          <Grid item key={`weekly-stat-${index}`} xs={12} sm={6} md={4}>{GraphCard(obj, weeklyData)}</Grid>
         )
       )}
     </Grid>

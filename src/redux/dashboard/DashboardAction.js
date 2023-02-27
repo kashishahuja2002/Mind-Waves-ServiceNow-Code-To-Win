@@ -1,6 +1,5 @@
 import { updateBarLoading } from '../Actions';
 import axios from "axios";
-import actionTypes from './DashboardActionTypes';
 
 export const getGoogleFitData = (body, action) => {
     return (dispatch) => {
