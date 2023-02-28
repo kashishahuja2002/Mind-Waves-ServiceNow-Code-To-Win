@@ -16,7 +16,7 @@ const HttpCall = async (url, method, params, body) => {
             },
             headers: {
                 "Accept": "application/json",
-                "Token": token,
+                "Authorization": `Bearer ${token}`,
             },
         })
         .then((response) => {
@@ -44,7 +44,7 @@ const HttpGet = async (url, params) => {
             },
             headers: {
                 "Accept": "application/json",
-                "Token": token,
+                "Authorization": `Bearer ${token}`,
             },
         })
         .then((response) => {

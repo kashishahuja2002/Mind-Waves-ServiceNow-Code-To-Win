@@ -12,6 +12,7 @@
             padding: 0px 15px;
             min-height: 40px;
             color:var(--text-blue);
+            flex-direction: row;
 
             &:hover {
                 background-color: var(--light-blue);
@@ -41,10 +42,29 @@
         }
     }
 
+    // Stopwatch
+    .stopwatch {
+        font-size: 30px;
+        margin: 10px;
+    }
+
+    // End session
+    .endSessionButton {
+        padding: 5px 10px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
     // History Card
     .historyCard {
         padding: 5px 20px 20px;
         overflow: auto !important;
+
+        .alt-txt {
+            display: flex;
+            padding: 25% 3px;
+        }
     }
 
     ::-webkit-scrollbar {
@@ -74,6 +94,8 @@
     }
 }
 
+
+// Responsive Styles
 @media screen and (max-width: "600px") {
     .dailyActivities {
         padding: 0px;

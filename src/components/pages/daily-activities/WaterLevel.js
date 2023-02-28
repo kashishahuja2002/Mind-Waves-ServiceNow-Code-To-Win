@@ -70,9 +70,10 @@ class WaterLevel extends Component {
                 waveAmplitude={1}
                 gradient
                 gradientStops={gradientStops}
+                outerRadius={1}
+                innerRadius={0.96}
                 circleStyle={{
-                    fill: "#ffffff",
-                    stroke: "1px"
+                    fill: "#3e98c7",
                 }}
                 waveStyle={{
                     fill: fillColor

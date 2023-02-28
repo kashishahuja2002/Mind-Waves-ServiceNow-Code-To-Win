@@ -1,7 +1,4 @@
 import React from 'react';
-import 'react-circular-progressbar/dist/styles.css';
-import "../../../styles/pages/daily-activities/Excersize/stopwatch.scss";
-
 
 class EndSessionButton extends React.Component {
     constructor(props) {
@@ -16,6 +13,7 @@ class EndSessionButton extends React.Component {
     componentDidMount() {
         this.setHistoryState();
     }
+
     setHistoryState = () => {
         if (localStorage.times) {
 
@@ -28,6 +26,7 @@ class EndSessionButton extends React.Component {
             this.setState({ history: [], data: [] });
         }
     };
+
     saveToLocalStorage = () => {
         if (localStorage.times) {
             localStorage.times =
@@ -55,8 +54,6 @@ class EndSessionButton extends React.Component {
             console.error('local storage not supported');
         }
         this.setHistoryState();
-
-
     };
 
     resetHistory = () => {
@@ -65,6 +62,7 @@ class EndSessionButton extends React.Component {
         }
         this.setHistoryState();
     };
+
     reset = () => {
         this.setState({
             currentTimeMs: 0,
@@ -80,12 +78,12 @@ class EndSessionButton extends React.Component {
         }
         this.setHistoryState();
     };
+    
     render() {
         return (
-            <div className={'stopwatch__history'}>
-                {/*<div onClick={this.resetHistory} className="end-session-button">Reset History</div>*/}
-                <div onClick={this.saveTime}>
-                    <div onClick={this.props.reset} className={'end-session-button ' + this.props.class} >End Session</div>
+            <div onClick={this.saveTime}>
+                <div onClick={this.props.reset} className="endSessionButton" >
+                        End Session
                 </div>
             </div>
         );

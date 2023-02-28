@@ -5,7 +5,7 @@ import Card from '@mui/material/Card';
 
 import WaterLevel from './WaterLevel';
 import TargetChart from './TragetChart';
-import DrinkHistory from './DrinkHistory';
+import History from './History';
 
 import '../../../styles/pages/daily-activities/WaterTracker.scss';
 
@@ -20,7 +20,7 @@ export default function WaterTracker() {
 
     const setDrinkTimeState = () => {
         if (localStorage.drinkTime) {
-            setData(localStorage.drinkTime.split('|').slice(0, 5))
+            setData(localStorage.drinkTime.split('|'))
         }
         else {
             setData([]);
@@ -58,7 +58,7 @@ export default function WaterTracker() {
         if(leftCard) {
             setHistoryCardHeight(leftCard.clientHeight - 25);
         }
-    });
+    }, []);
 
     return (
         <Grid
@@ -72,20 +72,20 @@ export default function WaterTracker() {
                 <Card id="leftCard" className="whiteBox waterCard">
                     <WaterLevel waterLevel={waterLevel} onClick={handleClick} />
                     <div className='info-txt'>
-                        Click on the circle to confirm that you have just drunk water
+                        Click on the circle to confirm that you have just drunk one glass of water
                     </div>
                 </Card>
             </Grid>
 
             <Grid item xs={12} sm={6}>
                 <Card className="whiteBox historyCard" sx={{height: historyCardHeight}}>
-                    <DrinkHistory time={data} />
+                    <History time={data} />
                 </Card>
             </Grid>
 
             <Grid item xs={12}>
                 <Card className="whiteBox targetCard">
-                    <TargetChart values={waterLevel} />
+                    <TargetChart color="#3e98c7" values={waterLevel} />
                 </Card>
             </Grid>
         </Grid>

@@ -1,12 +1,9 @@
 import React from 'react';
-import History from './History';
-import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
-import '../../../styles/pages/daily-activities/Excersize/stopwatch.scss';
 import { Divider } from '@mui/material';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 
