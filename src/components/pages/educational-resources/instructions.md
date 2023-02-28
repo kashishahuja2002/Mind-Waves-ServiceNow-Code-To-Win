@@ -1,1 +1,0 @@
-for educational resources page

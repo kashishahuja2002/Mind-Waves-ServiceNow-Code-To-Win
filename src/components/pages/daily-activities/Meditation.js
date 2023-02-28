@@ -12,7 +12,7 @@ import Card from '@mui/material/Card';
 import TargetChart from './TragetChart';
 import EndSessionButton from './EndSessionButton.js';
 
-class Exercise extends React.Component {
+class Meditation extends React.Component {
     constructor(props) {
         super(props);
 
@@ -84,8 +84,6 @@ class Exercise extends React.Component {
             currentTimeSec: 0,
             currentTimeMin: 0,
             running: false,
-            key: (prevKey) => prevKey + 1
-
         });
         clearInterval(this.watch);
         if (typeof Storage !== 'undefined') {
@@ -131,20 +129,19 @@ class Exercise extends React.Component {
                                             isPlaying={this.state.running}
                                             duration={21}
                                             colors="#d9d9d9"
-                                            trailColor='#652fa1'
+                                            trailColor='#51ab55'
                                             strokeWidth="12"
                                             size={140}
                                             onComplete={() => {
-
                                                 return { delay: 0 }
                                             }}
                                         >
-                                            {({ remainingTime }) => this.state.running === false ? <PlayArrowOutlinedIcon className={'play-icon exercise'} onClick={this.start} /> : <PauseOutlinedIcon className={'play-icon exercise'} onClick={this.stop} />}
+                                            {({ remainingTime }) => this.state.running == false ? <PlayArrowOutlinedIcon className='play-icon meditation' onClick={this.start} /> : <PauseOutlinedIcon className='play-icon meditation' onClick={this.stop} />}
 
                                         </CountdownCircleTimer>
 
                                         <StopwatchDisplay currentTimeMin={this.state.currentTimeMin} currentTimeSec={this.state.currentTimeSec} formatTime={this.formatTime} />
-                                        <EndSessionButton class={'exercise'} reset={this.reset} {...this.state} formatTime={this.formatTime} />
+                                        <EndSessionButton class={'meditation'} reset={this.reset} {...this.state} formatTime={this.formatTime} />
                                     </div>
                                 </div>
                             </Card>
@@ -162,7 +159,7 @@ class Exercise extends React.Component {
                     <Grid xs={12} className="target-chart-grid">
                         <div className='waterTracker-card'></div>
                         <Card className="waterCard">
-                            <TargetChart color="#652fa1" values={80} />
+                            <TargetChart color="#51ab55" values={80} />
                         </Card>
                     </Grid>
                 </Grid>
@@ -172,4 +169,4 @@ class Exercise extends React.Component {
     }
 }
 
-export default Exercise;
+export default Meditation;

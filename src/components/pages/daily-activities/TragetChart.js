@@ -14,7 +14,12 @@ export default function TragetChart(props) {
                 <div className="target-chart" >
                     <div className='card-content-heading-target-head'>Target Chart</div>
 
-                    <Grid container spacing={1} display="flex" justifyContent="space-between" padding="20px">
+                    <Grid container
+                        spacing={{
+                            xs: 0.5,
+                            sm: 4,
+                            md: 8
+                        }} display="flex" justifyContent="space-between" padding="20px">
 
                         {days.map((obj) => (
                             <Grid item xs>

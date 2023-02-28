@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -14,6 +14,7 @@ import HomeIcon from '@mui/icons-material/Home';
 
 const Navbar = (props) => {
     const { toggleSidebar } = props;
+    const navigate = useNavigate();
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [headRoute, setHeadRoute] = React.useState(null);
@@ -37,6 +38,15 @@ const Navbar = (props) => {
             case "/pages/educational-resources":
                 text = "Educational Resources";
                 break;
+            case "/pages/profile":
+                text = "Profile";
+                break;
+            case "/pages/achivements":
+                text = "Achivements";
+                break;
+            case "/pages/leaderboard":
+                text = "Leaderboard";
+                break;
             default:
                 text = null;
         }
@@ -50,6 +60,24 @@ const Navbar = (props) => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const handleProfileClick = () => {
+        navigate("/pages/profile");
+    }
+
+    const handleLogoutClick = () => {
+        localStorage.removeItem("token");
+        sessionStorage.removeItem("isMySessionActive");
+        navigate("/auth/login");
+    }
+
+    const handleMyAchivementsClick = () => {
+        navigate("/pages/achivements");
+    }
+
+    const handleLeaderboardClick = () => {
+        navigate("/pages/leaderboard");
+    }
 
     return (
         <Box sx={{ flexGrow: 1 }} className="navbar">
@@ -109,8 +137,10 @@ const Navbar = (props) => {
                                 }
                             }}
                         >
-                            <MenuItem onClick={handleClose}>Profile</MenuItem>
-                            <MenuItem onClick={handleClose}>Logout</MenuItem>
+                            <MenuItem onClick={handleProfileClick}>Profile</MenuItem>
+                            <MenuItem onClick={handleLogoutClick}>Logout</MenuItem>
+                            <MenuItem onClick={handleMyAchivementsClick}>My Achivements</MenuItem>
+                            <MenuItem onClick={handleLeaderboardClick}>Leaderboard</MenuItem>
                         </Menu>
                     </div>
                 </Toolbar>

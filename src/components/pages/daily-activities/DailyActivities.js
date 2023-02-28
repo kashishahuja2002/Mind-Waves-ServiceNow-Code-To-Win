@@ -1,12 +1,13 @@
 import React from 'react'
 import '../../../styles/pages/daily-activities/WaterTracker/WaterTracker.scss';
-import { Box, Tab, Tabs, Typography } from '@mui/material';
+import { Box, Tab, Tabs } from '@mui/material';
 import { useState } from 'react';
 import WaterTracker from './WaterTracker';
 import Exercise from './Exercise';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPersonWalking, faHeartPulse, faGlassWater, faDumbbell } from '@fortawesome/free-solid-svg-icons'
+import { faGlassWater, faDumbbell } from '@fortawesome/free-solid-svg-icons'
 import SelfImprovementIcon from '@mui/icons-material/SelfImprovement';
+import Meditation from './Meditation';
 
 export default function DailyActivities() {
     const [tabIndex, setTabIndex] = useState(0);
@@ -43,7 +44,7 @@ export default function DailyActivities() {
                 )}
                 {tabIndex === 2 && (
                     <Box>
-                        <h1>Meditation</h1>
+                        {<Meditation />}
                     </Box>
                 )}
             </Box>

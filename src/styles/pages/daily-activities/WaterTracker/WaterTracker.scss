@@ -140,16 +140,14 @@ section {
 }
 
 .waterTracker-card {
-    display: flex;
-    justify-content: center;
+
     border-radius: 1.5rem;
     margin: 1rem;
 }
 
 .waterCard {
     border-radius: 1.5rem;
-    display: flex;
-    justify-content: center;
+
     height: 94%;
     margin: 0px 10px 0px 10px
 }
@@ -166,7 +164,7 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 10%;
+    margin-top: -20px;
 }
 
 .card-content-heading {
@@ -220,4 +218,26 @@ section {
 
 .circleTimer {
     padding: 20px;
+}
+
+.history {
+    display: flex;
+    flex-direction: row;
+    margin: 2px;
+}
+
+.alt-txt {
+    display: flex;
+    justify-content: center;
+    flex-direction: column !important;
+    margin: auto;
+    width: 80%;
+    padding: 25% 3px;
+
+}
+
+.alt-icon {
+    position: relative;
+    left: 45%;
+    padding-bottom: 10px;
 }

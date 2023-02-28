@@ -2,7 +2,14 @@
     cursor: pointer;
     height: 50px !important;
     width: 50px !important;
+}
+
+.play-icon.exercise {
     color: #652fa1;
+}
+
+.play-icon.meditation {
+    color: #51ab55;
 }
 
 .end-session-button {
@@ -14,6 +21,16 @@
     cursor: pointer;
     color: #652fa1;
     font-weight: bold;
+}
+
+.end-session-button.exercise {
+    border: 2px solid #652fa1;
+    color: #652fa1;
+}
+
+.end-session-button.meditation {
+    border: 2px solid #51ab55;
+    color: #51ab55;
 }
 
 ul {
@@ -70,8 +87,7 @@ ul {
 
 .waterCard {
     border-radius: 1.5rem;
-    display: flex;
-    justify-content: center;
+
     height: 94%;
     margin: 0px 10px 0px 10px;
     padding: 15px 15px 0px 15px;
@@ -79,4 +95,14 @@ ul {
 
 .target-chart-grid {
     margin-top: 20px;
+}
+
+.alt-txt {
+    display: flex;
+    justify-content: center;
+    flex-direction: inherit;
+    margin: auto;
+    width: 80%;
+    padding: 25% 3px;
+
 }
