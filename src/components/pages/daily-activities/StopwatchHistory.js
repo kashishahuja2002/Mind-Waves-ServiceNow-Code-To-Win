@@ -103,7 +103,7 @@ class StopwatchHistory extends React.Component {
                 <ul>
 
                     {this.state.data.length == 0 ? <div className='alt-txt'>
-                        <div clasName='alt-icon'>
+                        <div className='alt-icon'>
                         </div>
                         <AccessTimeFilledIcon />
                         Your history will appear here

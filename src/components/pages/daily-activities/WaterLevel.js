@@ -5,9 +5,6 @@ import { interpolateRgb } from 'd3-interpolate';
 import LiquidFillGauge from 'react-liquid-gauge';
 
 class WaterLevel extends Component {
-    state = {
-        value: this.props.waterLevel
-    };
     startColor = '#3e98c7';
     endColor = '#80c5de';
 
@@ -39,7 +36,9 @@ class WaterLevel extends Component {
         return (
             <LiquidFillGauge
                 style={{
-                    margin: '0 auto', border: "0px solid white"
+                    margin: '0 auto', 
+                    border: "0px solid white",
+                    cursor: 'pointer'
                 }}
                 width={radius * 2}
                 height={radius * 2}
@@ -87,9 +86,7 @@ class WaterLevel extends Component {
                     fill: color('#fff').toString(),
                     fontFamily: 'Arial'
                 }}
-                onClick={() => {
-                    this.setState({ value: this.props.waterLevel });
-                }}
+                onClick={this.props.onClick}
             />
         );
     }

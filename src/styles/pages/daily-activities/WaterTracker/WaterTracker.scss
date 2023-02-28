@@ -1,11 +1,11 @@
-.container {
-    display: grid;
-    grid-template-columns: 2fr 3fr 2fr;
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
-    gap: 30px;
-}
+// .container {
+//     display: grid;
+//     grid-template-columns: 2fr 3fr 2fr;
+//     width: 100%;
+//     max-width: 600px;
+//     margin: auto;
+//     gap: 30px;
+// }
 
 .side-info {
     display: flex;
@@ -121,12 +121,7 @@ section {
 
 
 
-.stamp-txt {
-    display: flex;
-    justify-content: center;
-    margin-top: 6px;
-    font-weight: 300;
-}
+
 
 .wave-01 {
     position: absolute;
@@ -145,12 +140,12 @@ section {
     margin: 1rem;
 }
 
-.waterCard {
-    border-radius: 1.5rem;
+// .waterCard {
+//     border-radius: 1.5rem;
 
-    height: 94%;
-    margin: 0px 10px 0px 10px
-}
+//     height: 94%;
+//     margin: 0px 10px 0px 10px
+// }
 
 .waterTracker-buttonCard {
     display: flex;
@@ -210,12 +205,6 @@ section {
     color: #652fa1;
 }
 
-@media only screen and (max-width: 600px) {
-    .stamp-txt {
-        font-size: 12px;
-    }
-}
-
 .circleTimer {
     padding: 20px;
 }
@@ -224,20 +213,4 @@ section {
     display: flex;
     flex-direction: row;
     margin: 2px;
-}
-
-.alt-txt {
-    display: flex;
-    justify-content: center;
-    flex-direction: column !important;
-    margin: auto;
-    width: 80%;
-    padding: 25% 3px;
-
-}
-
-.alt-icon {
-    position: relative;
-    left: 45%;
-    padding-bottom: 10px;
 }

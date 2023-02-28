@@ -1,13 +1,17 @@
 @import '../../Variables.scss';
 
 .dailyActivities {
+    padding: 0px 20px;
+
+    // Tabs
     .MuiTabs-root {
         min-height: 40px;
         margin-bottom: 20px;
 
         .MuiButtonBase-root {
             padding: 0px 15px;
-            min-height: auto;
+            min-height: 40px;
+            color:var(--text-blue);
 
             &:hover {
                 background-color: var(--light-blue);
@@ -19,10 +23,6 @@
             }
         }
 
-        .MuiTab-root {
-            color: var(--dark-blue);
-        }
-
         .Mui-selected {
             color: var(--dark-blue);
             font-weight: bold
@@ -32,5 +32,19 @@
             background-color: var(--dark-blue);
             height: 2.5px;
         }
+
+        @media screen and (max-width: "460px") {
+            .MuiTabs-flexContainer {
+                display: flex;
+                flex-direction: column;
+            }
+        }
     }
 }
+
+@media screen and (max-width: "600px") {
+    .dailyActivities {
+        padding: 0px;
+    }
+}
+

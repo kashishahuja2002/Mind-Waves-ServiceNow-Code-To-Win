@@ -21,8 +21,8 @@ export default function DailyActivities() {
         <Box className="dailyActivities">
             <Tabs value={tabIndex} onChange={handleTabChange} variant="fullWidth">
                 <Tab label="Water Tracker" className='tab' icon={<FontAwesomeIcon icon={faGlassWater} className="tab-icon" />} />
-                <Tab label="Excersize" className='tab' icon={<FontAwesomeIcon icon={faDumbbell} className="tab-icon" />} />
-                <Tab label="Meditation" className='tab' icon={<SelfImprovementIcon className="tab-icon" />} />
+                <Tab label="Excercise Tracker" className='tab' icon={<FontAwesomeIcon icon={faDumbbell} className="tab-icon" />} />
+                <Tab label="Meditation Tracker" className='tab' icon={<SelfImprovementIcon className="tab-icon" />} />
             </Tabs>
 
             {tabIndex === 0 && (<WaterTracker />)}
