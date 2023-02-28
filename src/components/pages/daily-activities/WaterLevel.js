@@ -47,7 +47,6 @@ class WaterLevel extends Component {
                 textOffsetX={0}
                 textOffsetY={0}
                 textRenderer={(props) => {
-                    const value = this.props.waterLevel;
                     const radius = Math.min(props.height / 2, props.width / 2);
                     const textPixels = (props.textSize * radius / 2);
                     const valueStyle = {

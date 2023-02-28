@@ -5,7 +5,7 @@ import '../../../styles/pages/daily-activities/Excersize/stopwatch.scss';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
 import PauseOutlinedIcon from '@mui/icons-material/PauseOutlined';
-import '../../../styles/pages/daily-activities/WaterTracker/WaterTracker.scss';
+import '../../../styles/pages/daily-activities/WaterTracker/Water.scss';
 import { Grid } from '@mui/material';
 import 'react-circular-progressbar/dist/styles.css';
 import Card from '@mui/material/Card';

@@ -40,11 +40,55 @@
             }
         }
     }
+
+    // History Card
+    .historyCard {
+        padding: 5px 20px 20px;
+        overflow: auto !important;
+    }
+
+    ::-webkit-scrollbar {
+        width: 7px !important;
+    }
+
+    // Target Chart
+    .targetCard {
+        padding: 25px;
+
+        .title {
+            font-weight: 600;
+            font-size: 18px;
+            color: #000000;
+        }
+
+        .chartContainer {
+            margin-top: 15px;
+        }
+
+        .days-txt{
+            text-align: center;
+            margin-top: 10px;
+            color: var(--text-blue);
+            font-size: 16px;
+        }
+    }
 }
 
 @media screen and (max-width: "600px") {
     .dailyActivities {
         padding: 0px;
+    }
+}
+
+@media screen and (max-width: "400px") {
+    .historyCard {
+        padding: 5px 0px 20px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .targetChart {
+        padding: 25px 15px;
     }
 }
 

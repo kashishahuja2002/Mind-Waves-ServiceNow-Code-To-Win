@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-import { Grid, Box } from '@mui/material';
-import Add from "@mui/icons-material/Add";
+import { Grid } from '@mui/material';
 import Card from '@mui/material/Card';
 
 import WaterLevel from './WaterLevel';
-import LocalDrinkIcon from '@mui/icons-material/LocalDrink';
 import TargetChart from './TragetChart';
 import DrinkHistory from './DrinkHistory';
 
-import '../../../styles/pages/daily-activities/Water.scss';
-
-// import '../../../styles/pages/daily-activities/Excersize/stopwatch.scss';
-// import 'react-circular-progressbar/dist/styles.css';
+import '../../../styles/pages/daily-activities/WaterTracker.scss';
 
 export default function WaterTracker() {
 
@@ -56,6 +51,15 @@ export default function WaterTracker() {
         setDrinkTimeState();
     };
 
+    // for history card height
+    const [historyCardHeight, setHistoryCardHeight] = useState(0);
+    useEffect(() => {
+        let leftCard = document.querySelector("#leftCard");
+        if(leftCard) {
+            setHistoryCardHeight(leftCard.clientHeight - 25);
+        }
+    });
+
     return (
         <Grid
             container
@@ -65,22 +69,22 @@ export default function WaterTracker() {
             spacing={3}
         >
             <Grid item xs={12} sm={6}>
-                <Card className="whiteBox waterCard">
+                <Card id="leftCard" className="whiteBox waterCard">
                     <WaterLevel waterLevel={waterLevel} onClick={handleClick} />
                     <div className='info-txt'>
-                        Click on the cirle to confirm that you have just drunk water
+                        Click on the circle to confirm that you have just drunk water
                     </div>
                 </Card>
             </Grid>
 
             <Grid item xs={12} sm={6}>
-                <Card className="whiteBox waterCard">
+                <Card className="whiteBox historyCard" sx={{height: historyCardHeight}}>
                     <DrinkHistory time={data} />
                 </Card>
             </Grid>
 
             <Grid item xs={12}>
-                <Card className="whiteBox waterCard">
+                <Card className="whiteBox targetCard">
                     <TargetChart values={waterLevel} />
                 </Card>
             </Grid>

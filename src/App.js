@@ -11,10 +11,10 @@ import Eap from "./components/pages/eap/Eap";
 import EducationalResources from "./components/pages/educational-resources/EducationalResources";
 import Profile from "./components/pages/profile/Profile";
 import Achivements from "./components/pages/achivements/Achivements";
-import './App.scss';
-import { useState } from "react";
 import DailyActivities from "./components/pages/daily-activities/DailyActivities";
 import Reminders from "./components/pages/reminders-breaks/Reminders";
+
+import './App.scss';
 
 function App() {
   const loading = useSelector((store) => store.app.barLoading);

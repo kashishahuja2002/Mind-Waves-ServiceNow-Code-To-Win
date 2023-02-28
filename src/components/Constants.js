@@ -34,7 +34,8 @@ export const days = [
     { name: "Wed" },
     { name: "Thu" },
     { name: "Fri" },
-    { name: "Sat" }
+    { name: "Sat" },
+    { name: "Sun" },
 ]
 
 

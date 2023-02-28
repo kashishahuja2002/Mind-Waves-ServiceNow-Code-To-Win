@@ -11,7 +11,7 @@ import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 
 export default function DrinkHistory(props) {
     return (
-        props.time.length == 0 
+        props.time.length === 0 
             ?   <div className='alt-txt'>
                     <AccessTimeFilledIcon />
                     Your water drinking history will appear here

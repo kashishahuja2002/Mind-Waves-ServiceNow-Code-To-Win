@@ -16,8 +16,23 @@
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0), #ffffff, rgba(255, 255, 255, 0)) !important;
 }
 
+// Scroll Bar
 ::-webkit-scrollbar {
   width: 0px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-blue); 
+  border-radius: 10px;
+
+  &:hover {
+    background: var(--dark-blue); 
+  }
 }
 
 .whiteBox {
