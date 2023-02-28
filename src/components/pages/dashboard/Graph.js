@@ -20,11 +20,11 @@ const config = {
 const formatData = (rawData, color) => {
     return (
         {
-            labels: rawData.map((data) => data.year),
+            labels: ["M", "T", "W", "T", "F", "S", "S"],
             datasets: [
                 {
                     label: "",
-                    data: rawData.map((data) => data.userGain),
+                    data: rawData.map((data) => data),
                     backgroundColor: color,
                     borderWidth: 0,
                     borderSkipped: false,

@@ -1,0 +1,36 @@
+@import '../../Variables.scss';
+
+.dailyActivities {
+    .MuiTabs-root {
+        min-height: 40px;
+        margin-bottom: 20px;
+
+        .MuiButtonBase-root {
+            padding: 0px 15px;
+            min-height: auto;
+
+            &:hover {
+                background-color: var(--light-blue);
+                color: var(--dark-blue);
+            }
+
+            svg {
+                margin: 10px 15px;
+            }
+        }
+
+        .MuiTab-root {
+            color: var(--dark-blue);
+        }
+
+        .Mui-selected {
+            color: var(--dark-blue);
+            font-weight: bold
+        }
+
+        .MuiTabs-indicator {
+            background-color: var(--dark-blue);
+            height: 2.5px;
+        }
+    }
+}

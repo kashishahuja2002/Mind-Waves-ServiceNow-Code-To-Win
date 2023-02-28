@@ -3,7 +3,7 @@ import '../../../styles/pages/daily-activities/Excersize/stopwatch.scss';
 import { useState } from 'react';
 import { Grid } from '@mui/material';
 import 'react-circular-progressbar/dist/styles.css';
-import Glass from './Glass';
+import WaterLevel from './WaterLevel';
 import Add from "@mui/icons-material/Add";
 import Card from '@mui/material/Card';
 import LocalDrinkIcon from '@mui/icons-material/LocalDrink';
@@ -22,7 +22,7 @@ export default function WaterTracker() {
     const setDrinkTimeState = () => {
         if (localStorage.drinkTime) {
 
-            setData(localStorage.drinkTime.split('|'))
+            setData(localStorage.drinkTime.split('|').slice(0, 5))
 
         }
         else {
@@ -70,7 +70,7 @@ export default function WaterTracker() {
                         }}>
                             <div className='card-content'>
 
-                                <Glass waterLevel={waterLevel} style={{ padding: '20px' }} />
+                                <WaterLevel waterLevel={waterLevel} style={{ padding: '20px' }} />
                                 <div className='side-info' onClick={handleClick}>
                                     <Add style={{ width: "30px ", color: "#3e98c7" }} />
                                     <LocalDrinkIcon style={{ width: "30px", color: "#3e98c7" }} />

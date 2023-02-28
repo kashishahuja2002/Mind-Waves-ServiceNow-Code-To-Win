@@ -1,1 +1,0 @@
-for daily activities page like hydration, exercise, and meditation.

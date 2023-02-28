@@ -1,3 +1,5 @@
+@import '/src/styles/Variables.scss';
+
 .center {
   display: block;
   margin-left: auto;
@@ -28,4 +30,12 @@
   position: absolute;
   top: 50%;
   left: 50%;
+}
+
+.MuiLinearProgress-root {
+  background-color: var(--light-blue) !important;
+
+  .MuiLinearProgress-bar {
+    background-color: var(--dark-blue) !important;
+  }
 }

@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
 
-import AuthReducer from "./auth/AuthReducer";
+import Reducer from "./Reducer";
+import DashboardReducer from "./dashboard/DashboardReducer";
 
 const RootReducer = combineReducers({
-   auth: AuthReducer,
+   app: Reducer,
+   dashboard: DashboardReducer,
 });
 
 export default RootReducer;
