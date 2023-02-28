@@ -17,6 +17,7 @@ const GoogleAuth = () => {
     const googleLogin = useGoogleLogin({
         scope: "https://www.googleapis.com/auth/fitness.activity.read  https://www.googleapis.com/auth/fitness.heart_rate.read",
         onSuccess: async (tokenResponse) => {
+            console.log(tokenResponse);
             localStorage.setItem("token", tokenResponse.access_token);
             sessionStorage.setItem("isMySessionActive", true);
             const userInfo = await axios.get(
@@ -30,7 +31,7 @@ const GoogleAuth = () => {
         onError: errorResponse => console.log(errorResponse),
     });
 
-    return (    
+    return (
         <Button className="authButton" onClick={googleLogin}>
             Sign in with Google &nbsp;
             <img src={GoogleIcon} alt="google logo" width="20px" />

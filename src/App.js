@@ -11,6 +11,8 @@ import Eap from "./components/pages/eap/Eap";
 import EducationalResources from "./components/pages/educational-resources/EducationalResources";
 import Profile from "./components/pages/profile/Profile";
 import Achivements from "./components/pages/achivements/Achivements";
+import DailyActivities from "./components/pages/daily-activities/DailyActivities";
+import Reminders from "./components/pages/reminders-breaks/Reminders";
 
 import './App.scss';
 
@@ -32,7 +34,7 @@ function App() {
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="eap" element={<Eap />} />
               <Route path="set-reminders" element={"set-reminders"} />
-              <Route path="daily-activities" element={"daily-activities"} />
+              <Route path="daily-activities" element={<DailyActivities />} />
               <Route path="educational-resources" element={<EducationalResources />} />
               <Route path="profile" element={<Profile />} />
               <Route path="achivements" element={<Achivements />} />

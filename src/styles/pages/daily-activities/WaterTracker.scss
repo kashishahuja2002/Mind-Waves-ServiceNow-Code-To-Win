@@ -1,0 +1,29 @@
+@import '../../Variables.scss';
+
+.waterCard {
+    padding: 20px 20px;
+}
+
+@media screen and (max-width: "400px") {
+    .waterCard {
+        padding: 20px 0px;
+    }
+}
+
+.alt-txt {
+    text-align: center;
+    flex-direction: column !important;
+
+    svg {
+        position: relative;
+        left: 45%;
+        margin-bottom: 10px;
+    }
+}
+
+.info-txt {
+    text-align: center;
+    color: var(--text-blue);
+    font-size: 16px;
+    margin-top: 15px;
+}

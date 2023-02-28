@@ -12,20 +12,20 @@ import { formatDate, getMilliSecond } from '../../Helper';
 const StatCard = (obj, dailyData) => {
   return (
     <Card variant="outlined" className="whiteBox daily-stat-card ">
-        <Box className="whiteBox icon-box"
-          sx={{ 
-            backgroundColor: "#fff",
-            svg :{
-              color: `${obj.color}`
-            }
-          }}
-        >
-          {obj.icon}
-        </Box>
-        <Box sx={{textAlign: "right"}}>
-          <span> {obj.title} </span>
-          <Typography variant="h4" gutterBottom> {dailyData[obj.key]} </Typography>
-        </Box>
+      <Box className="whiteBox icon-box"
+        sx={{
+          backgroundColor: "#fff",
+          svg: {
+            color: `${obj.color}`
+          }
+        }}
+      >
+        {obj.icon}
+      </Box>
+      <Box sx={{ textAlign: "right" }}>
+        <span> {obj.title} </span>
+        <Typography variant="h4" gutterBottom> {dailyData[obj.key]} </Typography>
+      </Box>
     </Card>
   );
 }
@@ -48,7 +48,7 @@ const DailyStats = () => {
   const getStat = (val, time) => {
     var result = dashboard[val].filter((obj) => obj.startTimeMillis == time);
 
-    if(result.length > 0) {
+    if (result.length > 0) {
       result = result[0].dataset[0].point;
       return result.length ? result[0].value[0] : 0;
     }
@@ -60,7 +60,7 @@ const DailyStats = () => {
     const date = formatDate(new Date());
     const todayTime = getMilliSecond(date);
 
-    if(dashboard.stepsCount.length > 0) {
+    if (dashboard.stepsCount.length > 0) {
       const stat = getStat("stepsCount", todayTime)
       setDailyData((prev) => ({
         ...prev,
@@ -68,7 +68,7 @@ const DailyStats = () => {
       }))
     }
 
-    if(dashboard.heartPoints.length > 0) {
+    if (dashboard.heartPoints.length > 0) {
       const stat = getStat("heartPoints", todayTime)
       setDailyData((prev) => ({
         ...prev,
@@ -76,7 +76,7 @@ const DailyStats = () => {
       }))
     }
 
-    if(dashboard.caloriesBurned.length > 0) {
+    if (dashboard.caloriesBurned.length > 0) {
       const stat = getStat("caloriesBurned", todayTime)
       setDailyData((prev) => ({
         ...prev,
@@ -94,8 +94,8 @@ const DailyStats = () => {
       className="daily-stats"
     >
       {statsList.map((obj) => (
-          <Grid item key={`daily-stat-${obj.key}`} xs={12} sm={6} md={4} lg={3}> {StatCard(obj, dailyData)} </Grid>
-        )
+        <Grid item key={`daily-stat-${obj.key}`} xs={12} sm={6} md={4} lg={3}> {StatCard(obj, dailyData)} </Grid>
+      )
       )}
     </Grid>
   );
