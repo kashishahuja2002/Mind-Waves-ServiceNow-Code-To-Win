@@ -4,10 +4,12 @@ import { Grid, Typography, Box } from "@mui/material";
 
 import { badgesList } from '../../Constants';
 
-const MonthlyAchivements = () => {
+const MonthlyAchievements = (props) => {
+    const { month } = props;
+    
     return (
-        <Box className="whiteBox monthlyAchivements">
-            <Typography variant="body" gutterBottom className="title">January</Typography>
+        <Box className="whiteBox monthlyAchievements">
+            <Typography variant="body" gutterBottom className="title">{month}</Typography>
 
             <Grid
                 container
@@ -26,4 +28,4 @@ const MonthlyAchivements = () => {
     );
 }
 
-export default MonthlyAchivements;
+export default MonthlyAchievements;

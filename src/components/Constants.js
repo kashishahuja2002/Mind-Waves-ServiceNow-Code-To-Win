@@ -4,6 +4,7 @@ import PsychologyIcon from '@mui/icons-material/Psychology';    // EAP Icon
 import ScheduleIcon from '@mui/icons-material/Schedule';    // Reminders/Breaks Icon
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';  // Daily activities Icon
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';    // Educational resources Icon
+import ExtensionIcon from '@mui/icons-material/Extension';      // Relaxing Activities
 
 // Stat List Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -21,10 +22,19 @@ import ExerciseDurationBadge from '../assets/images/badges/ExerciseDurationBadge
 import MeditationTimeBadge from '../assets/images/badges/MeditationTimeBadge.png';
 import MoodBadge from '../assets/images/badges/MoodBadge.png';
 
+// Relaxing Activities
+import Music from '../assets/images/relaxing-activities/Music.jpg';
+import Reading from '../assets/images/relaxing-activities/Reading.jpg';
+import Videos from '../assets/images/relaxing-activities/Videos.jpg';
+import Memes from '../assets/images/relaxing-activities/Memes.webp';
+import Exercise from '../assets/images/relaxing-activities/Exercise.webp';
+import Meditation from '../assets/images/relaxing-activities/Meditation.jpg';
+
 export const sidebarList = [
     { name: "Dashboard", link: "/pages/dashboard", icon: <DashboardIcon /> },
     { name: "EAP", link: "/pages/eap", icon: <PsychologyIcon /> },
     { name: "Set reminders", link: "/pages/set-reminders", icon: <ScheduleIcon /> },
+    { name: "Relaxing Activities", link: "/pages/relaxing-activities", icon: <ExtensionIcon /> },
     { name: "Daily activities", link: "/pages/daily-activities", icon: <VolunteerActivismIcon /> },
     { name: "Educational resources", link: "/pages/educational-resources", icon: <LocalLibraryIcon /> },
 ];
@@ -79,4 +89,13 @@ export const badgesList = [
     { key: "exerciseDuration", badge: ExerciseDurationBadge },
     { key: "meditationTime", badge: MeditationTimeBadge },
     { key: "mood", badge: MoodBadge }
+]
+
+export const relaxingActivitiesList = [
+    { key: "music", title: "Music", content: "Let the music move you: Feel the rhythm and experience the transformative power of music.", image: Music, link: "https://open.spotify.com/" },
+    { key: "reading", title: "Reading", content: "Take a break from reality and Let your imagination soar : Dive into a good read and unlock a world of possibilities.", image: Reading, link: "https://www.wattpad.com/" },
+    { key: "video", title: "Clips & Videos", content: "Unwind and relax: Treat yourself to some peaceful and calming videos that will soothe your mind and body.", image: Videos, link: "https://www.youtube.com/" },
+    { key: "memes", title: "Memes", content: "Laugh your way to a better mood: Watch some memes and forget your worries for a while.", image: Memes, link: "https://www.instagram.com/explore/" },
+    { key: "exercise", title: "Exercise", content: "Your body will thank you: Take the first step towards a healthier, happier you by prioritizing exercise.", image: Exercise, link: "/pages/daily-activities" },
+    { key: "meditation", title: "Meditation", content: "Escape into serenity: Find tranquility in the midst of chaos and enjoy the calming effects of meditation.", image: Meditation, link: "/pages/daily-activities" },
 ]

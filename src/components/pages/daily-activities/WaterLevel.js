@@ -9,7 +9,7 @@ class WaterLevel extends Component {
     endColor = '#80c5de';
 
     render() {
-        const radius = 130;
+        const radius = 100;
         const interpolate = interpolateRgb(this.startColor, this.endColor);
         const fillColor = interpolate(this.props.waterLevel / 100);
         const gradientStops = [
