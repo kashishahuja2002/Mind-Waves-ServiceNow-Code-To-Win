@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSelector } from 'react-redux';
-
+import Lb from './components/pages/leaderboard/lb';
 import LinearProgress from '@mui/material/LinearProgress';
 
 import AuthContainer from "./components/auth/AuthContainer";
@@ -15,6 +15,7 @@ import DailyActivities from "./components/pages/daily-activities/DailyActivities
 import Reminders from "./components/pages/reminders-breaks/Reminders";
 
 import './App.scss';
+import Leaderboard from "./components/pages/leaderboard/Leaderboard";
 
 function App() {
   const loading = useSelector((store) => store.app.barLoading);
@@ -38,7 +39,7 @@ function App() {
               <Route path="educational-resources" element={<EducationalResources />} />
               <Route path="profile" element={<Profile />} />
               <Route path="achivements" element={<Achivements />} />
-              <Route path="leaderboard" element={"Leaderboard"} />
+              <Route path="leaderboard" element={<Leaderboard />} />
             </Route>
           </Routes>
         </BrowserRouter>

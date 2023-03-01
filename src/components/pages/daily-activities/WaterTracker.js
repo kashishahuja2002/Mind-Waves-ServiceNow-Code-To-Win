@@ -55,7 +55,7 @@ export default function WaterTracker() {
     const [historyCardHeight, setHistoryCardHeight] = useState(0);
     useEffect(() => {
         let leftCard = document.querySelector("#leftCard");
-        if(leftCard) {
+        if (leftCard) {
             setHistoryCardHeight(leftCard.clientHeight - 25);
         }
     }, []);
@@ -78,7 +78,7 @@ export default function WaterTracker() {
             </Grid>
 
             <Grid item xs={12} sm={6}>
-                <Card className="whiteBox historyCard" sx={{height: historyCardHeight}}>
+                <Card className="whiteBox historyCard" sx={{ height: historyCardHeight }}>
                     <History time={data} />
                 </Card>
             </Grid>

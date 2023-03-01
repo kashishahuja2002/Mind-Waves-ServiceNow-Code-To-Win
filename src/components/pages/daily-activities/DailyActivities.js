@@ -11,6 +11,7 @@ import MeditationTracker from './MeditationTracker';
 
 import '../../../styles/pages/daily-activities/DailyActivities.scss';
 import 'react-circular-progressbar/dist/styles.css';
+import EndSessionButton from './EndSessionButton';
 
 export default function DailyActivities() {
     const [tabIndex, setTabIndex] = useState(0);

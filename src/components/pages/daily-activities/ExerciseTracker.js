@@ -5,7 +5,7 @@ import { Grid } from '@mui/material';
 import Card from '@mui/material/Card';
 import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
 import PauseOutlinedIcon from '@mui/icons-material/PauseOutlined';
-
+import History from './History.js';
 import EndSessionButton from './EndSessionButton.js';
 import StopwatchHistory from './StopwatchHistory.js';
 import TargetChart from './TragetChart';
@@ -22,6 +22,7 @@ class ExerciseTracker extends React.Component {
             currentTimeSec: 0,
             currentTimeMin: 0,
             history: [],
+            data: [],
             key: 0,
             historyCardHeight: 0,
         };
@@ -30,7 +31,7 @@ class ExerciseTracker extends React.Component {
     componentDidMount() {
         this.setHistoryState();
         let leftCard = document.querySelector("#leftCard");
-        if(leftCard) {
+        if (leftCard) {
             this.setState({
                 historyCardHeight: leftCard.clientHeight - 25
             })
@@ -65,11 +66,6 @@ class ExerciseTracker extends React.Component {
     stop = () => {
         this.setState({ running: false });
         clearInterval(this.watch);
-        if (typeof Storage !== 'undefined') {
-            this.saveToLocalStorage();
-        } else {
-            console.error('local storage not supported');
-        }
         this.setHistoryState();
     };
 
@@ -91,15 +87,9 @@ class ExerciseTracker extends React.Component {
             currentTimeSec: 0,
             currentTimeMin: 0,
             running: false,
-            key: (prevKey) => prevKey + 1
-
+            key: (prevKey) => prevKey + 1,
         });
         clearInterval(this.watch);
-        if (typeof Storage !== 'undefined') {
-            this.saveToLocalStorage();
-        } else {
-            console.error('local storage not supported');
-        }
         this.setHistoryState();
 
     };
@@ -142,25 +132,25 @@ class ExerciseTracker extends React.Component {
                                 return { delay: 0 }
                             }}
                         >
-                            {({ remainingTime }) => this.state.running === false 
-                                ?   <PlayArrowOutlinedIcon className="play-icon" onClick={this.start} /> 
-                                :   <PauseOutlinedIcon className="play-icon" onClick={this.stop} />
+                            {({ remainingTime }) => this.state.running === false
+                                ? <PlayArrowOutlinedIcon className="play-icon" onClick={this.start} />
+                                : <PauseOutlinedIcon className="play-icon" onClick={this.stop} />
                             }
                         </CountdownCircleTimer>
 
                         <div className="stopwatch">
-                                {this.formatTime(this.state.currentTimeMin)}:
-                                {this.formatTime(this.state.currentTimeSec)}
+                            {this.formatTime(this.state.currentTimeMin)}:
+                            {this.formatTime(this.state.currentTimeSec)}
                         </div>
 
-                        <EndSessionButton 
-                            reset={this.reset} {...this.state} formatTime={this.formatTime} 
+                        <EndSessionButton
+                            reset={this.reset} {...this.state} formatTime={this.formatTime}
                         />
                     </Card>
                 </Grid>
 
                 <Grid item xs={12} sm={6}>
-                    <Card className="whiteBox historyCard" sx={{height: this.state.historyCardHeight}}>
+                    <Card className="whiteBox historyCard" sx={{ height: this.state.historyCardHeight }}>
                         {/* History component */}
                         <StopwatchHistory reset={this.reset} {...this.state} formatTime={this.formatTime} />
                     </Card>

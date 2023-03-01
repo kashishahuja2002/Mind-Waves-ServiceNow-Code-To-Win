@@ -1,4 +1,5 @@
 import React from 'react';
+import History from './History';
 
 class EndSessionButton extends React.Component {
     constructor(props) {
@@ -28,6 +29,7 @@ class EndSessionButton extends React.Component {
     };
 
     saveToLocalStorage = () => {
+        this.setHistoryState();
         if (localStorage.times) {
             localStorage.times =
 
@@ -48,6 +50,8 @@ class EndSessionButton extends React.Component {
     };
 
     saveTime = () => {
+        this.setHistoryState();
+
         if (typeof Storage !== 'undefined') {
             this.saveToLocalStorage();
         } else {
@@ -63,27 +67,14 @@ class EndSessionButton extends React.Component {
         this.setHistoryState();
     };
 
-    reset = () => {
-        this.setState({
-            currentTimeMs: 0,
-            currentTimeSec: 0,
-            currentTimeMin: 0,
-            running: false,
-        });
-        clearInterval(this.watch);
-        if (typeof Storage !== 'undefined') {
-            this.saveToLocalStorage();
-        } else {
-            console.error('local storage not supported');
-        }
-        this.setHistoryState();
-    };
-    
+
+
     render() {
+        let msg = 'Goodbye';
         return (
             <div onClick={this.saveTime}>
                 <div onClick={this.props.reset} className="endSessionButton" >
-                        End Session
+                    End Session
                 </div>
             </div>
         );
