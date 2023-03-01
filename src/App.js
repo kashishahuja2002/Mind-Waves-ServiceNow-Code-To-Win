@@ -1,9 +1,7 @@
 import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSelector } from 'react-redux';
-import Lb from './components/pages/leaderboard/lb';
 import LinearProgress from '@mui/material/LinearProgress';
-
 import AuthContainer from "./components/auth/AuthContainer";
 import PagesContainer from "./components/pages/PagesContainer";
 import Dashboard from "./components/pages/dashboard/Dashboard";
