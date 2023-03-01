@@ -1,15 +1,25 @@
+// Sidebar Icons
 import DashboardIcon from '@mui/icons-material/Dashboard';  // Dashboard Icon
 import PsychologyIcon from '@mui/icons-material/Psychology';    // EAP Icon
 import ScheduleIcon from '@mui/icons-material/Schedule';    // Reminders/Breaks Icon
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';  // Daily activities Icon
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';    // Educational resources Icon
 
+// Stat List Icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPersonWalking, faHeartPulse, faGlassWater, faDumbbell } from '@fortawesome/free-solid-svg-icons'
 import ElectricBoltIcon from '@mui/icons-material/ElectricBolt'; // Calories Burned
 import SelfImprovementIcon from '@mui/icons-material/SelfImprovement'; // Meditation time
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions'; // Mood
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPersonWalking, faHeartPulse, faGlassWater, faDumbbell } from '@fortawesome/free-solid-svg-icons'
+// Badges
+import StepsCountBadge from '../assets/images/badges/StepsCountBadge.png';
+import HeartPointsBadge from '../assets/images/badges/HeartPointsBadge.png';
+import CaloriesBurnedBadge from '../assets/images/badges/CaloriesBurnedBadge.png';
+import HydrationRateBadge from '../assets/images/badges/HydrationRateBadge.png';
+import ExerciseDurationBadge from '../assets/images/badges/ExerciseDurationBadge.png';
+import MeditationTimeBadge from '../assets/images/badges/MeditationTimeBadge.png';
+import MoodBadge from '../assets/images/badges/MoodBadge.png';
 
 export const sidebarList = [
     { name: "Dashboard", link: "/pages/dashboard", icon: <DashboardIcon /> },
@@ -28,6 +38,7 @@ export const statsList = [
     { key: "meditationTime", title: "Meditation time", icon: <SelfImprovementIcon />, color: "#51ab55" },
     { key: "mood", title: "Mood", icon: <EmojiEmotionsIcon />, color: "#fb8c00" }
 ]
+
 export const days = [
     { name: "Mon" },
     { name: "Tue" },
@@ -37,7 +48,6 @@ export const days = [
     { name: "Sat" },
     { name: "Sun" },
 ]
-
 
 export const blogsList = [
     { title: "Healthy workplaces", description: "Workers’ health, safety and well-being are vital concerns to hundreds of millions of working people worldwide. But the issue extends even further", link: "https://www.who.int/publications/i/item/healthy-workplaces-a-model-for-action" },
@@ -59,4 +69,14 @@ export const blogsList = [
     { title: "Ask for Help", description: "Did you know that getting rejected activates the same region in the brain as feeling physical pain? Yes, neuroscience says that rejection hurts", link: "https://pumble.com/blog/ask-for-help-professionally/" },
 
     { title: "Meditation", description: "When we meditate, we inject far-reaching and long-lasting benefits into our lives: We lower our stress levels, we get to know our pain, we connect better, we improve", link: "https://www.mindful.org/how-to-meditate/" },
+]
+
+export const badgesList = [
+    { key: "stepsCount", badge: StepsCountBadge },
+    { key: "heartPoints", badge: HeartPointsBadge },
+    { key: "caloriesBurned", badge: CaloriesBurnedBadge },
+    { key: "hydrationRate", badge: HydrationRateBadge },
+    { key: "exerciseDuration", badge: ExerciseDurationBadge },
+    { key: "meditationTime", badge: MeditationTimeBadge },
+    { key: "mood", badge: MoodBadge }
 ]

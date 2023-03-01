@@ -2,7 +2,7 @@ import React from "react";
 
 import { Grid, Typography, Box } from "@mui/material";
 
-import Badge from '../../../assets/images/Badge.png';
+import { badgesList } from '../../Constants';
 
 const MonthlyAchivements = () => {
     return (
@@ -16,13 +16,11 @@ const MonthlyAchivements = () => {
                 alignItems="center"
                 spacing={2}
             >
-                <Grid item xs><img src={Badge} alt="Badge" width="100px" /></Grid>
-                <Grid item xs><img src={Badge} alt="Badge" width="100px" /></Grid>
-                <Grid item xs><img src={Badge} alt="Badge" width="100px" /></Grid>
-                <Grid item xs><img src={Badge} alt="Badge" width="100px" /></Grid>
-                <Grid item xs><img src={Badge} alt="Badge" width="100px" /></Grid>
-                <Grid item xs><img src={Badge} alt="Badge" width="100px" /></Grid>
-                <Grid item xs><img src={Badge} alt="Badge" width="100px" /></Grid>
+                {badgesList.map((obj, index) => 
+                    <Grid item key={`badge-${index}`} xs>
+                        <img src={obj.badge} alt="Badge" width="130px" />
+                    </Grid>
+                )}
             </Grid>
         </Box>
     );
