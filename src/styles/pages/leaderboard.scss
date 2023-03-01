@@ -1,3 +1,5 @@
+@import '../Variables.scss';
+
 .leaderboard-title {
     font-weight: 600;
     font-size: 18px;
@@ -7,4 +9,8 @@
 
 .table-heading {
     font-weight: bold !important;
+}
+
+.bg-blue {
+    background-color: var(--light-blue);
 }

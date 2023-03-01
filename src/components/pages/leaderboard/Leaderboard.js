@@ -14,11 +14,11 @@ function createData(name, rank, numOfBadges) {
 }
 
 const rows = [
-    createData("Drakshi", 4, 3),
-    createData("kashish", 5, 2),
-    createData("Ishika", 3, 1),
-    createData("Ishika", 2, 1),
-    createData("Ishika", 1, 1)
+    createData("Drakshi", 3, 1),
+    createData("kashish", 2, 2),
+    createData("Ishika", 1, 4),
+    createData("Andrea", 4, 1),
+    createData("Samantha", 5, 1)
 ];
 
 export default function SortedTable() {
@@ -58,7 +58,7 @@ export default function SortedTable() {
 
                             <TableCell className='table-heading' align="center" onClick={handleSortRequest}>
                                 <TableSortLabel active={true} direction={orderDirection}>
-                                    Rank&nbsp;($)
+                                    Rank
                                 </TableSortLabel>
                             </TableCell>
 
@@ -68,8 +68,9 @@ export default function SortedTable() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rowData.map((row) => (
-                            <TableRow key={row.number}>
+                        {rowData.map((row, index) => (
+                            <TableRow key={index} className={index === 2 && 'bg-blue'}>
+
                                 <TableCell component="th" scope="row" align="center">
                                     {row.name}
                                 </TableCell>
