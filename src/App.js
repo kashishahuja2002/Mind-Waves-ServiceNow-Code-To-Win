@@ -16,7 +16,6 @@ import EducationalResources from "./components/pages/educational-resources/Educa
 import Achievements from "./components/pages/achievements/Achievements";
 import Leaderboard from "./components/pages/leaderboard/Leaderboard";
 import Profile from "./components/pages/profile/Profile";
-import Questionnaire from "./components/questionnaire/Questionnaire";
 
 import './App.scss';
 
@@ -49,8 +48,6 @@ function App() {
             <Route path="*" element={<AuthContainer />} />
           </Routes>
         </BrowserRouter>
-
-        <Questionnaire />
       </div>
     </Suspense>
   );

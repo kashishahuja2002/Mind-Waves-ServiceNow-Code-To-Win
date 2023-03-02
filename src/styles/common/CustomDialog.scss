@@ -1,0 +1,33 @@
+.dialog {
+    .moodIcons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        svg {
+            font-size: 100px;
+            margin: 5px;
+        }
+    
+        .sad {
+            color: #e51b1b;
+        }
+    
+        .neutral {
+            color: #f79515;
+        }
+    
+        .happy {
+            color: #35a335;
+        }
+    }
+    
+    .MuiFormLabel-root.Mui-focused {
+        color: rgba(0, 0, 0, 0.6) !important;
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+}

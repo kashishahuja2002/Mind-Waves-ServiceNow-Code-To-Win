@@ -5,6 +5,8 @@ import Grid from '@mui/material/Grid';
 
 import { Sidebar, SidebarContents } from "./Sidebar";
 import Navbar from "./Navbar";
+import Questionnaire from '../questionnaire/Questionnaire';
+
 import '../../styles/pages/PagesContainer.scss';
 
 const PagesContainer = () => {
@@ -19,6 +21,20 @@ const PagesContainer = () => {
     }, []);
 
     const [showSidebar, setShowSidebar] = useState(false);
+
+    // Questionairre pop-up
+    const [showPopup, setShowPopup] = useState(false);
+
+    useEffect(() => {
+        const now = new Date();
+        const targetTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 1, 33, 0); // 6pm
+        const timeUntilTarget = targetTime - now;
+        if (timeUntilTarget > 0) {
+            const timeoutId = setTimeout(() => setShowPopup(true), timeUntilTarget);
+            return () => clearTimeout(timeoutId);
+        }
+        setShowPopup(true);
+    }, []);
 
     return (
         <Grid
@@ -50,6 +66,8 @@ const PagesContainer = () => {
                     </Grid>
                 </Grid>
             </Grid>
+
+            {showPopup && <Questionnaire />}
         </Grid>
     );
 }
