@@ -40,6 +40,8 @@ function App() {
               <Route path="achievements" element={<Achievements />} />
               <Route path="leaderboard" element={<Leaderboard />} />
             </Route>
+
+            <Route path="*" element={<AuthContainer />} />
           </Routes>
         </BrowserRouter>
       </div>
