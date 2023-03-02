@@ -29,6 +29,8 @@ import Videos from '../assets/images/relaxing-activities/Videos.jpg';
 import Memes from '../assets/images/relaxing-activities/Memes.webp';
 import Exercise from '../assets/images/relaxing-activities/Exercise.webp';
 import Meditation from '../assets/images/relaxing-activities/Meditation.jpg';
+import AudioBooks from '../assets/images/relaxing-activities/AudioBooks.jpg';
+import Games from '../assets/images/relaxing-activities/Games.webp';
 
 export const sidebarList = [
     { name: "Dashboard", link: "/pages/dashboard", icon: <DashboardIcon /> },
@@ -98,4 +100,6 @@ export const relaxingActivitiesList = [
     { key: "memes", title: "Memes", content: "Laugh your way to a better mood: Watch some memes and forget your worries for a while.", image: Memes, link: "https://www.instagram.com/explore/" },
     { key: "exercise", title: "Exercise", content: "Your body will thank you: Take the first step towards a healthier, happier you by prioritizing exercise.", image: Exercise, link: "/pages/daily-activities" },
     { key: "meditation", title: "Meditation", content: "Escape into serenity: Find tranquility in the midst of chaos and enjoy the calming effects of meditation.", image: Meditation, link: "/pages/daily-activities" },
+    { key: "audioBooks", title: "Audio Books", content: "Unlock a world of knowledge - listen to your favorite stories with audiobooks.", image: AudioBooks, link: "https://www.audible.in/" },
+    { key: "games", title: "Games", content: "Step into the world of endless adventures and exhilarating challenges with our exciting collection of games! Are you ready to unleash your inner gamer?", image: Games, link: "https://www.crazygames.com/" },
 ]
