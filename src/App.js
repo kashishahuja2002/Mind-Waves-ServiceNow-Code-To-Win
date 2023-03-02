@@ -8,12 +8,12 @@ import Dashboard from "./components/pages/dashboard/Dashboard";
 import Eap from "./components/pages/eap/Eap";
 import EducationalResources from "./components/pages/educational-resources/EducationalResources";
 import Profile from "./components/pages/profile/Profile";
-import Achivements from "./components/pages/achivements/Achivements";
+import Achievements from "./components/pages/achievements/Achievements";
 import DailyActivities from "./components/pages/daily-activities/DailyActivities";
-import Reminders from "./components/pages/reminders-breaks/Reminders";
+import RelaxingActivities from "./components/pages/relaxing-activities/RelaxingActivities";
+import Leaderboard from "./components/pages/leaderboard/Leaderboard";
 
 import './App.scss';
-import Leaderboard from "./components/pages/leaderboard/Leaderboard";
 
 function App() {
   const loading = useSelector((store) => store.app.barLoading);
@@ -33,10 +33,11 @@ function App() {
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="eap" element={<Eap />} />
               <Route path="set-reminders" element={"set-reminders"} />
+              <Route path="relaxing-activities" element={<RelaxingActivities />} />
               <Route path="daily-activities" element={<DailyActivities />} />
               <Route path="educational-resources" element={<EducationalResources />} />
               <Route path="profile" element={<Profile />} />
-              <Route path="achivements" element={<Achivements />} />
+              <Route path="achievements" element={<Achievements />} />
               <Route path="leaderboard" element={<Leaderboard />} />
             </Route>
           </Routes>

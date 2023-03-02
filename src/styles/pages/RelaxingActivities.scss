@@ -1,0 +1,21 @@
+.activityCard {
+    .title {
+        margin-bottom: 5px;
+    }
+
+    .content {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2; 
+    }
+
+    .MuiCardActions-root {
+        float: right;
+
+        button {
+            font-weight: bold;
+        }
+    }
+}

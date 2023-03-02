@@ -11,6 +11,9 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
+import LocalPoliceIcon from '@mui/icons-material/LocalPolice';      // Achievements Icon
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';      // Leaderboard Icon
+import CustomTooltip from '../common/CustomTooltip';
 
 const Navbar = (props) => {
     const { toggleSidebar } = props;
@@ -32,6 +35,9 @@ const Navbar = (props) => {
             case "/pages/set-reminders":
                 text = "Set Reminders";
                 break;
+            case "/pages/relaxing-activities":
+                text = "Relaxing Activities";
+                break;
             case "/pages/daily-activities":
                 text = "Daily Activities";
                 break;
@@ -41,8 +47,8 @@ const Navbar = (props) => {
             case "/pages/profile":
                 text = "Profile";
                 break;
-            case "/pages/achivements":
-                text = "Achivements";
+            case "/pages/achievements":
+                text = "Achievements";
                 break;
             case "/pages/leaderboard":
                 text = "Leaderboard";
@@ -71,8 +77,8 @@ const Navbar = (props) => {
         navigate("/auth/login");
     }
 
-    const handleMyAchivementsClick = () => {
-        navigate("/pages/achivements");
+    const handleMyAchievementsClick = () => {
+        navigate("/pages/achievements");
     }
 
     const handleLeaderboardClick = () => {
@@ -100,6 +106,32 @@ const Navbar = (props) => {
                     </Typography>
                     
                     <div>
+                        <CustomTooltip title="Achievements">
+                            <IconButton
+                                size="large"
+                                aria-label="account of current user"
+                                aria-controls="menu-appbar"
+                                aria-haspopup="true"
+                                onClick={handleMyAchievementsClick}
+                                color="inherit"
+                            >
+                                <LocalPoliceIcon />
+                            </IconButton>
+                        </CustomTooltip>
+
+                        <CustomTooltip title="Leaderboard">
+                            <IconButton
+                                size="large"
+                                aria-label="account of current user"
+                                aria-controls="menu-appbar"
+                                aria-haspopup="true"
+                                onClick={handleLeaderboardClick}
+                                color="inherit"
+                            >
+                                <EmojiEventsIcon />
+                            </IconButton>
+                        </CustomTooltip>
+
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -139,8 +171,6 @@ const Navbar = (props) => {
                         >
                             <MenuItem onClick={handleProfileClick}>Profile</MenuItem>
                             <MenuItem onClick={handleLogoutClick}>Logout</MenuItem>
-                            <MenuItem onClick={handleMyAchivementsClick}>My Achivements</MenuItem>
-                            <MenuItem onClick={handleLeaderboardClick}>Leaderboard</MenuItem>
                         </Menu>
                     </div>
                 </Toolbar>
