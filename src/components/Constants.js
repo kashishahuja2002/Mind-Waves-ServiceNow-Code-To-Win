@@ -1,20 +1,42 @@
+// Sidebar Icons
 import DashboardIcon from '@mui/icons-material/Dashboard';  // Dashboard Icon
 import PsychologyIcon from '@mui/icons-material/Psychology';    // EAP Icon
 import ScheduleIcon from '@mui/icons-material/Schedule';    // Reminders/Breaks Icon
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';  // Daily activities Icon
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';    // Educational resources Icon
+import ExtensionIcon from '@mui/icons-material/Extension';      // Relaxing Activities
 
+// Stat List Icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPersonWalking, faHeartPulse, faGlassWater, faDumbbell } from '@fortawesome/free-solid-svg-icons'
 import ElectricBoltIcon from '@mui/icons-material/ElectricBolt'; // Calories Burned
 import SelfImprovementIcon from '@mui/icons-material/SelfImprovement'; // Meditation time
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions'; // Mood
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPersonWalking, faHeartPulse, faGlassWater, faDumbbell } from '@fortawesome/free-solid-svg-icons'
+// Badges
+import StepsCountBadge from '../assets/images/badges/StepsCountBadge.png';
+import HeartPointsBadge from '../assets/images/badges/HeartPointsBadge.png';
+import CaloriesBurnedBadge from '../assets/images/badges/CaloriesBurnedBadge.png';
+import HydrationRateBadge from '../assets/images/badges/HydrationRateBadge.png';
+import ExerciseDurationBadge from '../assets/images/badges/ExerciseDurationBadge.png';
+import MeditationTimeBadge from '../assets/images/badges/MeditationTimeBadge.png';
+import MoodBadge from '../assets/images/badges/MoodBadge.png';
+
+// Relaxing Activities
+import Music from '../assets/images/relaxing-activities/Music.jpg';
+import Reading from '../assets/images/relaxing-activities/Reading.jpg';
+import Videos from '../assets/images/relaxing-activities/Videos.jpg';
+import Memes from '../assets/images/relaxing-activities/Memes.webp';
+import Exercise from '../assets/images/relaxing-activities/Exercise.webp';
+import Meditation from '../assets/images/relaxing-activities/Meditation.jpg';
+import AudioBooks from '../assets/images/relaxing-activities/AudioBooks.jpg';
+import Games from '../assets/images/relaxing-activities/Games.webp';
 
 export const sidebarList = [
     { name: "Dashboard", link: "/pages/dashboard", icon: <DashboardIcon /> },
     { name: "EAP", link: "/pages/eap", icon: <PsychologyIcon /> },
     { name: "Set reminders", link: "/pages/set-reminders", icon: <ScheduleIcon /> },
+    { name: "Relaxing Activities", link: "/pages/relaxing-activities", icon: <ExtensionIcon /> },
     { name: "Daily activities", link: "/pages/daily-activities", icon: <VolunteerActivismIcon /> },
     { name: "Educational resources", link: "/pages/educational-resources", icon: <LocalLibraryIcon /> },
 ];
@@ -28,6 +50,7 @@ export const statsList = [
     { key: "meditationTime", title: "Meditation time", icon: <SelfImprovementIcon />, color: "#51ab55" },
     { key: "mood", title: "Mood", icon: <EmojiEmotionsIcon />, color: "#fb8c00" }
 ]
+
 export const days = [
     { name: "Mon" },
     { name: "Tue" },
@@ -37,7 +60,6 @@ export const days = [
     { name: "Sat" },
     { name: "Sun" },
 ]
-
 
 export const blogsList = [
     { title: "Healthy workplaces", description: "Workers’ health, safety and well-being are vital concerns to hundreds of millions of working people worldwide. But the issue extends even further", link: "https://www.who.int/publications/i/item/healthy-workplaces-a-model-for-action" },
@@ -59,4 +81,25 @@ export const blogsList = [
     { title: "Ask for Help", description: "Did you know that getting rejected activates the same region in the brain as feeling physical pain? Yes, neuroscience says that rejection hurts", link: "https://pumble.com/blog/ask-for-help-professionally/" },
 
     { title: "Meditation", description: "When we meditate, we inject far-reaching and long-lasting benefits into our lives: We lower our stress levels, we get to know our pain, we connect better, we improve", link: "https://www.mindful.org/how-to-meditate/" },
+]
+
+export const badgesList = [
+    { key: "stepsCount", badge: StepsCountBadge },
+    { key: "heartPoints", badge: HeartPointsBadge },
+    { key: "caloriesBurned", badge: CaloriesBurnedBadge },
+    { key: "hydrationRate", badge: HydrationRateBadge },
+    { key: "exerciseDuration", badge: ExerciseDurationBadge },
+    { key: "meditationTime", badge: MeditationTimeBadge },
+    { key: "mood", badge: MoodBadge }
+]
+
+export const relaxingActivitiesList = [
+    { key: "music", title: "Music", content: "Let the music move you: Feel the rhythm and experience the transformative power of music.", image: Music, link: "https://open.spotify.com/" },
+    { key: "reading", title: "Reading", content: "Take a break from reality and Let your imagination soar : Dive into a good read and unlock a world of possibilities.", image: Reading, link: "https://www.wattpad.com/" },
+    { key: "video", title: "Clips & Videos", content: "Unwind and relax: Treat yourself to some peaceful and calming videos that will soothe your mind and body.", image: Videos, link: "https://www.youtube.com/" },
+    { key: "memes", title: "Memes", content: "Laugh your way to a better mood: Watch some memes and forget your worries for a while.", image: Memes, link: "https://www.instagram.com/explore/" },
+    { key: "exercise", title: "Exercise", content: "Your body will thank you: Take the first step towards a healthier, happier you by prioritizing exercise.", image: Exercise, link: "/pages/daily-activities" },
+    { key: "meditation", title: "Meditation", content: "Escape into serenity: Find tranquility in the midst of chaos and enjoy the calming effects of meditation.", image: Meditation, link: "/pages/daily-activities" },
+    { key: "audioBooks", title: "Audio Books", content: "Unlock a world of knowledge - listen to your favorite stories with audiobooks.", image: AudioBooks, link: "https://www.audible.in/" },
+    { key: "games", title: "Games", content: "Step into the world of endless adventures and exhilarating challenges with our exciting collection of games! Are you ready to unleash your inner gamer?", image: Games, link: "https://www.crazygames.com/" },
 ]
