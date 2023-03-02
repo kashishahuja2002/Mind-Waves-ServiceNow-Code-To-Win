@@ -14,9 +14,9 @@ function createData(name, rank, numOfBadges) {
 }
 
 const rows = [
-    createData("Drakshi", 3, 1),
+    createData("Ishika", 3, 1),
     createData("kashish", 2, 2),
-    createData("Ishika", 1, 4),
+    createData("Drakshi", 1, 4),
     createData("Andrea", 4, 1),
     createData("Samantha", 5, 1)
 ];
@@ -53,29 +53,29 @@ export default function SortedTable() {
             <Card id="leftCard" className="whiteBox waterCard">
                 <Table aria-label="simple table">
                     <TableHead>
-                        <TableRow>
-                            <TableCell className='table-heading' align="center">Employee Name</TableCell>
+                        <TableRow className='bg-darkblue' >
+                            <TableCell className='table-heading curved-bg-left' align="center">Employee Name</TableCell>
 
                             <TableCell className='table-heading' align="center" onClick={handleSortRequest}>
-                                <TableSortLabel active={true} direction={orderDirection}>
+                                <TableSortLabel className='table-heading ' active={true} direction={orderDirection}>
                                     Rank
                                 </TableSortLabel>
                             </TableCell>
 
-                            <TableCell className='table-heading' align="center">No. of Badges</TableCell>
+                            <TableCell className='table-heading curved-bg-right' align="center">No. of Badges</TableCell>
 
 
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {rowData.map((row, index) => (
-                            <TableRow key={index} className={index === 2 && 'bg-blue'}>
+                            <TableRow key={index} className={row.name === "Drakshi" && 'bg-blue'}>
 
-                                <TableCell component="th" scope="row" align="center">
+                                <TableCell className="curved-bg-left" component="th" scope="row" align="center">
                                     {row.name}
                                 </TableCell>
                                 <TableCell align="center">{row.rank}</TableCell>
-                                <TableCell align="center">{row.numOfBadges}</TableCell>
+                                <TableCell className="curved-bg-right" align="center">{row.numOfBadges}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
