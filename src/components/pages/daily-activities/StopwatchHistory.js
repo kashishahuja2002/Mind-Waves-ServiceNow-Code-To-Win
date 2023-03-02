@@ -96,7 +96,6 @@ class StopwatchHistory extends React.Component {
                 {/*<div onClick={this.saveTime}>
                     <div onClick={this.props.reset} className="end-session-button">End Session</div>
         </div>*/}
-                {this.state.data.length == 0 && console.log("blah")}
                 <ul>
 
                     {this.state.data.length == 0 ? <div className='alt-txt'>
