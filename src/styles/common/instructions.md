@@ -1,1 +1,0 @@
-for style of common components (textbox, button, dropdown, etc.)
