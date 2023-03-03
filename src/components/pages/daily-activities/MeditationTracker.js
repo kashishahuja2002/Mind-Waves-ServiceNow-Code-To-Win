@@ -5,13 +5,12 @@ import { Grid } from '@mui/material';
 import Card from '@mui/material/Card';
 import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
 import PauseOutlinedIcon from '@mui/icons-material/PauseOutlined';
+import IconButton from '@mui/material/IconButton';
 
-import EndSessionButton from './EndSessionButton.js';
-import StopwatchHistory from './StopwatchHistory.js';
+import History from './History';
 import TargetChart from './TragetChart';
 
 import '../../../styles/pages/daily-activities/MeditationTracker.scss';
-
 
 class MeditationTracker extends React.Component {
     constructor(props) {
@@ -23,15 +22,17 @@ class MeditationTracker extends React.Component {
             currentTimeSec: 0,
             currentTimeMin: 0,
             history: [],
-            key: 0,
+            countKey: 0,
             historyCardHeight: 0,
         };
     }
 
     componentDidMount() {
         this.setHistoryState();
+
+        // History card height
         let leftCard = document.querySelector("#leftCard");
-        if(leftCard) {
+        if (leftCard) {
             this.setState({
                 historyCardHeight: leftCard.clientHeight - 25
             })
@@ -39,12 +40,13 @@ class MeditationTracker extends React.Component {
     }
 
     setHistoryState = () => {
-        if (localStorage.times) {
-            this.setState({ history: localStorage.times.split('|') });
+        if (localStorage.meditationTime) {
+            this.setState({ history: localStorage.meditationTime.split('|') });
         } else {
             this.setState({ history: [] });
         }
     };
+
     formatTime = (val, ...rest) => {
         let value = val.toString();
         if (value.length < 2) {
@@ -56,6 +58,7 @@ class MeditationTracker extends React.Component {
         return value;
     };
 
+    // Stopwatch
     start = () => {
         if (!this.state.running) {
             this.setState({ running: true });
@@ -66,11 +69,6 @@ class MeditationTracker extends React.Component {
     stop = () => {
         this.setState({ running: false });
         clearInterval(this.watch);
-        if (typeof Storage !== 'undefined') {
-            this.saveToLocalStorage();
-        } else {
-            console.error('local storage not supported');
-        }
         this.setHistoryState();
     };
 
@@ -85,39 +83,46 @@ class MeditationTracker extends React.Component {
             this.setState({ currentTimeSec: 0 });
         }
     };
+    
+    saveToLocalStorage = () => {
+        if (localStorage.meditationTime) {
+            localStorage.meditationTime =
+                `${new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' })} 
+                :: ${this.formatTime(
+                    this.state.currentTimeMin
+                )}:${this.formatTime(
+                    this.state.currentTimeSec
+                )}` + " | " + localStorage.meditationTime
+        }
+        else {
+            localStorage.meditationTime = `${new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' }) } :: ${this.formatTime(
+                this.state.currentTimeMin
+            )}:${this.formatTime(
+                this.state.currentTimeSec
+            )}`;
+        }
+    };
+
     reset = () => {
-        this.setHistoryState();
+        if (typeof Storage !== 'undefined') {
+            this.saveToLocalStorage();
+        } else {
+            console.error('local storage not supported');
+        }
+
+        let newKey = this.state.countKey + 1;
         this.setState({
             currentTimeMs: 0,
             currentTimeSec: 0,
             currentTimeMin: 0,
             running: false,
+            countKey: newKey,
         });
         clearInterval(this.watch);
-        if (typeof Storage !== 'undefined') {
-            this.saveToLocalStorage();
-        } else {
-            console.error('local storage not supported');
-        }
-        this.setHistoryState();
 
-    };
-    saveTime = () => {
-        if (typeof Storage !== 'undefined') {
-            this.saveToLocalStorage();
-        } else {
-            console.error('local storage not supported');
-        }
-        this.setHistoryState();
-
-    };
-
-    resetHistory = () => {
-        if (localStorage.times) {
-            localStorage.removeItem('times');
-        }
         this.setHistoryState();
     };
+
     render() {
         return (
             <Grid
@@ -130,8 +135,9 @@ class MeditationTracker extends React.Component {
                 <Grid item xs={12} sm={6}>
                     <Card id="leftCard" className="whiteBox meditationCard">
                         <CountdownCircleTimer
+                            key={this.state.countKey}
                             isPlaying={this.state.running}
-                            duration={21}
+                            duration={60}
                             colors="#d9d9d9"
                             trailColor='#51ab55'
                             strokeWidth="12"
@@ -141,8 +147,8 @@ class MeditationTracker extends React.Component {
                             }}
                         >
                             {({ remainingTime }) => this.state.running === false 
-                                ?   <PlayArrowOutlinedIcon className="play-icon" onClick={this.start} /> 
-                                :   <PauseOutlinedIcon className="play-icon" onClick={this.stop} />
+                                ?   <IconButton onClick={this.start}><PlayArrowOutlinedIcon className="play-icon" /></IconButton> 
+                                :   <IconButton onClick={this.stop}><PauseOutlinedIcon className="play-icon" /></IconButton>
                             }
                         </CountdownCircleTimer>
 
@@ -151,16 +157,15 @@ class MeditationTracker extends React.Component {
                             {this.formatTime(this.state.currentTimeSec)}
                         </div>
 
-                        <EndSessionButton 
-                            reset={this.reset} {...this.state} formatTime={this.formatTime} 
-                        />
+                        <div onClick={this.reset} className="endSessionButton" >
+                            End Session
+                        </div>
                     </Card>
                 </Grid>
 
                 <Grid item xs={12} sm={6}>
                     <Card className="whiteBox historyCard" sx={{height: this.state.historyCardHeight}}>
-                        {/* History component */}
-                        <StopwatchHistory reset={this.reset} {...this.state} formatTime={this.formatTime} />
+                        <History time={this.state.history} tab="meditation" />
                     </Card>
                 </Grid>
 

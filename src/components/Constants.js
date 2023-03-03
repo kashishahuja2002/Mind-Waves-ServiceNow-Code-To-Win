@@ -49,7 +49,7 @@ export const statsList = [
     { key: "exerciseDuration", title: "Exercise duration", icon: <FontAwesomeIcon icon={faDumbbell} />, color: "#652fa1" },
     { key: "meditationTime", title: "Meditation time", icon: <SelfImprovementIcon />, color: "#51ab55" },
     { key: "mood", title: "Mood", icon: <EmojiEmotionsIcon />, color: "#fb8c00" }
-]
+];
 
 export const days = [
     { name: "Mon" },
@@ -59,7 +59,7 @@ export const days = [
     { name: "Fri" },
     { name: "Sat" },
     { name: "Sun" },
-]
+];
 
 export const blogsList = [
     { title: "Healthy workplaces", description: "Workers’ health, safety and well-being are vital concerns to hundreds of millions of working people worldwide. But the issue extends even further", link: "https://www.who.int/publications/i/item/healthy-workplaces-a-model-for-action" },
@@ -81,7 +81,7 @@ export const blogsList = [
     { title: "Ask for Help", description: "Did you know that getting rejected activates the same region in the brain as feeling physical pain? Yes, neuroscience says that rejection hurts", link: "https://pumble.com/blog/ask-for-help-professionally/" },
 
     { title: "Meditation", description: "When we meditate, we inject far-reaching and long-lasting benefits into our lives: We lower our stress levels, we get to know our pain, we connect better, we improve", link: "https://www.mindful.org/how-to-meditate/" },
-]
+];
 
 export const badgesList = [
     { key: "stepsCount", badge: StepsCountBadge },
@@ -91,7 +91,7 @@ export const badgesList = [
     { key: "exerciseDuration", badge: ExerciseDurationBadge },
     { key: "meditationTime", badge: MeditationTimeBadge },
     { key: "mood", badge: MoodBadge }
-]
+];
 
 export const relaxingActivitiesList = [
     { key: "music", title: "Music", content: "Let the music move you: Feel the rhythm and experience the transformative power of music.", image: Music, link: "https://open.spotify.com/" },
@@ -102,4 +102,21 @@ export const relaxingActivitiesList = [
     { key: "meditation", title: "Meditation", content: "Escape into serenity: Find tranquility in the midst of chaos and enjoy the calming effects of meditation.", image: Meditation, link: "/pages/daily-activities" },
     { key: "audioBooks", title: "Audio Books", content: "Unlock a world of knowledge - listen to your favorite stories with audiobooks.", image: AudioBooks, link: "https://www.audible.in/" },
     { key: "games", title: "Games", content: "Step into the world of endless adventures and exhilarating challenges with our exciting collection of games! Are you ready to unleash your inner gamer?", image: Games, link: "https://www.crazygames.com/" },
-]
+];
+
+export const questionsList = [
+    {id: 1, question: "How are you feeling today?", opt1: "Bad", opt2: "Okay", opt3: "Good"},
+    {id: 2, question: "How would you describe your energy levels right now?", opt1: "Low", opt2: "Moderate", opt3: "High"},
+    {id: 3, question: "Are you feeling stressed or anxious right now?", opt1: "Yes, very much", opt2: "A little bit", opt3: "Not at all"},
+    {id: 4, question: "How would you describe your current motivation levels?", opt1: "Low", opt2: "Moderate", opt3: "High"},
+    {id: 5, question: "Are you feeling overwhelmed with work or other responsibilities?", opt1: "Yes, very much", opt2: "A little bit", opt3: "Not at all"},
+    {id: 6, question: "Are you feeling lonely or isolated?", opt1: "Yes, very much", opt2: "A little bit", opt3: "Not at all"},
+    {id: 7, question: "Are you feeling optimistic about the future?", opt1: "Not at all", opt2: "A little bit", opt3: "Yes, very much"},
+    {id: 8, question: "Are you feeling confident in your abilities?", opt1: "Not at all", opt2: "A little bit", opt3: "Yes, very much"},
+    {id: 9, question: "Are you feeling connected to others around you?", opt1: "Not at all", opt2: "A little bit", opt3: "Yes, very much"},
+    {id: 10, question: "How would you describe your overall mood right now?", opt1: "Negative", opt2: "Neutral", opt3: "Positive"},
+    {id: 11, question: "Are you feeling grateful for anything in particular today?", opt1: "Not really", opt2: "A little bit", opt3: "Yes"},
+    {id: 12, question: "Are you feeling any physical discomfort or pain right now?", opt1: "Yes, a lot", opt2: "A little bit", opt3: "None at all"},
+    {id: 13, question: "Are you feeling any sense of accomplishment or satisfaction right now?", opt1: "Not at all", opt2: "A little bit", opt3: "Yes, very much"},
+    {id: 14, question: "Are you feeling any sense of hope or optimism for the future?", opt1: "Not at all", opt2: "A little bit", opt3: "Yes, very much"},
+];

@@ -65,10 +65,22 @@
             display: flex;
             padding: 25% 3px;
         }
+
+        .water {
+            color: rgb(62, 152, 199);
+        }
+
+        .exercise {
+            color: #652fa1;
+        }
+
+        .meditation {
+            color: #51ab55;
+        }
     }
 
     ::-webkit-scrollbar {
-        width: 7px !important;
+        width: 5px !important;
     }
 
     // Target Chart

@@ -12,7 +12,7 @@ import '../../../styles/pages/daily-activities/WaterTracker.scss';
 export default function WaterTracker() {
 
     const [waterLevel, setWaterLevel] = useState(0);
-    const [data, setData] = useState([]);
+    const [history, setHistory] = useState([]);
 
     useEffect(() => {
         setDrinkTimeState();
@@ -20,21 +20,18 @@ export default function WaterTracker() {
 
     const setDrinkTimeState = () => {
         if (localStorage.drinkTime) {
-            setData(localStorage.drinkTime.split('|'))
+            setHistory(localStorage.drinkTime.split('|'))
         }
         else {
-            setData([]);
+            setHistory([]);
         }
-        console.log(data);
     };
 
     const saveToLocalStorage = () => {
-        setDrinkTimeState();
         if (localStorage.drinkTime) {
             localStorage.drinkTime =
                 `${new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' }) + " | "}` +
                 localStorage.drinkTime
-
         } else {
             localStorage.drinkTime =
                 new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' })
@@ -42,12 +39,17 @@ export default function WaterTracker() {
     };
 
     const handleClick = () => {
+        localStorage.setItem('waterLevel', waterLevel+10);
         if (waterLevel < 100) {
             setWaterLevel(waterLevel + 10);
         }
-        localStorage.setItem('waterLevel', waterLevel);
-        console.log(waterLevel);
-        saveToLocalStorage();
+
+        if (typeof Storage !== 'undefined') {
+            saveToLocalStorage();
+        } else {
+            console.error('local storage not supported');
+        }
+        
         setDrinkTimeState();
     };
 
@@ -79,7 +81,7 @@ export default function WaterTracker() {
 
             <Grid item xs={12} sm={6}>
                 <Card className="whiteBox historyCard" sx={{ height: historyCardHeight }}>
-                    <History time={data} />
+                    <History time={history} tab="water" />
                 </Card>
             </Grid>
 
