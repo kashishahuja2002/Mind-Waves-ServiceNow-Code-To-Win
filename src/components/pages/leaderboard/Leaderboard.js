@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import '../../../styles/pages/leaderboard.scss';
+import '../../../styles/pages/Leaderboard.scss';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';

@@ -32,20 +32,18 @@ class EndSessionButton extends React.Component {
         this.setHistoryState();
         if (localStorage.times) {
             localStorage.times =
-
                 `${this.props.formatTime(
                     this.props.currentTimeMin
                 )}:${this.props.formatTime(
                     this.props.currentTimeSec
-                )} ::   ${new Date().toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" })} | ` +
-                localStorage.times
+                )} :: ${new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' }) + " | "}` + localStorage.times
 
         } else {
             localStorage.times = `${this.props.formatTime(
                 this.props.currentTimeMin
             )}:${this.props.formatTime(
                 this.props.currentTimeSec
-            )} ::   ${new Date().toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" })} | `;
+            )} :: ${new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' }) + " | "}`;
         }
     };
 
@@ -70,7 +68,6 @@ class EndSessionButton extends React.Component {
 
 
     render() {
-        let msg = 'Goodbye';
         return (
             <div onClick={this.saveTime}>
                 <div onClick={this.props.reset} className="endSessionButton" >

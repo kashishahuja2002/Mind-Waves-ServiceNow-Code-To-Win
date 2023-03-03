@@ -20,6 +20,7 @@ class StopwatchHistory extends React.Component {
     componentDidMount() {
         this.setHistoryState();
     }
+
     setHistoryState = () => {
         if (localStorage.times) {
 
@@ -64,12 +65,6 @@ class StopwatchHistory extends React.Component {
 
     };
 
-    resetHistory = () => {
-        if (localStorage.times) {
-            localStorage.removeItem('times');
-        }
-        this.setHistoryState();
-    };
     reset = () => {
 
         this.setState({
@@ -92,12 +87,7 @@ class StopwatchHistory extends React.Component {
     render() {
         return (
             <div className={'stopwatch__history'}>
-                {/*<div onClick={this.resetHistory} className="end-session-button">Reset History</div>*/}
-                {/*<div onClick={this.saveTime}>
-                    <div onClick={this.props.reset} className="end-session-button">End Session</div>
-        </div>*/}
                 <ul>
-
                     {this.state.data.length == 0 ? <div className='alt-txt'>
                         <div className='alt-icon'>
                         </div>
