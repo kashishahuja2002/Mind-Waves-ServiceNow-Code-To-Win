@@ -22,7 +22,8 @@
         }
     }
     
-    .MuiFormLabel-root.Mui-focused {
+    .MuiFormLabel-root {
+        margin-top: 10px;
         color: rgba(0, 0, 0, 0.6) !important;
     }
 
@@ -30,4 +31,12 @@
         width: 5px;
         height: 5px;
     }
+
+    .MuiDialogContent-root {
+        padding-bottom: 15px;
+    }
+
+   .modalInfo {
+    margin: 0px 20px;
+   }
 }
