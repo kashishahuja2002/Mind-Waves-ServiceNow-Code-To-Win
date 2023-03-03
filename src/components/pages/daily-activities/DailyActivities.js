@@ -11,7 +11,6 @@ import MeditationTracker from './MeditationTracker';
 
 import '../../../styles/pages/daily-activities/DailyActivities.scss';
 import 'react-circular-progressbar/dist/styles.css';
-import EndSessionButton from './EndSessionButton';
 
 export default function DailyActivities() {
     const [tabIndex, setTabIndex] = useState(0);
@@ -23,14 +22,14 @@ export default function DailyActivities() {
     return (
         <Box className="dailyActivities">
             <Tabs value={tabIndex} onChange={handleTabChange} variant="fullWidth">
+                <Tab label="Meditation Tracker" icon={<SelfImprovementIcon />} />
                 <Tab label="Water Tracker" icon={<FontAwesomeIcon icon={faGlassWater} />} />
                 <Tab label="Excercise Tracker" icon={<FontAwesomeIcon icon={faDumbbell} />} />
-                <Tab label="Meditation Tracker" icon={<SelfImprovementIcon />} />
             </Tabs>
 
-            {tabIndex === 0 && (<WaterTracker />)}
-            {tabIndex === 1 && (<ExerciseTracker />)}
-            {tabIndex === 2 && (<MeditationTracker />)}
+            {tabIndex === 0 && (<MeditationTracker />)}
+            {tabIndex === 1 && (<WaterTracker />)}
+            {tabIndex === 2 && (<ExerciseTracker />)}
         </Box>
     );
 }
