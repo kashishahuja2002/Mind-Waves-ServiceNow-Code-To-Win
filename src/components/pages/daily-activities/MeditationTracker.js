@@ -5,6 +5,7 @@ import { Grid } from '@mui/material';
 import Card from '@mui/material/Card';
 import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
 import PauseOutlinedIcon from '@mui/icons-material/PauseOutlined';
+import IconButton from '@mui/material/IconButton';
 
 import EndSessionButton from './EndSessionButton.js';
 import StopwatchHistory from './StopwatchHistory.js';
@@ -23,8 +24,8 @@ class MeditationTracker extends React.Component {
             currentTimeSec: 0,
             currentTimeMin: 0,
             history: [],
-            key: 0,
             historyCardHeight: 0,
+            countKey: 0
         };
     }
 
@@ -66,11 +67,11 @@ class MeditationTracker extends React.Component {
     stop = () => {
         this.setState({ running: false });
         clearInterval(this.watch);
-        if (typeof Storage !== 'undefined') {
-            this.saveToLocalStorage();
-        } else {
-            console.error('local storage not supported');
-        }
+        // if (typeof Storage !== 'undefined') {
+        //     this.saveToLocalStorage();
+        // } else {
+        //     console.error('local storage not supported');
+        // }
         this.setHistoryState();
     };
 
@@ -87,11 +88,13 @@ class MeditationTracker extends React.Component {
     };
     reset = () => {
         this.setHistoryState();
+        let newKey = this.state.countKey + 1;
         this.setState({
             currentTimeMs: 0,
             currentTimeSec: 0,
             currentTimeMin: 0,
             running: false,
+            countKey: newKey,
         });
         clearInterval(this.watch);
         if (typeof Storage !== 'undefined') {
@@ -130,8 +133,9 @@ class MeditationTracker extends React.Component {
                 <Grid item xs={12} sm={6}>
                     <Card id="leftCard" className="whiteBox meditationCard">
                         <CountdownCircleTimer
+                            key={this.state.countKey}
                             isPlaying={this.state.running}
-                            duration={21}
+                            duration={60}
                             colors="#d9d9d9"
                             trailColor='#51ab55'
                             strokeWidth="12"
@@ -141,8 +145,8 @@ class MeditationTracker extends React.Component {
                             }}
                         >
                             {({ remainingTime }) => this.state.running === false 
-                                ?   <PlayArrowOutlinedIcon className="play-icon" onClick={this.start} /> 
-                                :   <PauseOutlinedIcon className="play-icon" onClick={this.stop} />
+                                ?   <IconButton><PlayArrowOutlinedIcon className="play-icon" onClick={this.start} /></IconButton> 
+                                :   <IconButton><PauseOutlinedIcon className="play-icon" onClick={this.stop} /></IconButton>
                             }
                         </CountdownCircleTimer>
 

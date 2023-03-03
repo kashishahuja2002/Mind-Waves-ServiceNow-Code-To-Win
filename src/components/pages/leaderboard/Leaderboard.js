@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
-import '../../../styles/pages/Leaderboard.scss';
+import React, { useEffect, useState } from 'react';
+
+import { Card } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { Card } from '@mui/material';
 import TableSortLabel from '@mui/material/TableSortLabel';
-import { useState } from 'react';
+
+import '../../../styles/pages/Leaderboard.scss';
 
 function createData(name, rank, numOfBadges) {
     return { name, rank, numOfBadges };
@@ -28,6 +29,7 @@ export default function SortedTable() {
     useEffect(() => {
         handleSortRequest();
     }, [])
+    
     const sortArray = (arr, orderBy) => {
         switch (orderBy) {
             case "asc":

@@ -5,6 +5,8 @@ import Grid from '@mui/material/Grid';
 
 import { Sidebar, SidebarContents } from "./Sidebar";
 import Navbar from "./Navbar";
+import Questionnaire from '../questionnaire/Questionnaire';
+
 import '../../styles/pages/PagesContainer.scss';
 
 const PagesContainer = () => {
@@ -19,6 +21,32 @@ const PagesContainer = () => {
     }, []);
 
     const [showSidebar, setShowSidebar] = useState(false);
+
+    // Questionairre pop-up
+    const [showPopup, setShowPopup] = useState(false);
+
+    useEffect(() => {
+        const now = new Date();
+        const targetTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 18, 0, 0); // 6pm
+        const timeUntilTarget = targetTime - now;
+        if (timeUntilTarget > 0) {
+            const timeoutId = setTimeout(() => {
+            const lastShown = localStorage.getItem('popupLastShown');
+            const today = new Date().toDateString();
+            if (lastShown !== today) {
+                setShowPopup(true);
+                localStorage.setItem('popupLastShown', today);
+            }
+            }, timeUntilTarget);
+            return () => clearTimeout(timeoutId);
+        }
+        const lastShown = localStorage.getItem('popupLastShown');
+        const today = new Date().toDateString();
+        if (lastShown !== today) {
+            setShowPopup(true);
+            localStorage.setItem('popupLastShown', today);
+        }
+    }, []);
 
     return (
         <Grid
@@ -50,6 +78,8 @@ const PagesContainer = () => {
                     </Grid>
                 </Grid>
             </Grid>
+
+            {showPopup && <Questionnaire />}
         </Grid>
     );
 }
