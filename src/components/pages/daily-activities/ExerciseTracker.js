@@ -5,6 +5,8 @@ import { Grid } from '@mui/material';
 import Card from '@mui/material/Card';
 import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
 import PauseOutlinedIcon from '@mui/icons-material/PauseOutlined';
+import IconButton from '@mui/material/IconButton';
+
 import History from './History.js';
 import EndSessionButton from './EndSessionButton.js';
 import StopwatchHistory from './StopwatchHistory.js';
@@ -23,7 +25,7 @@ class ExerciseTracker extends React.Component {
             currentTimeMin: 0,
             history: [],
             data: [],
-            key: 0,
+            countKey: 0,
             historyCardHeight: 0,
         };
     }
@@ -81,13 +83,14 @@ class ExerciseTracker extends React.Component {
         }
     };
     reset = () => {
-        this.setHistoryState();
+        // this.setHistoryState();
+        let newKey = this.state.countKey + 1;
         this.setState({
             currentTimeMs: 0,
             currentTimeSec: 0,
             currentTimeMin: 0,
             running: false,
-            key: (prevKey) => prevKey + 1,
+            countKey: newKey,
         });
         clearInterval(this.watch);
         this.setHistoryState();
@@ -122,19 +125,20 @@ class ExerciseTracker extends React.Component {
                 <Grid item xs={12} sm={6}>
                     <Card id="leftCard" className="whiteBox exerciseCard">
                         <CountdownCircleTimer
+                            key={this.state.countKey}
                             isPlaying={this.state.running}
-                            duration={21}
+                            duration={60}
                             colors="#d9d9d9"
                             trailColor='#652fa1'
                             strokeWidth="12"
                             size={140}
                             onComplete={() => {
-                                return { delay: 0 }
+                                return { shouldRepeat: true, delay: 0 }
                             }}
                         >
-                            {({ remainingTime }) => this.state.running === false
-                                ? <PlayArrowOutlinedIcon className="play-icon" onClick={this.start} />
-                                : <PauseOutlinedIcon className="play-icon" onClick={this.stop} />
+                            {({ remainingTime }) => this.state.running === false 
+                                ?   <IconButton><PlayArrowOutlinedIcon className="play-icon" onClick={this.start} /></IconButton> 
+                                :   <IconButton><PauseOutlinedIcon className="play-icon" onClick={this.stop} /></IconButton>
                             }
                         </CountdownCircleTimer>
 

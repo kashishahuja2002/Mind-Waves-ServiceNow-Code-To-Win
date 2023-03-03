@@ -27,13 +27,25 @@ const PagesContainer = () => {
 
     useEffect(() => {
         const now = new Date();
-        const targetTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 1, 33, 0); // 6pm
+        const targetTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 18, 0, 0); // 6pm
         const timeUntilTarget = targetTime - now;
         if (timeUntilTarget > 0) {
-            const timeoutId = setTimeout(() => setShowPopup(true), timeUntilTarget);
+            const timeoutId = setTimeout(() => {
+            const lastShown = localStorage.getItem('popupLastShown');
+            const today = new Date().toDateString();
+            if (lastShown !== today) {
+                setShowPopup(true);
+                localStorage.setItem('popupLastShown', today);
+            }
+            }, timeUntilTarget);
             return () => clearTimeout(timeoutId);
         }
-        setShowPopup(true);
+        const lastShown = localStorage.getItem('popupLastShown');
+        const today = new Date().toDateString();
+        if (lastShown !== today) {
+            setShowPopup(true);
+            localStorage.setItem('popupLastShown', today);
+        }
     }, []);
 
     return (

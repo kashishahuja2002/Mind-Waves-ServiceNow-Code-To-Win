@@ -32,24 +32,26 @@ class StopwatchHistory extends React.Component {
             this.setState({ history: [], data: [] });
         }
     };
+
     saveToLocalStorage = () => {
-        this.setHistoryState();
         if (localStorage.times) {
             localStorage.times =
-
                 `${this.props.formatTime(
                     this.props.currentTimeMin
                 )}:${this.props.formatTime(
                     this.props.currentTimeSec
-                )} ::   ${new Date().toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" })} | ` +
+                )} :: ${new Date().toLocaleTimeString('en-us', { hour: '2-digit', minute: '2-digit' })} | ` +
+                // ${new Date().toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" })} | ` +
                 localStorage.times
-
-        } else {
+                
+        } 
+        else {
             localStorage.times = `${this.props.formatTime(
                 this.props.currentTimeMin
             )}:${this.props.formatTime(
                 this.props.currentTimeSec
-            )} ::   ${new Date().toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" })} | `;
+            )} :: ${new Date().toLocaleTimeString('en-us', { hour: '2-digit', minute: '2-digit' })} | `;
+            //   ${new Date().toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" })} | `;
         }
     };
 

@@ -25,16 +25,13 @@ export default function WaterTracker() {
         else {
             setData([]);
         }
-        console.log(data);
     };
 
     const saveToLocalStorage = () => {
-        setDrinkTimeState();
         if (localStorage.drinkTime) {
             localStorage.drinkTime =
                 `${new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' }) + " | "}` +
                 localStorage.drinkTime
-
         } else {
             localStorage.drinkTime =
                 new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' })
@@ -42,11 +39,10 @@ export default function WaterTracker() {
     };
 
     const handleClick = () => {
+        localStorage.setItem('waterLevel', waterLevel+10);
         if (waterLevel < 100) {
             setWaterLevel(waterLevel + 10);
         }
-        localStorage.setItem('waterLevel', waterLevel);
-        console.log(waterLevel);
         saveToLocalStorage();
         setDrinkTimeState();
     };
