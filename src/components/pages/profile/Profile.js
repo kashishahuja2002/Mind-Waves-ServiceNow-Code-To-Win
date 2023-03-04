@@ -6,8 +6,9 @@ import { Grid, Box } from "@mui/material";
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import Alert from '@mui/material/Alert';
 
-import { getProfile } from "../../../redux/profile/ProfileActions";
+import { editProfile, getProfile } from "../../../redux/profile/ProfileActions";
 
 import '../../../styles/pages/Profile.scss';
 
@@ -17,7 +18,7 @@ const Profile = () => {
     const navigate = useNavigate();
     const user = useSelector((store) => store.profile.user);
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(getProfile("user/getinfo", {}))
     }, []);
 
@@ -42,13 +43,32 @@ const Profile = () => {
         }))
     }
 
+    // Alert
+    const [alertSeverity, setAlertSeverity] = useState(null);
+    const [alertMsg, setAlertMsg] = useState(null);
+
     const handleSaveClick = () => {
-        // API
-        console.log(goals);
+        dispatch(editProfile("user/editinfo", goals))
+            .then(
+                function(value) {
+                    setAlertSeverity("success");
+                    setAlertMsg("Profile information saved successfully");
+                },
+                function(error) {
+                    setAlertSeverity("error");
+                    setAlertMsg(error)
+                }
+            )
+
+        setTimeout(() => setAlertSeverity(null), 5000);
     }
     
     return (
         <div className="profile whiteBox">
+            {(alertSeverity != null) && 
+                <Alert severity={alertSeverity} variant="filled" sx={{marginBottom: "15px"}}>{alertMsg}</Alert>
+            }
+
             <Typography variant="body" gutterBottom className="title">Personal Information</Typography>
             <Grid
                 container
@@ -109,10 +129,8 @@ const Profile = () => {
                 <Button variant="outlined" onClick={handleCancelClick}>Cancel</Button>
                 <Button variant="contained" onClick={handleSaveClick}>Save</Button>
             </Box>
-
         </div>
     );
 }
 
 export default Profile;
-//value={user.name.split(' ')[1]}

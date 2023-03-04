@@ -6,10 +6,19 @@ const initialState = {
 
 const ProfileReducer = (state = initialState, action) => {
     switch(action.type) {
-        case actionTypes.PROFILE: 
+        case actionTypes.GET_PROFILE: 
             return {
                 ...state,
                 user: action.payload 
+            };
+
+        case actionTypes.EDIT_PROFILE: 
+            return {
+                ...state,
+                user: {
+                    ...state.user, 
+                    ...action.payload
+                }
             };
 
         default:

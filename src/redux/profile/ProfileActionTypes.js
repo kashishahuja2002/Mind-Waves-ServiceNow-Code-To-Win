@@ -1,5 +1,7 @@
-const PROFILE = 'PROFILE';
+const GET_PROFILE = 'GET_PROFILE';
+const EDIT_PROFILE = 'EDIT_PROFILE';
 
 export default {
-    PROFILE,
+    GET_PROFILE,
+    EDIT_PROFILE
 }
