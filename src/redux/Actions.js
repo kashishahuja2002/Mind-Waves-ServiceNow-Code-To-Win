@@ -5,19 +5,13 @@ export const Auth = (url, body) => {
     return (dispatch) => {
         http.HttpCall(url, "post", {}, body)
             .then((response) => {
-                if(response.data.status === 200)
-                    dispatch(auth(response.data.data));
+                if(response.data.status === 200) {
+                    localStorage.setItem('token', response.data.token);
+                }
             })
             .catch((error) => {
                 console.log("Error: ",error);
             })
-    }
-}
-
-const auth = (data) => {
-    return {
-        type: actionTypes.USER,
-        payload: data,
     }
 }
 

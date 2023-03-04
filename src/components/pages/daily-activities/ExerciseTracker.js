@@ -87,19 +87,18 @@ class ExerciseTracker extends React.Component {
     saveToLocalStorage = () => {
         if (localStorage.exerciseTime) {
             localStorage.exerciseTime =
-                `${new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' })} 
-                :: ${this.formatTime(
+                `${this.formatTime(
                     this.state.currentTimeMin
                 )}:${this.formatTime(
                     this.state.currentTimeSec
-                )}` + " | " + localStorage.exerciseTime
+                )} :: ${new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' })}` + " | " + localStorage.exerciseTime
         } 
         else {
-            localStorage.exerciseTime = `${new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' }) } :: ${this.formatTime(
+            localStorage.exerciseTime = `${this.formatTime(
                 this.state.currentTimeMin
             )}:${this.formatTime(
                 this.state.currentTimeSec
-            )}`;
+            )} :: ${new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' }) } `;
         }
     };
 

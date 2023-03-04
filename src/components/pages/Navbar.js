@@ -68,10 +68,12 @@ const Navbar = (props) => {
     };
 
     const handleProfileClick = () => {
+        handleClose();
         navigate("/pages/profile");
     }
 
     const handleLogoutClick = () => {
+        handleClose();
         localStorage.removeItem("token");
         sessionStorage.removeItem("isMySessionActive");
         navigate("/auth/login");

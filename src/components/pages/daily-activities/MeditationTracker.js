@@ -87,19 +87,18 @@ class MeditationTracker extends React.Component {
     saveToLocalStorage = () => {
         if (localStorage.meditationTime) {
             localStorage.meditationTime =
-                `${new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' })} 
-                :: ${this.formatTime(
+                `${this.formatTime(
                     this.state.currentTimeMin
                 )}:${this.formatTime(
                     this.state.currentTimeSec
-                )}` + " | " + localStorage.meditationTime
-        }
+                )} :: ${new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' })}` + " | " + localStorage.meditationTime
+        } 
         else {
-            localStorage.meditationTime = `${new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' }) } :: ${this.formatTime(
+            localStorage.meditationTime = `${this.formatTime(
                 this.state.currentTimeMin
             )}:${this.formatTime(
                 this.state.currentTimeSec
-            )}`;
+            )} :: ${new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' }) } `;
         }
     };
 

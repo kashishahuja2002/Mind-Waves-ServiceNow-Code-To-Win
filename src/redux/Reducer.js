@@ -1,19 +1,12 @@
 import actionTypes from "./ActionTypes";
 
 const initialState = {
-    user: [],
     barLoading: false,
     pageLoading: false,
 };
 
 const Reducer = (state = initialState, action) => {
     switch(action.type) {
-        case actionTypes.USER: 
-            return {
-                ...state,
-                user: action.payload 
-            };
-
         case actionTypes.BAR_LOADING: 
             return {
                 ...state,
