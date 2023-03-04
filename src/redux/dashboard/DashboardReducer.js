@@ -4,6 +4,7 @@ const initialState = {
     stepsCount: [],
     heartPoints: [],
     caloriesBurned: [],
+    weeklyData: []
 };
 
 const DashboardReducer = (state = initialState, action) => {
@@ -24,6 +25,12 @@ const DashboardReducer = (state = initialState, action) => {
             return {
                 ...state,
                 caloriesBurned: action.payload 
+            };
+
+        case actionTypes.GET_WEEKLY_DATA: 
+            return {
+                ...state,
+                weeklyData: action.payload 
             };
 
         default:

@@ -170,7 +170,7 @@ class MeditationTracker extends React.Component {
 
                 <Grid item xs={12}>
                     <Card className="whiteBox targetCard">
-                        <TargetChart color="#51ab55" values={80} />
+                        <TargetChart color="#51ab55" data={[]} goal={0} />
                     </Card>
                 </Grid>
             </Grid>

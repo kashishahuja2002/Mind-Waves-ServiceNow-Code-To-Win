@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 import { Grid } from '@mui/material';
 import Card from '@mui/material/Card';
@@ -11,8 +12,24 @@ import '../../../styles/pages/daily-activities/WaterTracker.scss';
 
 export default function WaterTracker() {
 
+    const weeklyData = useSelector((store) => store.dashboard.weeklyData);
+
     const [waterLevel, setWaterLevel] = useState(0);
     const [history, setHistory] = useState([]);
+    const [targetData, setTargetData] = useState([]);
+
+    useEffect(() => {
+        weeklyData.sort(function(a,b) {
+            return new Date(a.date) - new Date(b.date);
+        });
+
+        let td = [];
+        weeklyData.forEach(element => {
+            td.push(Math.ceil(element.activity.water)); 
+        });
+
+        setTargetData(td);
+    }, [weeklyData]);
 
     useEffect(() => {
         setDrinkTimeState();
@@ -87,7 +104,7 @@ export default function WaterTracker() {
 
             <Grid item xs={12}>
                 <Card className="whiteBox targetCard">
-                    <TargetChart color="#3e98c7" values={waterLevel} />
+                    <TargetChart color="#3e98c7" data={targetData} goal={8} />
                 </Card>
             </Grid>
         </Grid>

@@ -8,11 +8,11 @@ import Typography from '@mui/material/Typography';
 
 import DailyStats from "./DailyStats";
 import WeeklyStats from "./WeeklyStats";
+import { formatDate, getMilliSecond } from "../../Helper";
+import { getGoogleFitData, getWeeklyData } from "../../../redux/dashboard/DashboardAction";
+import { updateBarLoading } from "../../../redux/Actions";
 
 import '../../../styles/pages/Dashboard.scss';
-import { formatDate, getMilliSecond } from "../../Helper";
-import { getGoogleFitData } from "../../../redux/dashboard/DashboardAction";
-import { updateBarLoading } from "../../../redux/Actions";
 
 const Dashboard = () => {
 
@@ -62,6 +62,11 @@ const Dashboard = () => {
         }
         dispatch(getGoogleFitData(caloriesBurnedBody, "CALORIES_BURNED"));
     }, [])
+
+    // Weekly Data
+    useEffect(() => {
+        dispatch(getWeeklyData("user/weeklyactivity", {}))
+    }, []);
 
     return (
         <Grid

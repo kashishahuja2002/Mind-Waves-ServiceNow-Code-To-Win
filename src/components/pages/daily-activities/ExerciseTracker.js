@@ -170,7 +170,7 @@ class ExerciseTracker extends React.Component {
 
                 <Grid item xs={12}>
                     <Card className="whiteBox targetCard">
-                        <TargetChart color="#652fa1" values={80} />
+                        <TargetChart color="#652fa1" data={[]} goal={0} />
                     </Card>
                 </Grid>
             </Grid>
