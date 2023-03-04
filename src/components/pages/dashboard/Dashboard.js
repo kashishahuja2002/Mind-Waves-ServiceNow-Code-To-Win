@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 
 import DailyStats from "./DailyStats";
 import WeeklyStats from "./WeeklyStats";
-import { formatDate, getMilliSecond } from "../../Helper";
+import { formatDate, getStartMilliSecond, getEndMilliSecond } from "../../Helper";
 import { getGoogleFitData, getWeeklyData } from "../../../redux/dashboard/DashboardAction";
 import { updateBarLoading } from "../../../redux/Actions";
 
@@ -22,8 +22,8 @@ const Dashboard = () => {
         let startDate = formatDate(moment().startOf('isoweek'));
         let endDate = formatDate(moment().endOf('isoweek'));
 
-        const startTime = getMilliSecond(startDate);
-        const endTime = getMilliSecond(endDate);
+        const startTime = getStartMilliSecond(startDate);
+        const endTime = getEndMilliSecond(endDate);
 
         return {startTime, endTime};
     }
