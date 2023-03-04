@@ -3,10 +3,10 @@ import axios from "axios";
 
 export const getGoogleFitData = (body, action) => {
     return (dispatch) => {
-        const token = localStorage.getItem('token');
+        const authCode = localStorage.getItem('authCode');
         axios.post("https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate", body, {
             headers: {
-                "Authorization": `Bearer ${token}`,
+                "Authorization": `Bearer ${authCode}`,
             }
         })
         .then((response) => {
