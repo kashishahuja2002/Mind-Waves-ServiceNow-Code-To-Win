@@ -7,8 +7,7 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import TableSortLabel from '@mui/material/TableSortLabel';
-
-import '../../../styles/pages/Leaderboard.scss';
+import '../../../styles/pages/leaderboard.scss';
 
 function createData(name, rank, numOfBadges) {
     return { name, rank, numOfBadges };
@@ -24,22 +23,23 @@ const rows = [
 
 export default function SortedTable() {
     const [rowData, setRowData] = useState(rows);
-    const [orderDirection, setOrderDirection] = useState("asc");
+    const [orderDirection, setOrderDirection] = useState("desc");
 
     useEffect(() => {
         handleSortRequest();
     }, [])
-    
+
     const sortArray = (arr, orderBy) => {
         switch (orderBy) {
             case "asc":
             default:
                 return arr.sort((a, b) =>
-                    a.rank > b.rank ? 1 : b.rank > a.rank ? -1 : 0
+                    b.rank < a.rank ? -1 : a.rank < b.rank ? 1 : 0
                 );
+
             case "desc":
                 return arr.sort((a, b) =>
-                    a.rank < b.rank ? 1 : b.rank < a.rank ? -1 : 0
+                    b.rank > a.rank ? -1 : a.rank > b.rank ? 1 : 0
                 );
         }
     };
