@@ -19,6 +19,7 @@
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.41",
     "react": "^18.2.0",
+    "react-audio-player": "^0.17.0",
     "react-calendly": "^4.1.1",
     "react-chartjs-2": "^5.2.0",
     "react-circular-progressbar": "^2.1.0",
@@ -33,6 +34,7 @@
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
     "sass": "^1.58.3",
+    "use-sound": "^4.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
