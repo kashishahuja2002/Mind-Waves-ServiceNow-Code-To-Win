@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import moment from 'moment';
 import 'moment-timezone';
 
@@ -12,12 +12,14 @@ import { formatDate, getStartMilliSecond, getEndMilliSecond } from "../../Helper
 import { getGoogleFitData, getWeeklyData } from "../../../redux/dashboard/DashboardAction";
 import { updateBarLoading } from "../../../redux/Actions";
 import { googleFitUrl } from "../../Constants";
+import { getBadges } from "../../../redux/achievements/AchievementsActions";
 
 import '../../../styles/pages/Dashboard.scss';
 
 const Dashboard = () => {
 
     const dispatch = useDispatch();
+    const dashboard = useSelector((store) => store.dashboard);
 
     const getWeekStartEndTime = () => {
         let startDate = formatDate(moment().startOf('isoweek'));
@@ -26,7 +28,9 @@ const Dashboard = () => {
         const startTime = getStartMilliSecond(startDate);
         const endTime = getEndMilliSecond(endDate);
 
-        return {startTime, endTime};
+        const durationTime = 86400000;
+
+        return {startTime, endTime, durationTime};
     }
 
     const getMonthStartEndTime = () => {
@@ -36,7 +40,9 @@ const Dashboard = () => {
         const startTime = getStartMilliSecond(startDate);
         const endTime = getEndMilliSecond(endDate);
 
-        return {startTime, endTime};
+        const durationTime = 604800000;
+
+        return {startTime, endTime, durationTime};
     }
 
     useEffect(() => {
@@ -48,7 +54,7 @@ const Dashboard = () => {
             "aggregateBy": [{
                 "dataSourceId": url
             }],
-            "bucketByTime": { "durationMillis": 86400000 },
+            "bucketByTime": { "durationMillis": time.durationTime },
             "startTimeMillis": time.startTime,		
             "endTimeMillis": time.endTime
         })
@@ -63,9 +69,45 @@ const Dashboard = () => {
     }, [])
 
     // Weekly Data
+    const token = localStorage.getItem('token');
     useEffect(() => {
-        dispatch(getWeeklyData("user/weeklyactivity", {}))
-    }, []);
+        if(token)
+            dispatch(getWeeklyData("user/weeklyactivity", {}))
+    }, [token]);
+
+    const getStat = (val) => {
+        var result = val.dataset[0].point;
+        return result.length ? result[0].value[0] : 0;
+    }
+
+    // Badges API
+    useEffect(() => {    
+        let scs=0, hps=0, cbs=0;
+
+        dashboard.monthlyStepsCount.forEach((element) => {
+            let stat = getStat(element)
+            scs = scs + (stat ? stat.intVal : 0);
+        })
+
+        dashboard.monthlyHeartPoints.forEach((element) => {
+            let stat = getStat(element)
+            hps = hps + (stat ? Math.ceil(stat.fpVal) : 0);
+        })
+
+        dashboard.monthlyCaloriesBurned.forEach((element) => {
+            let stat = getStat(element)
+            cbs = cbs + (stat ? Math.ceil(stat.fpVal) : 0);
+        })
+
+        const params = {
+            stepsCount: scs,
+            heartPoints: hps,
+            caloriesBurned: cbs
+        }
+
+        if(token)
+            dispatch(getBadges("user/badges", params));
+    }, [dashboard, token])
 
     return (
         <Grid

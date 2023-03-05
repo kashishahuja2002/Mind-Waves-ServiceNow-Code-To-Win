@@ -18,8 +18,7 @@ const DashboardReducer = (state = initialState, action) => {
                 weeklyStepsCount: action.payload 
             };
 
-        case actionTypes.WEEKLY_HEART_POINTS: 
-        console.log(action.payload);
+        case actionTypes.WEEKLY_HEART_POINTS:
             return {
                 ...state,
                 weeklyHeartPoints: action.payload 
