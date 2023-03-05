@@ -6,6 +6,10 @@ export const formatDate = (value) => {
     return date;
 }
 
-export const getMilliSecond = (date) => {
+export const getStartMilliSecond = (date) => {
     return (new Date(`${date} 00:00:00`).getTime());
+}
+
+export const getEndMilliSecond = (date) => {
+    return (new Date(`${date} 23:59:59`).getTime());
 }

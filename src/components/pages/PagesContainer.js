@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import Grid from '@mui/material/Grid';
 
 import { Sidebar, SidebarContents } from "./Sidebar";
 import Navbar from "./Navbar";
 import Questionnaire from '../questionnaire/Questionnaire';
+import { getProfile } from "../../redux/profile/ProfileActions";
 
 import '../../styles/pages/PagesContainer.scss';
 
 const PagesContainer = () => {
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const session = sessionStorage.getItem('isMySessionActive');
         if(!session) {
             navigate('/auth/login');
+        }
+        else {
+            dispatch(getProfile("user/getinfo", {}))
         }
     }, []);
 

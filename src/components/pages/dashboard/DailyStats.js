@@ -7,7 +7,7 @@ import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 
 import { statsList } from "../../Constants";
-import { formatDate, getMilliSecond } from '../../Helper';
+import { formatDate, getStartMilliSecond } from '../../Helper';
 
 const StatCard = (obj, dailyData) => {
   return (
@@ -58,7 +58,7 @@ const DailyStats = () => {
 
   useEffect(() => {
     const date = formatDate(new Date());
-    const todayTime = getMilliSecond(date);
+    const todayTime = getStartMilliSecond(date);
 
     if (dashboard.stepsCount.length > 0) {
       const stat = getStat("stepsCount", todayTime)

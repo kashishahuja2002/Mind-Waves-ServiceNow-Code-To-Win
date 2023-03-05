@@ -42,7 +42,7 @@ class WaterLevel extends Component {
                 }}
                 width={radius * 2}
                 height={radius * 2}
-                value={this.props.waterLevel}
+                value={(this.props.waterLevel/this.props.goal)*100}
                 textSize={1}
                 textOffsetX={0}
                 textOffsetY={0}
@@ -58,8 +58,8 @@ class WaterLevel extends Component {
 
                     return (
                         <tspan>
-                            <tspan className="value" style={valueStyle}>{this.props.waterLevel / 10}</tspan>
-                            <tspan style={percentStyle}>/10</tspan>
+                            <tspan className="value" style={valueStyle}>{this.props.waterLevel}</tspan>
+                            <tspan style={percentStyle}>/{this.props.goal}</tspan>
                             <tspan>Glasses</tspan>
                         </tspan>
                     );

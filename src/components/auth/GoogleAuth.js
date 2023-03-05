@@ -18,14 +18,14 @@ const GoogleAuth = () => {
         scope: "https://www.googleapis.com/auth/fitness.activity.read  https://www.googleapis.com/auth/fitness.heart_rate.read",
         onSuccess: async (tokenResponse) => {
             console.log(tokenResponse);
-            localStorage.setItem("token", tokenResponse.access_token);
+            localStorage.setItem("authCode", tokenResponse.access_token);
             sessionStorage.setItem("isMySessionActive", true);
             const userInfo = await axios.get(
                 'https://www.googleapis.com/oauth2/v3/userinfo',
                 { headers: { Authorization: `Bearer ${tokenResponse.access_token}` } },
             );
 
-            dispatch(Auth(userInfo.data));
+            dispatch(Auth("user/login", userInfo.data));
             navigate('/pages/dashboard');
         },
         onError: errorResponse => console.log(errorResponse),

@@ -1,9 +1,17 @@
+import http from '../services/_httpServices';
 import actionTypes from './ActionTypes';
 
-export const Auth = (data) => {
-    return {
-        type: actionTypes.USER,
-        payload: data,
+export const Auth = (url, body) => {
+    return (dispatch) => {
+        http.HttpCall(url, "post", {}, body)
+            .then((response) => {
+                if(response.data.status === 200) {
+                    localStorage.setItem('token', response.data.token);
+                }
+            })
+            .catch((error) => {
+                console.log("Error: ",error);
+            })
     }
 }
 

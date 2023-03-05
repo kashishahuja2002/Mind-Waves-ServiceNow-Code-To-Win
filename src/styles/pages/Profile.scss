@@ -21,4 +21,20 @@
     .picture {
         border-radius: 10px;
     }
+    
+    .buttonBox {
+        margin-bottom: 10px; 
+        text-align: right;
+
+        .MuiButton-outlined {
+            margin-right: 10px;
+            color: var(--dark-blue);
+            border-color: var(--dark-blue);
+        }
+
+        .MuiButton-contained {
+            background-color: var(--dark-blue);
+            color: #fff;
+        }
+    }
 }

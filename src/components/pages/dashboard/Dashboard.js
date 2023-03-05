@@ -1,45 +1,29 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import moment from 'moment';
+import 'moment-timezone';
 
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 import DailyStats from "./DailyStats";
 import WeeklyStats from "./WeeklyStats";
+import { formatDate, getStartMilliSecond, getEndMilliSecond } from "../../Helper";
+import { getGoogleFitData, getWeeklyData } from "../../../redux/dashboard/DashboardAction";
+import { updateBarLoading } from "../../../redux/Actions";
 
 import '../../../styles/pages/Dashboard.scss';
-import { formatDate, getMilliSecond } from "../../Helper";
-import { getGoogleFitData } from "../../../redux/dashboard/DashboardAction";
-import { updateBarLoading } from "../../../redux/Actions";
 
 const Dashboard = () => {
 
     const dispatch = useDispatch();
 
-    function getPreviousMonday()
-    {
-        var date = new Date();
-        var day = date.getDay();
-        var prevMonday = new Date();
-        if(date.getDay() == 0){
-            prevMonday.setDate(date.getDate() - 7);
-        }
-        else{
-            prevMonday.setDate(date.getDate() - (day-1));
-        }
-
-        return prevMonday;
-    }
-
     const getStartEndTime = () => {
-        const startDate = formatDate(getPreviousMonday());
+        let startDate = formatDate(moment().startOf('isoweek'));
+        let endDate = formatDate(moment().endOf('isoweek'));
 
-        var endDate = new Date(startDate);
-        endDate.setDate(endDate.getDate() + 7);
-        endDate = formatDate(endDate);
-
-        const startTime = getMilliSecond(startDate);
-        const endTime = getMilliSecond(endDate);
+        const startTime = getStartMilliSecond(startDate);
+        const endTime = getEndMilliSecond(endDate);
 
         return {startTime, endTime};
     }
@@ -78,6 +62,11 @@ const Dashboard = () => {
         }
         dispatch(getGoogleFitData(caloriesBurnedBody, "CALORIES_BURNED"));
     }, [])
+
+    // Weekly Data
+    useEffect(() => {
+        dispatch(getWeeklyData("user/weeklyactivity", {}))
+    }, []);
 
     return (
         <Grid

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 import { Grid } from '@mui/material';
 import Card from '@mui/material/Card';
@@ -11,8 +12,26 @@ import '../../../styles/pages/daily-activities/WaterTracker.scss';
 
 export default function WaterTracker() {
 
+    const weeklyData = useSelector((store) => store.dashboard.weeklyData);
+    const user = useSelector((store) => store.profile.user);
+
     const [waterLevel, setWaterLevel] = useState(0);
     const [history, setHistory] = useState([]);
+    const [targetData, setTargetData] = useState([]);
+
+    useEffect(() => {
+        weeklyData.sort(function(a,b) {
+            return new Date(a.date) - new Date(b.date);
+        });
+
+        let td = [];
+        weeklyData.forEach(element => {
+            td.push(Math.ceil(element.activity.water)); 
+        });
+
+        setTargetData(td);
+        setWaterLevel((td[td.length - 1]))
+    }, [weeklyData]);
 
     useEffect(() => {
         setDrinkTimeState();
@@ -39,10 +58,7 @@ export default function WaterTracker() {
     };
 
     const handleClick = () => {
-        localStorage.setItem('waterLevel', waterLevel+10);
-        if (waterLevel < 100) {
-            setWaterLevel(waterLevel + 10);
-        }
+        setWaterLevel(waterLevel + 1);
 
         if (typeof Storage !== 'undefined') {
             saveToLocalStorage();
@@ -51,6 +67,10 @@ export default function WaterTracker() {
         }
         
         setDrinkTimeState();
+
+        const newTargetData = [...targetData];
+        newTargetData[targetData.length - 1] = targetData[targetData.length - 1] + 1;
+        setTargetData(newTargetData);
     };
 
     // for history card height
@@ -72,7 +92,7 @@ export default function WaterTracker() {
         >
             <Grid item xs={12} sm={6}>
                 <Card id="leftCard" className="whiteBox waterCard">
-                    <WaterLevel waterLevel={waterLevel} onClick={handleClick} />
+                    <WaterLevel waterLevel={waterLevel} goal={user.waterGoal} onClick={handleClick} />
                     <div className='info-txt'>
                         Click on the circle to confirm that you have just drunk one glass of water
                     </div>
@@ -87,7 +107,7 @@ export default function WaterTracker() {
 
             <Grid item xs={12}>
                 <Card className="whiteBox targetCard">
-                    <TargetChart color="#3e98c7" values={waterLevel} />
+                    <TargetChart color="#3e98c7" data={targetData} goal={user.waterGoal} />
                 </Card>
             </Grid>
         </Grid>
