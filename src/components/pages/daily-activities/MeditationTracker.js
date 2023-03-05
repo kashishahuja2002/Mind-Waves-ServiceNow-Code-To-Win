@@ -1,5 +1,6 @@
 import React from 'react';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+import ReactAudioPlayer from 'react-audio-player';
 
 import { Grid } from '@mui/material';
 import Card from '@mui/material/Card';
@@ -9,6 +10,7 @@ import IconButton from '@mui/material/IconButton';
 
 import History from './History';
 import TargetChart from './TragetChart';
+import meditationSound from '../../../assets/Sound/meditation-sound.mp3';
 
 import '../../../styles/pages/daily-activities/MeditationTracker.scss';
 
@@ -61,15 +63,19 @@ class MeditationTracker extends React.Component {
     // Stopwatch
     start = () => {
         if (!this.state.running) {
+            let audio = document.getElementById("med-audio");
             this.setState({ running: true });
             this.watch = setInterval(() => this.pace(), 10);
+            audio.play();
         }
     };
 
     stop = () => {
+        let audio = document.getElementById("med-audio");
         this.setState({ running: false });
         clearInterval(this.watch);
         this.setHistoryState();
+        audio.pause();
     };
 
     pace = () => {
@@ -83,7 +89,7 @@ class MeditationTracker extends React.Component {
             this.setState({ currentTimeSec: 0 });
         }
     };
-    
+
     saveToLocalStorage = () => {
         if (localStorage.meditationTime) {
             localStorage.meditationTime =
@@ -92,17 +98,20 @@ class MeditationTracker extends React.Component {
                 )}:${this.formatTime(
                     this.state.currentTimeSec
                 )} :: ${new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' })}` + " | " + localStorage.meditationTime
-        } 
+        }
         else {
             localStorage.meditationTime = `${this.formatTime(
                 this.state.currentTimeMin
             )}:${this.formatTime(
                 this.state.currentTimeSec
-            )} :: ${new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' }) } `;
+            )} :: ${new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' })} `;
         }
     };
 
     reset = () => {
+        let audio = document.getElementById("med-audio");
+        audio.pause();
+        audio.currentTime = 0;
         if (typeof Storage !== 'undefined') {
             this.saveToLocalStorage();
         } else {
@@ -120,6 +129,7 @@ class MeditationTracker extends React.Component {
         clearInterval(this.watch);
 
         this.setHistoryState();
+
     };
 
     render() {
@@ -145,9 +155,9 @@ class MeditationTracker extends React.Component {
                                 return { delay: 0 }
                             }}
                         >
-                            {({ remainingTime }) => this.state.running === false 
-                                ?   <IconButton onClick={this.start}><PlayArrowOutlinedIcon className="play-icon" /></IconButton> 
-                                :   <IconButton onClick={this.stop}><PauseOutlinedIcon className="play-icon" /></IconButton>
+                            {({ remainingTime }) => this.state.running === false
+                                ? <IconButton onClick={this.start}><PlayArrowOutlinedIcon className="play-icon" /></IconButton>
+                                : <IconButton onClick={this.stop}><PauseOutlinedIcon className="play-icon" /></IconButton>
                             }
                         </CountdownCircleTimer>
 
@@ -159,11 +169,15 @@ class MeditationTracker extends React.Component {
                         <div onClick={this.reset} className="endSessionButton" >
                             End Session
                         </div>
+                        <audio
+                            id='med-audio'
+                            src={meditationSound}>
+                        </audio>
                     </Card>
                 </Grid>
 
                 <Grid item xs={12} sm={6}>
-                    <Card className="whiteBox historyCard" sx={{height: this.state.historyCardHeight}}>
+                    <Card className="whiteBox historyCard" sx={{ height: this.state.historyCardHeight }}>
                         <History time={this.state.history} tab="meditation" />
                     </Card>
                 </Grid>
