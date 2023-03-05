@@ -29,9 +29,9 @@ export default function History(props) {
                             {tab === "meditation" && <SelfImprovementIcon />}
                         </ListItemIcon>
 
-                        {tab === "water" ? <ListItemText primary={item.split('::')[0]} /> : <ListItemText primary={item.split('::')[1]} />}
+                        <ListItemText primary={item.split('::')[0]} />
                         <ListItemIcon style={{ marginLeft: '10px' }}>
-                            {tab === "water" ? "200ml" : item.split('::')[0]}
+                            {tab === "water" ? "200ml" : item.split('::')[1]}
                         </ListItemIcon>
                     </ListItemButton>
                     <Divider />
