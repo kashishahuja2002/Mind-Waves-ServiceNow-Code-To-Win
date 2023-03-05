@@ -85,7 +85,6 @@ const DailyStats = () => {
     }
 
     let data = dashboard.weeklyData;
-    console.log(data);
     if(data.length > 0) {
       setDailyData((prev) => ({
         ...prev,

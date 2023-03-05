@@ -120,3 +120,9 @@ export const questionsList = [
     {id: 13, question: "Are you feeling any sense of accomplishment or satisfaction right now?", opt1: "Not at all", opt2: "A little bit", opt3: "Yes, very much"},
     {id: 14, question: "Are you feeling any sense of hope or optimism for the future?", opt1: "Not at all", opt2: "A little bit", opt3: "Yes, very much"},
 ];
+
+export const googleFitUrl = {
+    stepsCount: "derived:com.google.step_count.delta:com.google.android.gms:estimated_steps",
+    heartPoints: "derived:com.google.heart_minutes:com.google.android.gms:merge_heart_minutes",
+    caloriesBurned: "derived:com.google.calories.expended:com.google.android.gms:merge_calories_expended"
+}

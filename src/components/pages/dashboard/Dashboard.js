@@ -9,8 +9,9 @@ import Typography from '@mui/material/Typography';
 import DailyStats from "./DailyStats";
 import WeeklyStats from "./WeeklyStats";
 import { formatDate, getStartMilliSecond, getEndMilliSecond } from "../../Helper";
-import { getWeeklyGoogleFitData, getWeeklyData } from "../../../redux/dashboard/DashboardAction";
+import { getGoogleFitData, getWeeklyData } from "../../../redux/dashboard/DashboardAction";
 import { updateBarLoading } from "../../../redux/Actions";
+import { googleFitUrl } from "../../Constants";
 
 import '../../../styles/pages/Dashboard.scss';
 
@@ -28,39 +29,37 @@ const Dashboard = () => {
         return {startTime, endTime};
     }
 
+    const getMonthStartEndTime = () => {
+        let startDate = formatDate(moment().startOf('month'));
+        let endDate = formatDate(moment().endOf('month'));
+
+        const startTime = getStartMilliSecond(startDate);
+        const endTime = getEndMilliSecond(endDate);
+
+        return {startTime, endTime};
+    }
+
     useEffect(() => {
         dispatch(updateBarLoading(true));
-        const time = getWeekStartEndTime();
+        const weeklyTime = getWeekStartEndTime();
+        const monthlyTime = getMonthStartEndTime();
 
-        const stepCountBody = {
+        const body = (url, time) => ({
             "aggregateBy": [{
-                "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:estimated_steps"
+                "dataSourceId": url
             }],
             "bucketByTime": { "durationMillis": 86400000 },
             "startTimeMillis": time.startTime,		
             "endTimeMillis": time.endTime
-        }
-        dispatch(getWeeklyGoogleFitData(stepCountBody, "WEEKLY_STEP_COUNT"));
+        })
 
-        const heartPointsBody = {
-            "aggregateBy": [{
-                "dataSourceId": "derived:com.google.heart_minutes:com.google.android.gms:merge_heart_minutes"
-            }],
-            "bucketByTime": { "durationMillis": 86400000 },
-            "startTimeMillis": time.startTime,		
-            "endTimeMillis": time.endTime
-        }
-        dispatch(getWeeklyGoogleFitData(heartPointsBody, "WEEKLY_HEART_POINTS"));
+        dispatch(getGoogleFitData(body(googleFitUrl.stepsCount, weeklyTime), "WEEKLY_STEP_COUNT"));
+        dispatch(getGoogleFitData(body(googleFitUrl.heartPoints, weeklyTime), "WEEKLY_HEART_POINTS"));
+        dispatch(getGoogleFitData(body(googleFitUrl.caloriesBurned, weeklyTime), "WEEKLY_CALORIES_BURNED"));
 
-        const caloriesBurnedBody = {
-            "aggregateBy": [{
-                "dataSourceId": "derived:com.google.calories.expended:com.google.android.gms:merge_calories_expended"
-            }],
-            "bucketByTime": { "durationMillis": 86400000 },
-            "startTimeMillis": time.startTime,		
-            "endTimeMillis": time.endTime
-        }
-        dispatch(getWeeklyGoogleFitData(caloriesBurnedBody, "WEEKLY_CALORIES_BURNED"));
+        dispatch(getGoogleFitData(body(googleFitUrl.stepsCount, monthlyTime), "MONTHLY_STEP_COUNT"));
+        dispatch(getGoogleFitData(body(googleFitUrl.heartPoints, monthlyTime), "MONTHLY_HEART_POINTS"));
+        dispatch(getGoogleFitData(body(googleFitUrl.caloriesBurned, monthlyTime), "MONTHLY_CALORIES_BURNED"));
     }, [])
 
     // Weekly Data

@@ -4,6 +4,9 @@ const initialState = {
     weeklyStepsCount: [],
     weeklyHeartPoints: [],
     weeklyCaloriesBurned: [],
+    monthlyStepsCount: [],
+    monthlyHeartPoints: [],
+    monthlyCaloriesBurned: [],
     weeklyData: []
 };
 
@@ -16,6 +19,7 @@ const DashboardReducer = (state = initialState, action) => {
             };
 
         case actionTypes.WEEKLY_HEART_POINTS: 
+        console.log(action.payload);
             return {
                 ...state,
                 weeklyHeartPoints: action.payload 
@@ -25,6 +29,24 @@ const DashboardReducer = (state = initialState, action) => {
             return {
                 ...state,
                 weeklyCaloriesBurned: action.payload 
+            };
+
+        case actionTypes.MONTHLY_STEP_COUNT:
+            return {
+                ...state,
+                monthlyStepsCount: action.payload 
+            };
+
+        case actionTypes.MONTHLY_HEART_POINTS: 
+            return {
+                ...state,
+                monthlyHeartPoints: action.payload 
+            };
+            
+        case actionTypes.MONTHLY_CALORIES_BURNED: 
+            return {
+                ...state,
+                monthlyCaloriesBurned: action.payload 
             };
 
         case actionTypes.GET_WEEKLY_DATA: 
