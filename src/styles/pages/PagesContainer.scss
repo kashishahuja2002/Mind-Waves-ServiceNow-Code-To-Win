@@ -75,6 +75,16 @@
         color: var(--dark-blue);
         box-shadow: none;
     }
+
+    .MuiToolbar-root {
+        justify-content: space-between;
+    }
+
+    .homeIcon {
+        font-size: 20px;
+        position: relative;
+        top: 5px;
+    }
 }
 
 // Outlet styles
@@ -100,4 +110,18 @@
     }
 }
 
+@media screen and (max-width: 450px) {
+    .MuiToolbar-root {
+        flex-direction: column;
+
+        .leftContent, .rightContent {
+            width: 100%;
+        }
+
+        .rightContent {
+            text-align: right;
+            margin-bottom: 10px;
+        }
+    }
+}
 
