@@ -152,7 +152,7 @@ class MeditationTracker extends React.Component {
                             strokeWidth="12"
                             size={140}
                             onComplete={() => {
-                                return { delay: 0 }
+                                return { shouldRepeat: true, delay: 0 }
                             }}
                         >
                             {({ remainingTime }) => this.state.running === false
@@ -171,6 +171,7 @@ class MeditationTracker extends React.Component {
                         </div>
                         <audio
                             id='med-audio'
+                            loop
                             src={meditationSound}>
                         </audio>
                     </Card>
