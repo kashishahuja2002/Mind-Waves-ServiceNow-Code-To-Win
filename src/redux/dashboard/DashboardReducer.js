@@ -1,30 +1,30 @@
 import actionTypes from "./DashboardActionTypes";
 
 const initialState = {
-    stepsCount: [],
-    heartPoints: [],
-    caloriesBurned: [],
+    weeklyStepsCount: [],
+    weeklyHeartPoints: [],
+    weeklyCaloriesBurned: [],
     weeklyData: []
 };
 
 const DashboardReducer = (state = initialState, action) => {
     switch(action.type) {
-        case actionTypes.STEP_COUNT:
+        case actionTypes.WEEKLY_STEP_COUNT:
             return {
                 ...state,
-                stepsCount: action.payload 
+                weeklyStepsCount: action.payload 
             };
 
-        case actionTypes.HEART_POINTS: 
+        case actionTypes.WEEKLY_HEART_POINTS: 
             return {
                 ...state,
-                heartPoints: action.payload 
+                weeklyHeartPoints: action.payload 
             };
             
-        case actionTypes.CALORIES_BURNED: 
+        case actionTypes.WEEKLY_CALORIES_BURNED: 
             return {
                 ...state,
-                caloriesBurned: action.payload 
+                weeklyCaloriesBurned: action.payload 
             };
 
         case actionTypes.GET_WEEKLY_DATA: 

@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import DailyStats from "./DailyStats";
 import WeeklyStats from "./WeeklyStats";
 import { formatDate, getStartMilliSecond, getEndMilliSecond } from "../../Helper";
-import { getGoogleFitData, getWeeklyData } from "../../../redux/dashboard/DashboardAction";
+import { getWeeklyGoogleFitData, getWeeklyData } from "../../../redux/dashboard/DashboardAction";
 import { updateBarLoading } from "../../../redux/Actions";
 
 import '../../../styles/pages/Dashboard.scss';
@@ -18,7 +18,7 @@ const Dashboard = () => {
 
     const dispatch = useDispatch();
 
-    const getStartEndTime = () => {
+    const getWeekStartEndTime = () => {
         let startDate = formatDate(moment().startOf('isoweek'));
         let endDate = formatDate(moment().endOf('isoweek'));
 
@@ -30,7 +30,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         dispatch(updateBarLoading(true));
-        const time = getStartEndTime();
+        const time = getWeekStartEndTime();
 
         const stepCountBody = {
             "aggregateBy": [{
@@ -40,7 +40,7 @@ const Dashboard = () => {
             "startTimeMillis": time.startTime,		
             "endTimeMillis": time.endTime
         }
-        dispatch(getGoogleFitData(stepCountBody, "STEP_COUNT"));
+        dispatch(getWeeklyGoogleFitData(stepCountBody, "WEEKLY_STEP_COUNT"));
 
         const heartPointsBody = {
             "aggregateBy": [{
@@ -50,7 +50,7 @@ const Dashboard = () => {
             "startTimeMillis": time.startTime,		
             "endTimeMillis": time.endTime
         }
-        dispatch(getGoogleFitData(heartPointsBody, "HEART_POINTS"));
+        dispatch(getWeeklyGoogleFitData(heartPointsBody, "WEEKLY_HEART_POINTS"));
 
         const caloriesBurnedBody = {
             "aggregateBy": [{
@@ -60,7 +60,7 @@ const Dashboard = () => {
             "startTimeMillis": time.startTime,		
             "endTimeMillis": time.endTime
         }
-        dispatch(getGoogleFitData(caloriesBurnedBody, "CALORIES_BURNED"));
+        dispatch(getWeeklyGoogleFitData(caloriesBurnedBody, "WEEKLY_CALORIES_BURNED"));
     }, [])
 
     // Weekly Data

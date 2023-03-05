@@ -3,7 +3,7 @@ import actionTypes from './DashboardActionTypes';
 import { updateBarLoading } from '../Actions';
 import axios from "axios";
 
-export const getGoogleFitData = (body, action) => {
+export const getWeeklyGoogleFitData = (body, action) => {
     return (dispatch) => {
         const authCode = localStorage.getItem('authCode');
         axios.post("https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate", body, {
@@ -12,7 +12,7 @@ export const getGoogleFitData = (body, action) => {
             }
         })
         .then((response) => {
-            dispatch(get_google_fit_data(response.data.bucket, action))
+            dispatch(get_weekly_google_fit_data(response.data.bucket, action))
             dispatch(updateBarLoading(false));
         }, 
         (error) => {
@@ -36,7 +36,7 @@ export const getWeeklyData = (url, params) => {
     }
 }
 
-const get_google_fit_data = (data, action) => {
+const get_weekly_google_fit_data = (data, action) => {
     return {
         type: action,
         payload: data

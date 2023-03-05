@@ -60,24 +60,24 @@ const DailyStats = () => {
     const date = formatDate(new Date());
     const todayTime = getStartMilliSecond(date);
 
-    if (dashboard.stepsCount.length > 0) {
-      const stat = getStat("stepsCount", todayTime)
+    if (dashboard.weeklyStepsCount.length > 0) {
+      const stat = getStat("weeklyStepsCount", todayTime)
       setDailyData((prev) => ({
         ...prev,
         stepsCount: stat ? stat.intVal : 0,
       }))
     }
 
-    if (dashboard.heartPoints.length > 0) {
-      const stat = getStat("heartPoints", todayTime)
+    if (dashboard.weeklyHeartPoints.length > 0) {
+      const stat = getStat("weeklyHeartPoints", todayTime)
       setDailyData((prev) => ({
         ...prev,
         heartPoints: stat ? Math.ceil(stat.fpVal) : 0,
       }))
     }
 
-    if (dashboard.caloriesBurned.length > 0) {
-      const stat = getStat("caloriesBurned", todayTime)
+    if (dashboard.weeklyCaloriesBurned.length > 0) {
+      const stat = getStat("weeklyCaloriesBurned", todayTime)
       setDailyData((prev) => ({
         ...prev,
         caloriesBurned: stat ? Math.ceil(stat.fpVal) : 0,

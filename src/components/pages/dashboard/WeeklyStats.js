@@ -54,22 +54,22 @@ const WeeklyStats = () => {
   useEffect(() => {
     let sc = [], hp = [], cb = [], hr=[], ed=[], mt=[], m=[];
 
-    if(dashboard.stepsCount.length > 0) {
-      dashboard.stepsCount.forEach(element => {
+    if(dashboard.weeklyStepsCount.length > 0) {
+      dashboard.weeklyStepsCount.forEach(element => {
         const stat = getStat(element);
         sc.push(stat ? stat.intVal : 0);
       })
     }
 
-    if(dashboard.heartPoints.length > 0) {
-      dashboard.heartPoints.forEach(element => {
+    if(dashboard.weeklyHeartPoints.length > 0) {
+      dashboard.weeklyHeartPoints.forEach(element => {
         const stat = getStat(element);
         hp.push(stat ? Math.ceil(stat.fpVal) : 0);
       })
     }
 
-    if(dashboard.caloriesBurned.length > 0) {
-      dashboard.caloriesBurned.forEach(element => {
+    if(dashboard.weeklyCaloriesBurned.length > 0) {
+      dashboard.weeklyCaloriesBurned.forEach(element => {
         const stat = getStat(element);
         cb.push(stat ? Math.ceil(stat.fpVal) : 0);
       })
