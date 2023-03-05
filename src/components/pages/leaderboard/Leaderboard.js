@@ -7,7 +7,7 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import TableSortLabel from '@mui/material/TableSortLabel';
-import '../../../styles/pages/leaderboard.scss';
+import '../../../styles/pages/Leaderboard.scss';
 
 function createData(name, rank, numOfBadges) {
     return { name, rank, numOfBadges };
