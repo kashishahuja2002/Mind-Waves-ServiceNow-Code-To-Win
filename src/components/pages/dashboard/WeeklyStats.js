@@ -8,7 +8,7 @@ import Card from '@mui/material/Card';
 import { statsList } from "../../Constants";
 import Graph from "./Graph";
 
-const GraphCard = (obj, weeklyData) => {
+const GraphCard = (obj, chartData) => {
   return (
     <Card variant="outlined" className="whiteBox weekly-stat-card" >
       <Box className="container-box">
@@ -18,7 +18,7 @@ const GraphCard = (obj, weeklyData) => {
             width: "100%",
           }}
         >
-          <Graph graphData={weeklyData[obj.key]} color={obj.color} />
+          <Graph graphData={chartData[obj.key]} color={obj.color} />
         </Box>
         <Box className="title-box">
             {obj.title}
@@ -31,15 +31,15 @@ const GraphCard = (obj, weeklyData) => {
 const WeeklyStats = () => {
   const dashboard = useSelector((store) => store.dashboard);
 
-  const [weeklyData, setWeeklyData] = useState(
+  const [chartData, setChartData] = useState(
     {
-      stepsCount: [0, 0, 0, 0, 0, 0, 0],
-      heartPoints: [0, 0, 0, 0, 0, 0, 0],
-      caloriesBurned: [0, 0, 0, 0, 0, 0, 0],
-      hydrationRate: [0, 0, 0, 0, 0, 0, 0],
-      exerciseDuration: [0, 0, 0, 0, 0, 0, 0],
-      meditationTime: [0, 0, 0, 0, 0, 0, 0],
-      mood: [0, 0, 0, 0, 0, 0, 0]
+      stepsCount: [],
+      heartPoints: [],
+      caloriesBurned: [],
+      hydrationRate: [],
+      exerciseDuration: [],
+      meditationTime: [],
+      mood: []
     }
   );
 
@@ -52,7 +52,7 @@ const WeeklyStats = () => {
   }
 
   useEffect(() => {
-    let sc = [], hp = [], cb = [];
+    let sc = [], hp = [], cb = [], hr=[], ed=[], mt=[], m=[];
 
     if(dashboard.stepsCount.length > 0) {
       dashboard.stepsCount.forEach(element => {
@@ -75,11 +75,25 @@ const WeeklyStats = () => {
       })
     }
 
-    setWeeklyData((prev) => ({
+    let data = dashboard.weeklyData;
+    if(data.length > 0) {
+      data.forEach(element => {
+        hr.push(element.activity.water);
+        ed.push(element.activity.exercise);
+        mt.push(element.activity.meditation);
+        m.push(element.activity.mood);
+      });
+    }
+
+    setChartData((prev) => ({
       ...prev,
       stepsCount: sc,
       heartPoints: hp,
       caloriesBurned: cb,
+      hydrationRate: hr,
+      exerciseDuration: ed,
+      meditationTime: mt,
+      mood: m
     }))
 
   }, [dashboard])
@@ -93,7 +107,7 @@ const WeeklyStats = () => {
       className="weekly-stats"
     >
       {statsList.map((obj, index) => (
-          <Grid item key={`weekly-stat-${index}`} xs={12} sm={6} md={4}>{GraphCard(obj, weeklyData)}</Grid>
+          <Grid item key={`weekly-stat-${index}`} xs={12} sm={6} md={4}>{GraphCard(obj, chartData)}</Grid>
         )
       )}
     </Grid>
