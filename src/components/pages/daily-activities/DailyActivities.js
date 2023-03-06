@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react';
 
 import { Box, Tab, Tabs } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,7 +8,6 @@ import SelfImprovementIcon from '@mui/icons-material/SelfImprovement';
 import WaterTracker from './WaterTracker';
 import ExerciseTracker from './ExerciseTracker';
 import MeditationTracker from './MeditationTracker';
-import { getWeeklyData } from '../../../redux/dashboard/DashboardAction';
 
 import '../../../styles/pages/daily-activities/DailyActivities.scss';
 import 'react-circular-progressbar/dist/styles.css';
@@ -20,13 +18,6 @@ export default function DailyActivities() {
     const handleTabChange = (event, newTabIndex) => {
         setTabIndex(newTabIndex);
     };
-
-    const dispatch = useDispatch();
-
-    // Weekly Data
-    useEffect(() => {
-        dispatch(getWeeklyData("user/weeklyactivity", {}))
-    }, []);
 
     return (
         <Box className="dailyActivities">

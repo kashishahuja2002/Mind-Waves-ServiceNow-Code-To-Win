@@ -49,9 +49,13 @@ const DashboardReducer = (state = initialState, action) => {
             };
 
         case actionTypes.GET_WEEKLY_DATA: 
+            let sortedData = action.payload.sort(function(a,b) {
+                    return new Date(a.date) - new Date(b.date);
+                });
+
             return {
                 ...state,
-                weeklyData: action.payload 
+                weeklyData: sortedData 
             };
 
         default:
