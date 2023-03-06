@@ -61,6 +61,8 @@ export const days = [
     { id: 6, name: "Sun" },
 ];
 
+export const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
 export const blogsList = [
     { title: "Healthy workplaces", description: "Workers’ health, safety and well-being are vital concerns to hundreds of millions of working people worldwide. But the issue extends even further", link: "https://www.who.int/publications/i/item/healthy-workplaces-a-model-for-action" },
 
@@ -84,13 +86,13 @@ export const blogsList = [
 ];
 
 export const badgesList = [
-    { key: "stepsCount", badge: StepsCountBadge },
-    { key: "heartPoints", badge: HeartPointsBadge },
-    { key: "caloriesBurned", badge: CaloriesBurnedBadge },
-    { key: "hydrationRate", badge: HydrationRateBadge },
-    { key: "exerciseDuration", badge: ExerciseDurationBadge },
-    { key: "meditationTime", badge: MeditationTimeBadge },
-    { key: "mood", badge: MoodBadge }
+    { key: "stepsBadge", badge: StepsCountBadge },
+    { key: "heartBadge", badge: HeartPointsBadge },
+    { key: "caloriesBadge", badge: CaloriesBurnedBadge },
+    { key: "waterBadge", badge: HydrationRateBadge },
+    { key: "exerciseBadge", badge: ExerciseDurationBadge },
+    { key: "meditationBadge", badge: MeditationTimeBadge },
+    { key: "moodBadge", badge: MoodBadge }
 ];
 
 export const relaxingActivitiesList = [

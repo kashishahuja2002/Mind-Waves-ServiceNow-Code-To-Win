@@ -6,8 +6,8 @@ export const getBadges = (url, params) => {
         http.HttpGet(url, params)
             .then((response) => {
                 if(response.data.status === 200) {
-                    console.log(response.data.data[0]);
-                    // dispatch(get_badges(response.data.data))
+                    dispatch(get_badges(response.data.data))
+                    dispatch(monthly_sum(params))
                 }
             })
             .catch((error) => {
@@ -19,6 +19,13 @@ export const getBadges = (url, params) => {
 const get_badges = (data) => {
     return {
         type: actionTypes.GET_BADGES,
+        payload: data
+    }
+}
+
+const monthly_sum = (data) => {
+    return {
+        type: actionTypes.MONTHLY_SUM,
         payload: data
     }
 }

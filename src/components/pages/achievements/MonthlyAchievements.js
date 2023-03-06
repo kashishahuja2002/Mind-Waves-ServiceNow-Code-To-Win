@@ -3,13 +3,14 @@ import React from "react";
 import { Grid, Typography, Box } from "@mui/material";
 
 import { badgesList } from '../../Constants';
+import CustomTooltip from '../../common/CustomTooltip';
 
 const MonthlyAchievements = (props) => {
-    const { month } = props;
+    const { data } = props;
     
     return (
         <Box className="whiteBox monthlyAchievements">
-            <Typography variant="body" gutterBottom className="title">{month}</Typography>
+            <Typography variant="body" gutterBottom className="title">{data.month}</Typography>
 
             <Grid
                 container
@@ -20,7 +21,9 @@ const MonthlyAchievements = (props) => {
             >
                 {badgesList.map((obj, index) => 
                     <Grid item key={`badge-${index}`} xs>
-                        <img src={obj.badge} alt="Badge" width="130px" />
+                        <CustomTooltip title={obj.key}>
+                            <img src={obj.badge} alt="Badge" width="130px" className={data[obj.key] ? "coloured" : "blackWhite"} />
+                        </CustomTooltip>
                     </Grid>
                 )}
             </Grid>

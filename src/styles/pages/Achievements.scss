@@ -13,4 +13,9 @@
     .MuiGrid-container {
         margin-top: 0px;
     }
+
+    .blackWhite {
+        filter: grayscale(100%);
+        opacity: 0.3;
+    }
 }
