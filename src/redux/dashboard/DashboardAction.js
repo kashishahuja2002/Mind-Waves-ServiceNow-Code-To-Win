@@ -66,7 +66,7 @@ const get_weekly_data = (data) => {
 
 const get_monthly_data = (data) => {
     return {
-        type: actionTypes.GET_WEEKLY_DATA,
+        type: actionTypes.GET_MONTHLY_DATA,
         payload: data
     }
 }

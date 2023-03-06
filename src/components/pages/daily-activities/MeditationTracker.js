@@ -1,6 +1,5 @@
 import React from 'react';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
-import ReactAudioPlayer from 'react-audio-player';
 
 import { Grid } from '@mui/material';
 import Card from '@mui/material/Card';
@@ -10,7 +9,7 @@ import IconButton from '@mui/material/IconButton';
 
 import History from './History';
 import TargetChart from './TragetChart';
-import meditationSound from '../../../assets/Sound/meditation-sound.mp3';
+import MeditationSound from '../../../assets/audio/MeditationSound.mp3';
 
 import '../../../styles/pages/daily-activities/MeditationTracker.scss';
 
@@ -172,7 +171,7 @@ class MeditationTracker extends React.Component {
                         <audio
                             id='med-audio'
                             loop
-                            src={meditationSound}>
+                            src={MeditationSound}>
                         </audio>
                     </Card>
                 </Grid>
