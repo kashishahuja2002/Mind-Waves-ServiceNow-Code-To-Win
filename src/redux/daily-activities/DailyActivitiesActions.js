@@ -27,3 +27,17 @@ export const addMeditation = (url, body) => {
             })
     }
 }
+
+export const addExercise = (url, body) => {
+    return (dispatch) => {
+        http.HttpCall(url, "post", {}, body)
+            .then((response) => {
+                if(response.data.status === 200) {
+                    console.log("Successfully added exercise: ", response.data.data);
+                }
+            })
+            .catch((error) => {
+                console.log("Error: ",error);
+            })
+    }
+}

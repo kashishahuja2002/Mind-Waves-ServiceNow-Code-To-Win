@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 
 import { Grid } from '@mui/material';
@@ -9,45 +10,53 @@ import IconButton from '@mui/material/IconButton';
 
 import History from './History';
 import TargetChart from './TragetChart';
+import { getWeeklyData } from "../../../redux/dashboard/DashboardAction";
+import { addExercise } from "../../../redux/daily-activities/DailyActivitiesActions";
 
 import '../../../styles/pages/daily-activities/ExerciseTracker.scss';
 
-class ExerciseTracker extends React.Component {
-    constructor(props) {
-        super(props);
+const ExerciseTracker = () => {
 
-        this.state = {
-            running: false,
-            currentTimeMs: 0,
-            currentTimeSec: 0,
-            currentTimeMin: 0,
-            history: [],
-            countKey: 0,
-            historyCardHeight: 0,
-        };
-    }
+    const weeklyData = useSelector((store) => store.dashboard.weeklyData);
+    const user = useSelector((store) => store.profile.user);
+    const dispatch = useDispatch();
 
-    componentDidMount() {
-        this.setHistoryState();
+    // Weekly Data API
+    useEffect(() => {
+        dispatch(getWeeklyData("user/weeklyactivity", {}))
+    }, []);
 
-        // History card height
-        let leftCard = document.querySelector("#leftCard");
-        if (leftCard) {
-            this.setState({
-                historyCardHeight: leftCard.clientHeight - 25
-            })
+    const [targetData, setTargetData] = useState([0,0,0,0,0,0,0]);
+    useEffect(() => {
+        if(weeklyData.length > 0) {
+            let td = [];
+            weeklyData.forEach(element => {
+                td.push(Math.ceil(element.activity.exercise)); 
+            });
+    
+            setTargetData(td);
         }
-    }
+    }, [weeklyData]);
 
-    setHistoryState = () => {
+    const [running, setRunning] = useState(false);
+    const [currentTimeSec, setCurrentTimeSec] = useState(0);
+    const [currentTimeMin, setCurrentTimeMin] = useState(0);
+    const [history, setHistory] = useState([]);
+    const [countKey, setCountKey] = useState(0);
+
+    useEffect(() => {
+        setHistoryState();
+    }, [])
+
+    const setHistoryState = () => {
         if (localStorage.exerciseTime) {
-            this.setState({ history: localStorage.exerciseTime.split('|') });
+            setHistory(localStorage.exerciseTime.split('|'));
         } else {
-            this.setState({ history: [] });
+            setHistory([]);
         }
     };
 
-    formatTime = (val, ...rest) => {
+    const formatTime = (val, ...rest) => {
         let value = val.toString();
         if (value.length < 2) {
             value = '0' + value;
@@ -59,123 +68,134 @@ class ExerciseTracker extends React.Component {
     };
 
     // Stopwatch
-    start = () => {
-        if (!this.state.running) {
-            this.setState({ running: true });
-            this.watch = setInterval(() => this.pace(), 10);
+    const [watch, setWatch] = useState(null);
+    const start = () => {
+        if (!running) {
+            setRunning(true);
+            setWatch(setInterval(() => {setCurrentTimeSec(currentTimeSec => currentTimeSec + 1)}, 1000));
         }
     };
 
-    stop = () => {
-        this.setState({ running: false });
-        clearInterval(this.watch);
-        this.setHistoryState();
+    useEffect(() => {
+        if (currentTimeSec >= 60) {
+            setCurrentTimeMin(currentTimeMin => currentTimeMin + 1);
+            setCurrentTimeSec(0);
+        }
+    }, [currentTimeSec])
+
+    const stop = () => {
+        setRunning(false);
+        clearInterval(watch);
+        setHistoryState();
     };
 
-    pace = () => {
-        this.setState({ currentTimeMs: this.state.currentTimeMs + 10 });
-        if (this.state.currentTimeMs >= 1000) {
-            this.setState({ currentTimeSec: this.state.currentTimeSec + 1 });
-            this.setState({ currentTimeMs: 0 });
-        }
-        if (this.state.currentTimeSec >= 60) {
-            this.setState({ currentTimeMin: this.state.currentTimeMin + 1 });
-            this.setState({ currentTimeSec: 0 });
-        }
-    };
-
-    saveToLocalStorage = () => {
+    const saveToLocalStorage = () => {
         if (localStorage.exerciseTime) {
             localStorage.exerciseTime =
-                `${this.formatTime(
-                    this.state.currentTimeMin
-                )}:${this.formatTime(
-                    this.state.currentTimeSec
+                `${formatTime(
+                    currentTimeMin
+                )}:${formatTime(
+                    currentTimeSec
                 )} :: ${new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' })}` + " | " + localStorage.exerciseTime
-        } 
+        }
         else {
-            localStorage.exerciseTime = `${this.formatTime(
-                this.state.currentTimeMin
-            )}:${this.formatTime(
-                this.state.currentTimeSec
-            )} :: ${new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' }) } `;
+            localStorage.exerciseTime = `${formatTime(
+                currentTimeMin
+            )}:${formatTime(
+                currentTimeSec
+            )} :: ${new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' })} `;
         }
     };
 
-    reset = () => {
+    const reset = () => {
         if (typeof Storage !== 'undefined') {
-            this.saveToLocalStorage();
+            saveToLocalStorage();
         } else {
             console.error('local storage not supported');
         }
 
-        let newKey = this.state.countKey + 1;
-        this.setState({
-            currentTimeMs: 0,
-            currentTimeSec: 0,
-            currentTimeMin: 0,
-            running: false,
-            countKey: newKey,
-        });
-        clearInterval(this.watch);
+        const totalSec = (currentTimeMin*60) + currentTimeSec;
+        const day = new Date().getDay();
+        const newTargetData = [...targetData];
+        newTargetData[day - 1] = targetData[day - 1] + totalSec;
+        setTargetData(newTargetData);
 
-        this.setHistoryState();
+        const body = {
+            exercise: totalSec
+        }
+        dispatch(addExercise("user/addexercise", body));
+
+        let newKey = countKey + 1;
+        setCurrentTimeSec(0);
+        setCurrentTimeMin(0);
+        setRunning(false);
+        setCountKey(newKey);
+
+        clearInterval(watch);
+        setHistoryState();
     };
 
-    render() {
-        return (
-            <Grid
-                container
-                direction="row"
-                justifyContent="flex-start"
-                alignItems="flex-start"
-                spacing={3}
-            >
-                <Grid item xs={12} sm={6}>
-                    <Card id="leftCard" className="whiteBox exerciseCard">
-                        <CountdownCircleTimer
-                            key={this.state.countKey}
-                            isPlaying={this.state.running}
-                            duration={60}
-                            colors="#d9d9d9"
-                            trailColor='#652fa1'
-                            strokeWidth="12"
-                            size={140}
-                            onComplete={() => {
-                                return { shouldRepeat: true, delay: 0 }
-                            }}
-                        >
-                            {({ remainingTime }) => this.state.running === false 
-                                ?   <IconButton onClick={this.start} ><PlayArrowOutlinedIcon className="play-icon" /></IconButton> 
-                                :   <IconButton onClick={this.stop} ><PauseOutlinedIcon className="play-icon" /></IconButton>
-                            }
-                        </CountdownCircleTimer>
+    // for history card height
+    const [historyCardHeight, setHistoryCardHeight] = useState(0);
+    useEffect(() => {
+        let leftCard = document.querySelector("#leftCard");
+        if (leftCard) {
+            setHistoryCardHeight(leftCard.clientHeight - 25);
+        }
+    }, []);
 
-                        <div className="stopwatch">
-                            {this.formatTime(this.state.currentTimeMin)}:
-                            {this.formatTime(this.state.currentTimeSec)}
-                        </div>
+    return (
+        <Grid
+            container
+            direction="row"
+            justifyContent="flex-start"
+            alignItems="flex-start"
+            spacing={3}
+        >
+            <Grid item xs={12} sm={6}>
+                <Card id="leftCard" className="whiteBox exerciseCard">
+                    <CountdownCircleTimer
+                        key={countKey}
+                        isPlaying={running}
+                        duration={60}
+                        colors="#d9d9d9"
+                        trailColor='#652fa1'
+                        strokeWidth="12"
+                        size={140}
+                        onComplete={() => {
+                            return { shouldRepeat: true, delay: 0 }
+                        }}
+                    >
+                        {({ remainingTime }) => running === false
+                            ? <IconButton onClick={start}><PlayArrowOutlinedIcon className="play-icon" /></IconButton>
+                            : <IconButton onClick={stop}><PauseOutlinedIcon className="play-icon" /></IconButton>
+                        }
+                    </CountdownCircleTimer>
 
-                        <div onClick={this.reset} className="endSessionButton" >
-                            End Session
-                        </div>
-                    </Card>
-                </Grid>
+                    <div className="stopwatch">
+                        {formatTime(currentTimeMin)}:
+                        {formatTime(currentTimeSec)}
+                    </div>
 
-                <Grid item xs={12} sm={6}>
-                    <Card className="whiteBox historyCard" sx={{ height: this.state.historyCardHeight }}>
-                         <History time={this.state.history} tab="exercise" />
-                    </Card>
-                </Grid>
-
-                <Grid item xs={12}>
-                    <Card className="whiteBox targetCard">
-                        <TargetChart color="#652fa1" data={[]} goal={0} />
-                    </Card>
-                </Grid>
+                    <div onClick={reset} className="endSessionButton" >
+                        End Session
+                    </div>
+                </Card>
             </Grid>
-        );
-    }
+
+            <Grid item xs={12} sm={6}>
+                <Card className="whiteBox historyCard" sx={{ height: historyCardHeight }}>
+                    <History time={history} tab="exercise" />
+                </Card>
+            </Grid>
+
+            <Grid item xs={12}>
+                <Card className="whiteBox targetCard">
+                    <TargetChart color="#652fa1" data={targetData} goal={user.exerciseGoal} />
+                </Card>
+            </Grid>
+        </Grid>
+    );
 }
 
 export default ExerciseTracker;
