@@ -7,7 +7,8 @@ const initialState = {
     monthlyStepsCount: [],
     monthlyHeartPoints: [],
     monthlyCaloriesBurned: [],
-    weeklyData: []
+    weeklyData: [],
+    monthlyData: [],
 };
 
 const DashboardReducer = (state = initialState, action) => {
@@ -49,9 +50,23 @@ const DashboardReducer = (state = initialState, action) => {
             };
 
         case actionTypes.GET_WEEKLY_DATA: 
+            let sortedWeeklyData = action.payload.sort(function(a,b) {
+                    return new Date(a.date) - new Date(b.date);
+                });
+
             return {
                 ...state,
-                weeklyData: action.payload 
+                weeklyData: sortedWeeklyData 
+            };
+
+        case actionTypes.GET_MONTHLY_DATA: 
+            let sortedMonthlyData = action.payload.sort(function(a,b) {
+                    return new Date(a.date) - new Date(b.date);
+                });
+
+            return {
+                ...state,
+                monthlyData: sortedMonthlyData 
             };
 
         default:

@@ -35,7 +35,7 @@ const PagesContainer = () => {
 
     useEffect(() => {
         const now = new Date();
-        const targetTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 18, 0, 0); // 6pm
+        const targetTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 16, 0, 0); // 4pm
         const timeUntilTarget = targetTime - now;
         if (timeUntilTarget > 0) {
             const timeoutId = setTimeout(() => {

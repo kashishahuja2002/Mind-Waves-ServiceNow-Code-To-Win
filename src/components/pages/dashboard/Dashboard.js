@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import DailyStats from "./DailyStats";
 import WeeklyStats from "./WeeklyStats";
 import { formatDate, getStartMilliSecond, getEndMilliSecond } from "../../Helper";
-import { getGoogleFitData, getWeeklyData } from "../../../redux/dashboard/DashboardAction";
+import { getGoogleFitData, getMonthlyData, getWeeklyData } from "../../../redux/dashboard/DashboardAction";
 import { updateBarLoading } from "../../../redux/Actions";
 import { googleFitUrl } from "../../Constants";
 import { getBadges } from "../../../redux/achievements/AchievementsActions";
@@ -71,8 +71,10 @@ const Dashboard = () => {
     // Weekly Data
     const token = localStorage.getItem('token');
     useEffect(() => {
-        if(token)
+        if(token) {
             dispatch(getWeeklyData("user/weeklyactivity", {}))
+            dispatch(getMonthlyData("user/monthlyactivity", {}))
+        }
     }, [token]);
 
     const getStat = (val) => {

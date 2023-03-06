@@ -86,13 +86,13 @@ export const blogsList = [
 ];
 
 export const badgesList = [
-    { key: "stepsBadge", badge: StepsCountBadge },
-    { key: "heartBadge", badge: HeartPointsBadge },
-    { key: "caloriesBadge", badge: CaloriesBurnedBadge },
-    { key: "waterBadge", badge: HydrationRateBadge },
-    { key: "exerciseBadge", badge: ExerciseDurationBadge },
-    { key: "meditationBadge", badge: MeditationTimeBadge },
-    { key: "moodBadge", badge: MoodBadge }
+    { key: "stepsBadge", badge: StepsCountBadge, goal: "150000 steps" },
+    { key: "heartBadge", badge: HeartPointsBadge, goal: "450 points" },
+    { key: "caloriesBadge", badge: CaloriesBurnedBadge, goal: "60000 calories" },
+    { key: "waterBadge", badge: HydrationRateBadge, goal: "240 glasses" },
+    { key: "exerciseBadge", badge: ExerciseDurationBadge, goal: "108000 sec" },
+    { key: "meditationBadge", badge: MeditationTimeBadge, goal: "27000 sec" },
+    { key: "moodBadge", badge: MoodBadge, goal: "15 days" }
 ];
 
 export const relaxingActivitiesList = [

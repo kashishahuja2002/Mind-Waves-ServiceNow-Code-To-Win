@@ -17,7 +17,7 @@ export default function History(props) {
         time.length === 0
             ? <div className='alt-txt'>
                 <AccessTimeFilledIcon />
-                {`Your water ${tab} history will appear here`}
+                {`Your ${tab} history will appear here`}
             </div>
 
             : time.map((item, index) =>

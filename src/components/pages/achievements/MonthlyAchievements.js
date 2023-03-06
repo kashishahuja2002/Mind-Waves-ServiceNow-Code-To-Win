@@ -21,7 +21,7 @@ const MonthlyAchievements = (props) => {
             >
                 {badgesList.map((obj, index) => 
                     <Grid item key={`badge-${index}`} xs>
-                        <CustomTooltip title={obj.key}>
+                        <CustomTooltip title={`${obj.key} Goal: ${obj.goal}`}>
                             <img src={obj.badge} alt="Badge" width="130px" className={data[obj.key] ? "coloured" : "blackWhite"} />
                         </CustomTooltip>
                     </Grid>

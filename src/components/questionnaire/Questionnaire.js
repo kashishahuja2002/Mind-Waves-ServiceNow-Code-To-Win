@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
 
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
@@ -20,6 +21,7 @@ import SentimentNeutralIcon from '@mui/icons-material/SentimentNeutral';  // Neu
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';  // Happy Icon
 
 import { questionsList } from '../Constants';
+import { addMood } from '../../redux/questionnaire/QuestionnaireActions';
 import '../../styles/pages/Questionnaire.scss';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -27,6 +29,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function Questionnaire() {
+  const dispatch = useDispatch();
+
   const [open, setOpen] = React.useState(true);
   const [questions, setQuestions] = React.useState([]);
   const [answer, setAnswer] = React.useState({0: null, 1: null});
@@ -34,6 +38,13 @@ export default function Questionnaire() {
   const navigate = useNavigate();
 
   const handleOkayClick = () => {
+    const moodScore = (answer[0] + answer[1])/2;
+    const currentMood = (moodScore<2) ? 1 : ((moodScore>2) ? 3 : 2);
+    const body = {
+      mood: currentMood
+    }
+    dispatch(addMood("user/addmood", body));
+
     setOpen(false);
     navigate("/pages/relaxing-activities");
   };

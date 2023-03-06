@@ -8,26 +8,43 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import TableSortLabel from '@mui/material/TableSortLabel';
 import '../../../styles/pages/Leaderboard.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { getLeaderboardRanks } from '../../../redux/leaderboard/LeaderboardActions';
 
 function createData(name, rank, numOfBadges) {
     return { name, rank, numOfBadges };
 }
 
-const rows = [
-    createData("Ishika", 3, 1),
-    createData("kashish", 2, 2),
-    createData("Drakshi", 1, 4),
-    createData("Andrea", 4, 1),
-    createData("Samantha", 5, 1)
-];
-
 export default function SortedTable() {
+
+    const dispatch = useDispatch();
+    const user = useSelector((store) => store.profile.user);
+    const ranks = useSelector((store) => store.leaderboard.ranks);
+
+    const [companyName, setCompanyName] = useState('');
+
+    useEffect(() => {
+        dispatch(getLeaderboardRanks("user/leaderboard", {}));
+        let cn =  user.email.split('@')[1];
+        cn = cn.split('.')[0];
+        cn = cn.charAt(0).toUpperCase() + cn.slice(1);
+        setCompanyName(cn);
+    }, [user]);
+
+    const [rows, setRows] = useState([]);
     const [rowData, setRowData] = useState(rows);
     const [orderDirection, setOrderDirection] = useState("desc");
 
     useEffect(() => {
+        let data = [];
+        if(ranks.length > 0) {
+            ranks.forEach((ele, index) => {
+                data.push(createData(ele.name, index+1, ele.badgecount))
+            });
+        }
+        setRows(data);
         handleSortRequest();
-    }, [])
+    }, [ranks])
 
     const sortArray = (arr, orderBy) => {
         switch (orderBy) {
@@ -51,7 +68,7 @@ export default function SortedTable() {
 
     return (
         <div>
-            <div className='leaderboard-title'>Company Name</div>
+            <div className='leaderboard-title'>{companyName}</div>
             <Card id="leftCard" className="whiteBox waterCard">
                 <Table aria-label="simple table">
                     <TableHead>
@@ -71,7 +88,7 @@ export default function SortedTable() {
                     </TableHead>
                     <TableBody>
                         {rowData.map((row, index) => (
-                            <TableRow key={index} className={row.name === "Drakshi" && 'bg-blue'}>
+                            <TableRow key={index} className={row.name === user.name ? 'bg-blue' : ''}>
 
                                 <TableCell className="curved-bg-left" component="th" scope="row" align="center">
                                     {row.name}

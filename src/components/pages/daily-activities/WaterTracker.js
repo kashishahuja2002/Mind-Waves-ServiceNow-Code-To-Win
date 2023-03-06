@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Grid } from '@mui/material';
 import Card from '@mui/material/Card';
@@ -7,13 +7,21 @@ import Card from '@mui/material/Card';
 import WaterLevel from './WaterLevel';
 import TargetChart from './TragetChart';
 import History from './History';
+import { addWater } from '../../../redux/daily-activities/DailyActivitiesActions';
+import { getWeeklyData } from '../../../redux/dashboard/DashboardAction';
 
 import '../../../styles/pages/daily-activities/WaterTracker.scss';
 
 export default function WaterTracker() {
 
+    // Weekly Data API
+    useEffect(() => {
+        dispatch(getWeeklyData("user/weeklyactivity", {}))
+    }, []);
+
     const weeklyData = useSelector((store) => store.dashboard.weeklyData);
     const user = useSelector((store) => store.profile.user);
+    const dispatch = useDispatch();
 
     const [waterLevel, setWaterLevel] = useState(0);
     const [history, setHistory] = useState([]);
@@ -21,10 +29,6 @@ export default function WaterTracker() {
 
     useEffect(() => {
         if(weeklyData.length > 0) {
-            weeklyData.sort(function(a,b) {
-                return new Date(a.date) - new Date(b.date);
-            });
-    
             let td = [];
             weeklyData.forEach(element => {
                 td.push(Math.ceil(element.activity.water)); 
@@ -74,6 +78,11 @@ export default function WaterTracker() {
         const newTargetData = [...targetData];
         newTargetData[day - 1] = targetData[day - 1] + 1;
         setTargetData(newTargetData);
+
+        const body = {
+            water: 1
+        }
+        dispatch(addWater("user/addwater", body));
     };
 
     // for history card height
