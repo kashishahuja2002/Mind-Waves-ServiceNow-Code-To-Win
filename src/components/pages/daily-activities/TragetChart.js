@@ -10,7 +10,7 @@ export default function TragetChart(props) {
     const { color, data, goal } = props;
 
     const percentData = data.map(obj => (
-        Math.ceil((obj/goal)*100)
+        isNaN(obj/goal) ? 0 : Math.ceil((obj/goal)*100)
     ));
 
     return (
