@@ -36,6 +36,20 @@ export const getWeeklyData = (url, params) => {
     }
 }
 
+export const getMonthlyData = (url, params) => {
+    return (dispatch) => {
+        http.HttpGet(url, params)
+            .then((response) => {
+                if(response.data.status === 200) {
+                    dispatch(get_monthly_data(response.data.data))
+                }
+            })
+            .catch((error) => {
+                console.log("Error: ",error);
+            })
+    }
+}
+
 const get_google_fit_data = (data, action) => {
     return {
         type: action,
@@ -44,6 +58,13 @@ const get_google_fit_data = (data, action) => {
 } 
 
 const get_weekly_data = (data) => {
+    return {
+        type: actionTypes.GET_WEEKLY_DATA,
+        payload: data
+    }
+}
+
+const get_monthly_data = (data) => {
     return {
         type: actionTypes.GET_WEEKLY_DATA,
         payload: data
