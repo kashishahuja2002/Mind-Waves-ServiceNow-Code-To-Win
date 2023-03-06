@@ -15,6 +15,7 @@ const PagesContainer = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const token = localStorage.getItem('token');
 
     useEffect(() => {
         const session = sessionStorage.getItem('isMySessionActive');
@@ -22,9 +23,10 @@ const PagesContainer = () => {
             navigate('/auth/login');
         }
         else {
-            dispatch(getProfile("user/getinfo", {}))
+            if(token)
+                dispatch(getProfile("user/getinfo", {}))
         }
-    }, []);
+    }, [token]);
 
     const [showSidebar, setShowSidebar] = useState(false);
 

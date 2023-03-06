@@ -17,20 +17,22 @@ export default function WaterTracker() {
 
     const [waterLevel, setWaterLevel] = useState(0);
     const [history, setHistory] = useState([]);
-    const [targetData, setTargetData] = useState([]);
+    const [targetData, setTargetData] = useState([0,0,0,0,0,0,0]);
 
     useEffect(() => {
-        weeklyData.sort(function(a,b) {
-            return new Date(a.date) - new Date(b.date);
-        });
-
-        let td = [];
-        weeklyData.forEach(element => {
-            td.push(Math.ceil(element.activity.water)); 
-        });
-
-        setTargetData(td);
-        setWaterLevel((td[td.length - 1]))
+        if(weeklyData.length > 0) {
+            weeklyData.sort(function(a,b) {
+                return new Date(a.date) - new Date(b.date);
+            });
+    
+            let td = [];
+            weeklyData.forEach(element => {
+                td.push(Math.ceil(element.activity.water)); 
+            });
+    
+            setTargetData(td);
+            setWaterLevel((td[td.length - 1]))
+        }
     }, [weeklyData]);
 
     useEffect(() => {
@@ -68,8 +70,9 @@ export default function WaterTracker() {
         
         setDrinkTimeState();
 
+        const day = new Date().getDay();
         const newTargetData = [...targetData];
-        newTargetData[targetData.length - 1] = targetData[targetData.length - 1] + 1;
+        newTargetData[day - 1] = targetData[day - 1] + 1;
         setTargetData(newTargetData);
     };
 

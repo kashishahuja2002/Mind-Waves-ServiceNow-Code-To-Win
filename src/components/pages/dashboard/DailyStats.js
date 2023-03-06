@@ -41,7 +41,7 @@ const DailyStats = () => {
       hydrationRate: 0,
       exerciseDuration: 0,
       meditationTime: 0,
-      mood: 0
+      mood: 'Neutral'
     }
   );
 
@@ -60,27 +60,38 @@ const DailyStats = () => {
     const date = formatDate(new Date());
     const todayTime = getStartMilliSecond(date);
 
-    if (dashboard.stepsCount.length > 0) {
-      const stat = getStat("stepsCount", todayTime)
+    if (dashboard.weeklyStepsCount.length > 0) {
+      const stat = getStat("weeklyStepsCount", todayTime)
       setDailyData((prev) => ({
         ...prev,
         stepsCount: stat ? stat.intVal : 0,
       }))
     }
 
-    if (dashboard.heartPoints.length > 0) {
-      const stat = getStat("heartPoints", todayTime)
+    if (dashboard.weeklyHeartPoints.length > 0) {
+      const stat = getStat("weeklyHeartPoints", todayTime)
       setDailyData((prev) => ({
         ...prev,
         heartPoints: stat ? Math.ceil(stat.fpVal) : 0,
       }))
     }
 
-    if (dashboard.caloriesBurned.length > 0) {
-      const stat = getStat("caloriesBurned", todayTime)
+    if (dashboard.weeklyCaloriesBurned.length > 0) {
+      const stat = getStat("weeklyCaloriesBurned", todayTime)
       setDailyData((prev) => ({
         ...prev,
         caloriesBurned: stat ? Math.ceil(stat.fpVal) : 0,
+      }))
+    }
+
+    let data = dashboard.weeklyData;
+    if(data.length > 0) {
+      setDailyData((prev) => ({
+        ...prev,
+        hydrationRate: data[data.length - 1].activity.water,
+        exerciseDuration: data[data.length - 1].activity.exercise,
+        meditationTime: data[data.length - 1].activity.meditation,
+        mood: (data[data.length - 1].activity.mood === 1 ? "Sad" : (data[data.length - 1].activity.mood === 3 ? "Happy" : "Neutral")),
       }))
     }
   }, [dashboard]);

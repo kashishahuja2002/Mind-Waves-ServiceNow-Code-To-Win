@@ -91,23 +91,25 @@ const Navbar = (props) => {
         <Box sx={{ flexGrow: 1 }} className="navbar">
             <AppBar position="static">
                 <Toolbar>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{ mr: 2, display: { lg: 'none' } }}
-                        onClick={() => toggleSidebar(true)}
-                    >
-                        <MenuIcon />
-                    </IconButton>
+                    <div className="leftContent">
+                        <IconButton
+                            size="large"
+                            edge="start"
+                            color="inherit"
+                            aria-label="menu"
+                            sx={{ mr: 2, display: { lg: 'none' } }}
+                            onClick={() => toggleSidebar(true)}
+                        >
+                            <MenuIcon />
+                        </IconButton>
 
-                    <HomeIcon sx={{ fontSize: "20px" }} />
-                    <Typography variant="body" sx={{ flexGrow: 1 }}>
-                        {headRoute !== null ? `/ ${headRoute}` : ''}
-                    </Typography>
+                        <HomeIcon className="homeIcon" />
+                        <Typography variant="body" sx={{ flexGrow: 1 }}>
+                            {headRoute !== null ? `/ ${headRoute}` : ''}
+                        </Typography>
+                    </div>
                     
-                    <div>
+                    <div className="rightContent">
                         <CustomTooltip title="Achievements">
                             <IconButton
                                 size="large"

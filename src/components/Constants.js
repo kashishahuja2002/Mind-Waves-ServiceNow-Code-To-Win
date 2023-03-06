@@ -52,14 +52,16 @@ export const statsList = [
 ];
 
 export const days = [
-    { name: "Mon" },
-    { name: "Tue" },
-    { name: "Wed" },
-    { name: "Thu" },
-    { name: "Fri" },
-    { name: "Sat" },
-    { name: "Sun" },
+    { id: 0, name: "Mon" },
+    { id: 1, name: "Tue" },
+    { id: 2, name: "Wed" },
+    { id: 3, name: "Thu" },
+    { id: 4, name: "Fri" },
+    { id: 5, name: "Sat" },
+    { id: 6, name: "Sun" },
 ];
+
+export const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 export const blogsList = [
     { title: "Healthy workplaces", description: "Workers’ health, safety and well-being are vital concerns to hundreds of millions of working people worldwide. But the issue extends even further", link: "https://www.who.int/publications/i/item/healthy-workplaces-a-model-for-action" },
@@ -84,13 +86,13 @@ export const blogsList = [
 ];
 
 export const badgesList = [
-    { key: "stepsCount", badge: StepsCountBadge },
-    { key: "heartPoints", badge: HeartPointsBadge },
-    { key: "caloriesBurned", badge: CaloriesBurnedBadge },
-    { key: "hydrationRate", badge: HydrationRateBadge },
-    { key: "exerciseDuration", badge: ExerciseDurationBadge },
-    { key: "meditationTime", badge: MeditationTimeBadge },
-    { key: "mood", badge: MoodBadge }
+    { key: "stepsBadge", badge: StepsCountBadge },
+    { key: "heartBadge", badge: HeartPointsBadge },
+    { key: "caloriesBadge", badge: CaloriesBurnedBadge },
+    { key: "waterBadge", badge: HydrationRateBadge },
+    { key: "exerciseBadge", badge: ExerciseDurationBadge },
+    { key: "meditationBadge", badge: MeditationTimeBadge },
+    { key: "moodBadge", badge: MoodBadge }
 ];
 
 export const relaxingActivitiesList = [
@@ -120,3 +122,9 @@ export const questionsList = [
     {id: 13, question: "Are you feeling any sense of accomplishment or satisfaction right now?", opt1: "Not at all", opt2: "A little bit", opt3: "Yes, very much"},
     {id: 14, question: "Are you feeling any sense of hope or optimism for the future?", opt1: "Not at all", opt2: "A little bit", opt3: "Yes, very much"},
 ];
+
+export const googleFitUrl = {
+    stepsCount: "derived:com.google.step_count.delta:com.google.android.gms:estimated_steps",
+    heartPoints: "derived:com.google.heart_minutes:com.google.android.gms:merge_heart_minutes",
+    caloriesBurned: "derived:com.google.calories.expended:com.google.android.gms:merge_calories_expended"
+}

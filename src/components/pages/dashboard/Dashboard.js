@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import moment from 'moment';
 import 'moment-timezone';
 
@@ -11,62 +11,103 @@ import WeeklyStats from "./WeeklyStats";
 import { formatDate, getStartMilliSecond, getEndMilliSecond } from "../../Helper";
 import { getGoogleFitData, getWeeklyData } from "../../../redux/dashboard/DashboardAction";
 import { updateBarLoading } from "../../../redux/Actions";
+import { googleFitUrl } from "../../Constants";
+import { getBadges } from "../../../redux/achievements/AchievementsActions";
 
 import '../../../styles/pages/Dashboard.scss';
 
 const Dashboard = () => {
 
     const dispatch = useDispatch();
+    const dashboard = useSelector((store) => store.dashboard);
 
-    const getStartEndTime = () => {
+    const getWeekStartEndTime = () => {
         let startDate = formatDate(moment().startOf('isoweek'));
         let endDate = formatDate(moment().endOf('isoweek'));
 
         const startTime = getStartMilliSecond(startDate);
         const endTime = getEndMilliSecond(endDate);
 
-        return {startTime, endTime};
+        const durationTime = 86400000;
+
+        return {startTime, endTime, durationTime};
+    }
+
+    const getMonthStartEndTime = () => {
+        let startDate = formatDate(moment().startOf('month'));
+        let endDate = formatDate(moment().endOf('month'));
+
+        const startTime = getStartMilliSecond(startDate);
+        const endTime = getEndMilliSecond(endDate);
+
+        const durationTime = 604800000;
+
+        return {startTime, endTime, durationTime};
     }
 
     useEffect(() => {
         dispatch(updateBarLoading(true));
-        const time = getStartEndTime();
+        const weeklyTime = getWeekStartEndTime();
+        const monthlyTime = getMonthStartEndTime();
 
-        const stepCountBody = {
+        const body = (url, time) => ({
             "aggregateBy": [{
-                "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:estimated_steps"
+                "dataSourceId": url
             }],
-            "bucketByTime": { "durationMillis": 86400000 },
+            "bucketByTime": { "durationMillis": time.durationTime },
             "startTimeMillis": time.startTime,		
             "endTimeMillis": time.endTime
-        }
-        dispatch(getGoogleFitData(stepCountBody, "STEP_COUNT"));
+        })
 
-        const heartPointsBody = {
-            "aggregateBy": [{
-                "dataSourceId": "derived:com.google.heart_minutes:com.google.android.gms:merge_heart_minutes"
-            }],
-            "bucketByTime": { "durationMillis": 86400000 },
-            "startTimeMillis": time.startTime,		
-            "endTimeMillis": time.endTime
-        }
-        dispatch(getGoogleFitData(heartPointsBody, "HEART_POINTS"));
+        dispatch(getGoogleFitData(body(googleFitUrl.stepsCount, weeklyTime), "WEEKLY_STEP_COUNT"));
+        dispatch(getGoogleFitData(body(googleFitUrl.heartPoints, weeklyTime), "WEEKLY_HEART_POINTS"));
+        dispatch(getGoogleFitData(body(googleFitUrl.caloriesBurned, weeklyTime), "WEEKLY_CALORIES_BURNED"));
 
-        const caloriesBurnedBody = {
-            "aggregateBy": [{
-                "dataSourceId": "derived:com.google.calories.expended:com.google.android.gms:merge_calories_expended"
-            }],
-            "bucketByTime": { "durationMillis": 86400000 },
-            "startTimeMillis": time.startTime,		
-            "endTimeMillis": time.endTime
-        }
-        dispatch(getGoogleFitData(caloriesBurnedBody, "CALORIES_BURNED"));
+        dispatch(getGoogleFitData(body(googleFitUrl.stepsCount, monthlyTime), "MONTHLY_STEP_COUNT"));
+        dispatch(getGoogleFitData(body(googleFitUrl.heartPoints, monthlyTime), "MONTHLY_HEART_POINTS"));
+        dispatch(getGoogleFitData(body(googleFitUrl.caloriesBurned, monthlyTime), "MONTHLY_CALORIES_BURNED"));
     }, [])
 
     // Weekly Data
+    const token = localStorage.getItem('token');
     useEffect(() => {
-        dispatch(getWeeklyData("user/weeklyactivity", {}))
-    }, []);
+        if(token)
+            dispatch(getWeeklyData("user/weeklyactivity", {}))
+    }, [token]);
+
+    const getStat = (val) => {
+        var result = val.dataset[0].point;
+        return result.length ? result[0].value[0] : 0;
+    }
+
+    // Badges API
+    useEffect(() => {    
+        let scs=0, hps=0, cbs=0;
+
+        dashboard.monthlyStepsCount.forEach((element) => {
+            let stat = getStat(element)
+            scs = scs + (stat ? stat.intVal : 0);
+        })
+
+        dashboard.monthlyHeartPoints.forEach((element) => {
+            let stat = getStat(element)
+            hps = hps + (stat ? Math.ceil(stat.fpVal) : 0);
+        })
+
+        dashboard.monthlyCaloriesBurned.forEach((element) => {
+            let stat = getStat(element)
+            cbs = cbs + (stat ? Math.ceil(stat.fpVal) : 0);
+        })
+
+        const params = {
+            stepsCount: scs,
+            heartPoints: hps,
+            caloriesBurned: cbs
+        }
+
+        if(token)
+            dispatch(getBadges("user/badges", params));
+    }, [dashboard, token])
 
     return (
         <Grid
