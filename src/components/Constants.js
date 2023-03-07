@@ -1,7 +1,7 @@
 // Sidebar Icons
 import DashboardIcon from '@mui/icons-material/Dashboard';  // Dashboard Icon
 import PsychologyIcon from '@mui/icons-material/Psychology';    // EAP Icon
-import ScheduleIcon from '@mui/icons-material/Schedule';    // Reminders/Breaks Icon
+// import ScheduleIcon from '@mui/icons-material/Schedule';    // Reminders/Breaks Icon
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';  // Daily activities Icon
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';    // Educational resources Icon
 import ExtensionIcon from '@mui/icons-material/Extension';      // Relaxing Activities

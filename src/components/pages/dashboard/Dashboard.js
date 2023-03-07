@@ -7,14 +7,13 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 import DailyStats from "./DailyStats";
-import WeeklyStats from "./WeeklyStats";
+// import WeeklyStats from "./WeeklyStats";
 import StatDetails from "./StatDetails";
 import { formatDate, getStartMilliSecond, getEndMilliSecond } from "../../Helper";
 import { getGoogleFitData, getMonthlyData, getWeeklyData } from "../../../redux/dashboard/DashboardAction";
 import { updateBarLoading } from "../../../redux/Actions";
 import { googleFitUrl } from "../../Constants";
 import { getBadges } from "../../../redux/achievements/AchievementsActions";
-import { statsList } from "../../Constants";
 
 import '../../../styles/pages/Dashboard.scss';
 
