@@ -64,9 +64,51 @@ const DashboardReducer = (state = initialState, action) => {
                     return new Date(a.date) - new Date(b.date);
                 });
 
+            let groupedMonthlyData = [];
+            let counter = 1;
+            let newActivity = {
+                exercise: 0,
+                meditation: 0,
+                mood: 0,
+                water: 0
+            }
+
+            sortedMonthlyData.forEach(element => {
+                if(counter === 7) {
+                    newActivity = {
+                        exercise: newActivity.exercise + element.activity.exercise,
+                        meditation: newActivity.meditation + element.activity.meditation,
+                        mood: newActivity.mood + element.activity.mood,
+                        water: newActivity.water + element.activity.water
+                    }
+                    newActivity.mood = Math.round(newActivity.mood/7);
+                    groupedMonthlyData.push({activity: newActivity});
+                    counter = 1;
+                    newActivity = {
+                        exercise: 0,
+                        meditation: 0,
+                        mood: 0,
+                        water: 0
+                    }
+                } 
+                else {
+                    newActivity = {
+                        exercise: newActivity.exercise + element.activity.exercise,
+                        meditation: newActivity.meditation + element.activity.meditation,
+                        mood: newActivity.mood + element.activity.mood,
+                        water: newActivity.water + element.activity.water
+                    }
+                    counter++;
+                }
+            });
+            if(counter != 1) {
+                newActivity.mood = Math.round(newActivity.mood/(counter-1));
+                groupedMonthlyData.push({activity: newActivity});
+            }
+
             return {
                 ...state,
-                monthlyData: sortedMonthlyData 
+                monthlyData: groupedMonthlyData 
             };
 
         default:
