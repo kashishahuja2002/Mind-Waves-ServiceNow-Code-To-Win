@@ -34,7 +34,7 @@ import Games from '../assets/images/relaxing-activities/Games.webp';
 
 export const sidebarList = [
     { name: "Dashboard", link: "/pages/dashboard", icon: <DashboardIcon /> },
-    { name: "EAP", link: "/pages/eap", icon: <PsychologyIcon /> },
+    { name: "Employee Assistance Programs", link: "/pages/eap", icon: <PsychologyIcon /> },
     // { name: "Set reminders", link: "/pages/set-reminders", icon: <ScheduleIcon /> },
     { name: "Daily activities", link: "/pages/daily-activities", icon: <VolunteerActivismIcon /> },
     { name: "Relaxing Activities", link: "/pages/relaxing-activities", icon: <ExtensionIcon /> },
