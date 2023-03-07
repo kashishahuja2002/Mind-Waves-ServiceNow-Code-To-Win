@@ -42,12 +42,12 @@ export const sidebarList = [
 ];
 
 export const statsList = [
-    { key: "stepsCount", title: "Steps count", icon: <FontAwesomeIcon icon={faPersonWalking} />, color: "#e23270" },
-    { key: "heartPoints", title: "Heart points", icon: <FontAwesomeIcon icon={faHeartPulse} />, color: "#f60d10" },
-    { key: "caloriesBurned", title: "Calories burned", icon: <ElectricBoltIcon />, color: "#f4d247" },
-    { key: "hydrationRate", title: "Hydration rate", icon: <FontAwesomeIcon icon={faGlassWater} />, color: "#2e88ec" },
-    { key: "exerciseDuration", title: "Exercise duration", icon: <FontAwesomeIcon icon={faDumbbell} />, color: "#652fa1" },
-    { key: "meditationTime", title: "Meditation time", icon: <SelfImprovementIcon />, color: "#51ab55" },
+    { key: "stepsCount", title: "Steps Count", icon: <FontAwesomeIcon icon={faPersonWalking} />, color: "#e23270" },
+    { key: "heartPoints", title: "Heart Points", icon: <FontAwesomeIcon icon={faHeartPulse} />, color: "#f60d10" },
+    { key: "caloriesBurned", title: "Calories Burned", icon: <ElectricBoltIcon />, color: "#f4d247" },
+    { key: "hydrationRate", title: "Hydration Rate", icon: <FontAwesomeIcon icon={faGlassWater} />, color: "#2e88ec" },
+    { key: "exerciseDuration", title: "Exercise Duration", icon: <FontAwesomeIcon icon={faDumbbell} />, color: "#652fa1" },
+    { key: "meditationTime", title: "Meditation Time", icon: <SelfImprovementIcon />, color: "#51ab55" },
     { key: "mood", title: "Mood", icon: <EmojiEmotionsIcon />, color: "#fb8c00" }
 ];
 

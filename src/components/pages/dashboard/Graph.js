@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 
@@ -17,10 +17,21 @@ const config = {
     },
 };
 
-const formatData = (rawData, color) => {
+const formatData = (rawData, color, type) => {
+    
+    let weeks = [];
+    if(type==="monthly") {
+        const numDays = new Date(2023, new Date().getMonth() + 1, 0).getDate();
+        const numWeeks = Math.ceil(numDays / 7);
+    
+        for(let i=1; i<=numWeeks; i++) {
+            weeks.push(`Week ${i}`);
+        }
+    }
+
     return (
         {
-            labels: ["M", "T", "W", "T", "F", "S", "S"],
+            labels: type==="weekly" ? ["M", "T", "W", "T", "F", "S", "S"] : weeks,
             datasets: [
                 {
                     label: "",
@@ -37,10 +48,10 @@ const formatData = (rawData, color) => {
 }
 
 const Graph = (props) => {
-    const { graphData, color } = props;
+    const { graphData, color, type } = props;
 
     return (
-        <Bar {...config} data={formatData(graphData, color)} />
+        <Bar {...config} data={formatData(graphData, color, type)} />
     );
 }
 

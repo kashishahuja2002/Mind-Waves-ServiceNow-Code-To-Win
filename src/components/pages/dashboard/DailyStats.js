@@ -9,12 +9,17 @@ import Typography from '@mui/material/Typography';
 import { statsList } from "../../Constants";
 import { formatDate, getStartMilliSecond } from '../../Helper';
 
-const StatCard = (obj, dailyData) => {
+const StatCard = (obj, dailyData, activeStat, setActiveStat) => {
+  const handleCardClick = () => {
+    setActiveStat(obj)
+  }
+  
   return (
-    <Card variant="outlined" className="whiteBox daily-stat-card ">
+    <Card variant="outlined" className="whiteBox daily-stat-card" onClick={handleCardClick} sx={{borderColor: activeStat.key === obj.key ? obj.color : "#fff"}}>
       <Box className="whiteBox icon-box"
         sx={{
-          backgroundColor: "#fff",
+          border: "2px solid #fff",
+          borderColor: activeStat.key === obj.key ? obj.color : "#fff",
           svg: {
             color: `${obj.color}`
           }
@@ -30,7 +35,8 @@ const StatCard = (obj, dailyData) => {
   );
 }
 
-const DailyStats = () => {
+const DailyStats = (props) => {
+  const { activeStat, setActiveStat } = props;
   const dashboard = useSelector((store) => store.dashboard);
 
   const [dailyData, setDailyData] = useState(
@@ -105,7 +111,7 @@ const DailyStats = () => {
       className="daily-stats"
     >
       {statsList.map((obj) => (
-        <Grid item key={`daily-stat-${obj.key}`} xs={12} sm={6} md={4} lg={3}> {StatCard(obj, dailyData)} </Grid>
+        <Grid item key={`daily-stat-${obj.key}`} xs={12} sm={6} md={4} lg={3}> {StatCard(obj, dailyData, activeStat, setActiveStat)} </Grid>
       )
       )}
     </Grid>

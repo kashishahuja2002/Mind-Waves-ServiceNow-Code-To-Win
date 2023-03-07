@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import moment from 'moment';
 import 'moment-timezone';
@@ -8,11 +8,13 @@ import Typography from '@mui/material/Typography';
 
 import DailyStats from "./DailyStats";
 import WeeklyStats from "./WeeklyStats";
+import StatDetails from "./StatDetails";
 import { formatDate, getStartMilliSecond, getEndMilliSecond } from "../../Helper";
 import { getGoogleFitData, getMonthlyData, getWeeklyData } from "../../../redux/dashboard/DashboardAction";
 import { updateBarLoading } from "../../../redux/Actions";
 import { googleFitUrl } from "../../Constants";
 import { getBadges } from "../../../redux/achievements/AchievementsActions";
+import { statsList } from "../../Constants";
 
 import '../../../styles/pages/Dashboard.scss';
 
@@ -111,6 +113,8 @@ const Dashboard = () => {
             dispatch(getBadges("user/badges", params));
     }, [dashboard, token])
 
+    const [activeStat, setActiveStat] = useState({ key: "stepsCount", title: "Steps Count", color: "#e23270" });
+
     return (
         <Grid
             container
@@ -121,13 +125,18 @@ const Dashboard = () => {
         >
             <Grid item sx={{ mb: 3 }}>
                 <Typography variant="body" gutterBottom className="stat-title">Daily Stats</Typography>
-                <DailyStats />
+                <DailyStats activeStat={activeStat} setActiveStat={setActiveStat} />
             </Grid>
 
             <Grid item sx={{ width: "100%" }}>
+                <Typography variant="body" gutterBottom className="stat-title">{activeStat.title} details</Typography>
+                <StatDetails activeStat={activeStat} />
+            </Grid>
+
+            {/* <Grid item sx={{ width: "100%" }}>
                 <Typography variant="body" gutterBottom className="stat-title">Weekly Stats</Typography>
                 <WeeklyStats />
-            </Grid>
+            </Grid> */}
         </Grid>
     );
 }
