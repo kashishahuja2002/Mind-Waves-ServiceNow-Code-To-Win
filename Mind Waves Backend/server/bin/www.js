@@ -19,6 +19,17 @@ app.set('port',port)
 const server = http.createServer(app)
 
 
+server.get('/*', (req, res) => {
+  res.sendFile(
+    path.resolve(
+      __dirname,
+      '../../../build',
+      'index.html'
+    )
+  );
+});
+
+
 
 server.listen(port,()=>{
   console.log("App is running on port",port)
