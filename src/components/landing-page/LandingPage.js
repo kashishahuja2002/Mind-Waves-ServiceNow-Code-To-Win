@@ -287,9 +287,10 @@ function LandingPage() {
                     />
                     <div className="w-layout-grid grid-three">
                         <div>
-                            <div>Kahish Ahuja </div>
-                            <div>Ishika Paliwal</div>
-                            <div>Drakshi Chopra</div>
+                            <div>Gru Sisters</div>
+                            <div>• Kahish Ahuja</div>
+                            <div>• Ishika Paliwal</div>
+                            <div>• Drakshi Chopra</div>
                         </div>
 
                         <div>
@@ -297,7 +298,7 @@ function LandingPage() {
                             <a href="mailto:hello@greatminds.training?subject=Hello%20Great%20Minds"
                             className="footer-link">hello@mindwaves.com</a>
                         </div>
-                        <div>© mindwaves<br />International Institute of professional Studies</div>
+                        <div>© mindwaves<br />International Institute of professional Studies, DAVV, Indore</div>
                     </div>
                 </div>
             </footer>
