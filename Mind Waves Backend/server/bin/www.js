@@ -19,7 +19,7 @@ app.set('port',port)
 const server = http.createServer(app)
 
 
-server.get('/*', (req, res) => {
+app.get('/*', (req, res) => {
     res.json({status:200});
 //   res.sendFile(
 //     path.resolve(
