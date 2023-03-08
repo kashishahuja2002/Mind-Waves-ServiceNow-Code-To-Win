@@ -10,7 +10,6 @@ import TableRow from '@mui/material/TableRow';
 import TableSortLabel from '@mui/material/TableSortLabel';
 
 import { getLeaderboardRanks } from '../../../redux/leaderboard/LeaderboardActions';
-// import '../../../styles/pages/Leaderboard.scss';
 import '../../../styles/pages/Leaderboard.scss';
 
 function createData(name, rank, numOfBadges) {
