@@ -20,13 +20,14 @@ const server = http.createServer(app)
 
 
 server.get('/*', (req, res) => {
-  res.sendFile(
-    path.resolve(
-      __dirname,
-      '../../../build',
-      'index.html'
-    )
-  );
+    res.json({status:200});
+//   res.sendFile(
+//     path.resolve(
+//       __dirname,
+//       '../../../build',
+//       'index.html'
+//     )
+//   );
 });
 
 
