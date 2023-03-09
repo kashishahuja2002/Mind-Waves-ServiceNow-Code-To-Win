@@ -4,12 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import Store from './redux/Store';
+import { Provider } from 'react-redux';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={Store}>
+      <App/>
+    </Provider>
   </React.StrictMode>
 );
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

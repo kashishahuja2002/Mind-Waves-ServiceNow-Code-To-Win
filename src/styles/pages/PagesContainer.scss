@@ -1,0 +1,127 @@
+@import '../Variables.scss';
+
+// Pages container styles 
+.pagesContainer {
+    padding: 20px;
+    background-color: var(--base-background);
+}
+
+// Sidebar styles
+.sidebar {
+    overflow-y: auto;
+    border-radius: 10px;
+    position: sticky;
+    top: 20px;
+    height: calc(100vh - 40px);
+
+    .MuiPaper-root {
+        background-color: var(--dark-blue);
+        box-shadow: 0rem 0rem 0rem 0rem rgb(0 0 0 / 14%), 0rem 0.2rem 0.8rem 0rem rgb(64 64 64 / 20%);
+        // box-shadow: 0px 8px 10px 5px rgb(0 0 0 / 20%), 0px 16px 24px 2px rgb(0 0 0 / 34%), 0px 6px 30px 5px rgb(0 0 0 / 12%);
+    }
+    
+    .sidebarContents {
+        background-color: var(--dark-blue);
+        color: #ffffff;
+        border-radius: 10px;
+        padding: 0;
+
+        .MuiListItemIcon-root {
+            min-width: auto;
+            padding: 0 10px;
+        }
+
+        svg {
+            color: #ffffff;
+        }
+
+        .MuiListItemButton-root {
+            height: 50px;
+            margin: 0 0 3px;
+        }
+
+        .MuiListItemButton-root:hover {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .active {
+            .MuiListItemButton-root {
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+        }
+
+        .sidebarCurve {
+            position: relative;
+            left: 16px;
+        }
+
+        .dot {
+            height: 7px;
+            width: 7px;
+            background-color: var(--dark-blue);
+            border-radius: 50%;
+            z-index: 1;
+            position: absolute;
+            right: 1px;
+            top: 22px;
+        }
+    }
+}
+
+// Navbar styles
+.navbar {
+    .MuiAppBar-root {
+        background-color: var(--base-background);
+        color: var(--dark-blue);
+        box-shadow: none;
+    }
+
+    .MuiToolbar-root {
+        justify-content: space-between;
+    }
+
+    .homeIcon {
+        font-size: 20px;
+        position: relative;
+        top: 5px;
+    }
+}
+
+// Outlet styles
+.outlet-box {
+    padding-left: 20px;
+    width: 100%;
+}
+
+
+// Responsive styles
+@media screen and (max-width: 1200px) {
+    .sidebarContents {
+        height: 100vh;
+        border-radius: 0px !important;
+    }
+    
+    .MuiToolbar-root {
+        padding: 0px !important;
+    }
+
+    .outlet-box {
+        padding: 0px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .MuiToolbar-root {
+        flex-direction: column;
+
+        .leftContent, .rightContent {
+            width: 100%;
+        }
+
+        .rightContent {
+            text-align: right;
+            margin-bottom: 10px;
+        }
+    }
+}
+

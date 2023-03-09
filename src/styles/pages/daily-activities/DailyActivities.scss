@@ -1,0 +1,128 @@
+@import '../../Variables.scss';
+
+.dailyActivities {
+    padding: 0px 20px;
+
+    // Tabs
+    .MuiTabs-root {
+        min-height: 40px;
+        margin-bottom: 20px;
+
+        .MuiButtonBase-root {
+            padding: 0px 15px;
+            min-height: 40px;
+            color:var(--text-blue);
+            flex-direction: row;
+
+            &:hover {
+                background-color: var(--light-blue);
+                color: var(--dark-blue);
+            }
+
+            svg {
+                margin: 10px 15px;
+            }
+        }
+
+        .Mui-selected {
+            color: var(--dark-blue);
+            font-weight: bold
+        }
+
+        .MuiTabs-indicator {
+            background-color: var(--dark-blue);
+            height: 2.5px;
+        }
+
+        @media screen and (max-width: "460px") {
+            .MuiTabs-flexContainer {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+
+    // Stopwatch
+    .stopwatch {
+        font-size: 30px;
+        margin: 10px;
+    }
+
+    // End session
+    .endSessionButton {
+        padding: 5px 10px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    // History Card
+    .historyCard {
+        padding: 5px 20px 20px;
+        overflow: auto !important;
+
+        .alt-txt {
+            display: flex;
+            padding: 25% 3px;
+        }
+
+        .water {
+            color: rgb(62, 152, 199);
+        }
+
+        .exercise {
+            color: #652fa1;
+        }
+
+        .meditation {
+            color: #51ab55;
+        }
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px !important;
+    }
+
+    // Target Chart
+    .targetCard {
+        padding: 25px;
+
+        .title {
+            font-weight: 600;
+            font-size: 18px;
+            color: #000000;
+        }
+
+        .chartContainer {
+            margin-top: 15px;
+        }
+
+        .days-txt{
+            text-align: center;
+            margin-top: 10px;
+            color: var(--text-blue);
+            font-size: 16px;
+        }
+    }
+}
+
+
+// Responsive Styles
+@media screen and (max-width: "600px") {
+    .dailyActivities {
+        padding: 0px;
+    }
+}
+
+@media screen and (max-width: "400px") {
+    .historyCard {
+        padding: 5px 0px 20px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .targetChart {
+        padding: 25px 15px;
+    }
+}
+

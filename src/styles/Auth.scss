@@ -1,0 +1,115 @@
+$spacer-height: 20vw;
+$section-design-color: #242f53;
+$section-bg-color: #ffffff;
+
+@mixin bubbles($bubbles-type, $color)
+{
+  @if $bubbles-type == a
+  {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='#{url-friendly-colour($color)}' viewBox='0 0 1185 248'><circle cx='76' cy='121.1' r='20' class='a'/><circle cx='870' cy='201.1' r='11' class='a'/><circle cx='814.5' cy='165.6' r='24.5' class='a'/><path d='M0 0v17.7c22.7 14.8 53 31.9 90.7 51.5 150.8 78 322 116.6 424.8 69.3 102.9-47.4 138-69.3 210.8-69.3s118.3 48.6 219.5 38.3 76.3-59.3 188.7-59.3c18.9 0 35.5 2.6 50.5 6.8V0H0z' class='a'/></svg>");
+    background-repeat: no-repeat;
+  }
+
+  @else if $bubbles-type == b
+  {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1185 248'><path d='M50.5 199.8c112.4 0 87.5-49 188.7-59.3s146.7 38.3 219.5 38.3 107.9-21.9 210.8-69.3c102.8-47.3 274-8.7 424.8 69.3 37.7 19.5 68 36.7 90.7 51.5V0H0v193C15 197.2 31.6 199.8 50.5 199.8zM1109 106.9c11 0 20 9 20 20 0 11-9 20-20 20s-20-9-20-20C1089 115.9 1098 106.9 1109 106.9zM370.5 57.9c13.5 0 24.5 11 24.5 24.5 0 13.5-11 24.5-24.5 24.5S346 95.9 346 82.4C346 68.9 357 57.9 370.5 57.9zM315 35.9c6.1 0 11 4.9 11 11s-4.9 11-11 11 -11-4.9-11-11S308.9 35.9 315 35.9z' fill='#{url-friendly-colour($color)}'/></svg>");
+    background-repeat: no-repeat;
+  }
+}
+
+@mixin section-bubble-with-colors($bubble-type, $currentcolor, $nextcolor)
+{
+  @extend .section-bubble;
+  background-color: $currentcolor;
+  
+  &:after
+  {
+    background-color: $nextcolor;
+    
+    @include bubbles($bubble-type, $currentcolor);
+  }
+}
+
+@function url-friendly-colour($colour) {
+    @return '%23' + str-slice('#{$colour}', 2, -1)
+}
+
+.section-bubble
+{
+  margin-bottom: $spacer-height;
+  position: relative;
+  
+  &:after
+  {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    
+    width: 100%;
+    height: $spacer-height;
+    background: url('') green; // needs to be next sections background
+    background-size: 100%;
+    
+    transform: translate(0, 100%);
+  }
+}
+
+
+
+.section-bubble-top
+{
+  @include section-bubble-with-colors(a, $section-design-color, $section-bg-color);
+}
+
+.section-bubble-bottom
+{
+  @include section-bubble-with-colors(b, $section-bg-color, $section-design-color);
+}
+
+
+
+.section-bubble-top {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.section-bubble-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+
+// Google Auth
+.googleAuthContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.authCard {
+  position: absolute;
+  top: calc((100% - 430px) / 2 );
+  padding: 100px 30px 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 999;
+
+  .logo {
+    margin: 0px auto 30px;
+  }
+
+  .authButton {
+    color: var(--text-blue);
+    border: 1px solid rgb(178, 178, 178);
+    box-shadow: 0rem 0rem 0rem 0rem rgb(0 0 0 / 14%), 0rem 0.1rem 0.5rem 0rem rgb(64 64 64 / 20%) !important;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .authCard {
+    padding: 100px 0px 150px;
+  }
+}

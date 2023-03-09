@@ -1,0 +1,40 @@
+@import '../Variables.scss';
+
+.profile {
+    padding: 25px 30px 10px;
+
+    .title {
+        font-weight: 600;
+        font-size: 18px;
+        color: #000000;
+    }
+    
+    .MuiGrid-container {
+        margin-top: 0px;
+        margin-bottom: 25px;
+    }
+
+    .MuiTextField-root {
+        width: 100%;
+    }
+
+    .picture {
+        border-radius: 10px;
+    }
+    
+    .buttonBox {
+        margin-bottom: 10px; 
+        text-align: right;
+
+        .MuiButton-outlined {
+            margin-right: 10px;
+            color: var(--dark-blue);
+            border-color: var(--dark-blue);
+        }
+
+        .MuiButton-contained {
+            background-color: var(--dark-blue);
+            color: #fff;
+        }
+    }
+}
