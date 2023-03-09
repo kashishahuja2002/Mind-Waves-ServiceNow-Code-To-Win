@@ -71,7 +71,7 @@ const LandingPage = () => {
                 </header>
 
                 <section id="MHFA" className="xl-gap wf-section">
-                    <div class="container w-container">
+                    <div className="container w-container">
                         <div className="w-layout-grid grid-two"><img
                             src="https://uploads-ssl.webflow.com/60fff0c2ee17fc46c9f078db/610130d39366c32014e41b48_mhfa-illustration.svg"
                             loading="lazy" alt="Managing stress during the " />
@@ -86,7 +86,7 @@ const LandingPage = () => {
                 </section>
 
                 <section id="problem" className="xl-gap wf-section">
-                    <div class="container w-container">
+                    <div className="container w-container">
                         <h2>Mental health care for today’s workforce</h2>
                         <p>— <span className="cite">MindWaves for Organizations</span> <br/> Employees' well-being directly impacts productivity, culture, retention, and healthcare costs. With MindWaves employers can get job satisfaction, reduce absenteeism, and increase overall workforce productivity. Our application provides the accessible & convenient support employees need to be mentally healthy — so your people (and your business) can thrive.<br /><br />— <span className="cite">MindWaves for Employees</span><br/>MindWaves helps employees who are struggling with stress, anxiety, depression, or other mental health issues to manage their symptoms and improve their overall well-being. Our application provides employees with a comprehensive solution to reduce work stress, manage their mental health and well-being, and implement a positive work-life balance.<br /><br />— <span className="cite">MindWaves for Individuals</span><br/>Individuals who aim to better their mental health and overall wellness, as well as establish positive habits, may utilize MindWaves as a means to attain their objectives.<span className="cite"></span></p>
                     </div>
@@ -214,7 +214,7 @@ const LandingPage = () => {
                     </div>
                 </section>
 
-                <section id="EAP" class="relative xxl-gap wf-section">
+                <section id="EAP" className="relative xxl-gap wf-section">
 
                     <div className="container w-container">
                         <h2>Expand your EAP with MindWaves</h2>
