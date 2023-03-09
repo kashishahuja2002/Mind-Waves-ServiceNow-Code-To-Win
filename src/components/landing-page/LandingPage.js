@@ -41,59 +41,7 @@ function LandingPage() {
                     </div>
                 </div>
 
-                <div style={{ display: "none", opacity: "0", transform: "translate3d(100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" }}
-                    className="tips-outer-wrapper">
-                    <div glass="1" className="tips-inner-wrapper">
-                        <div className="container w-container">
-                            <div className="form-space">
-                                <div className="w-layout-grid grid-form"><img
-                                    src="https://uploads-ssl.webflow.com/60fff0c2ee17fc46c9f078db/6101ccb2eed367ee78c19d16_wellness-tips-illustration.svg"
-                                    loading="lazy" id="w-node-_28781c6d-6336-dfd4-010b-d504a6f148c9-0862c5d4"
-                                    alt="Wellness Tips Illustration" className="tips-form-illustration" />
-                                    <div id="w-node-_579eb98f-2c79-d864-ff12-f7c3a5ae13b1-0862c5d4"><a
-                                        data-w-id="6d814704-f291-19e1-ddb2-3bf720f88cd6" href="#"
-                                        className="button close w-button"><span className="x">X</span> Close</a></div>
-                                    <div id="w-node-_33d5fd1c-b58b-05d8-5245-8077e13a839a-0862c5d4" className="faux-heading">Sign up
-                                        for free wellbeing tips</div>
-                                    <p id="w-node-b31e8790-fd28-015b-4094-56c852f5ccf0-0862c5d4" className="tips-description">
-                                        Receive free wellbeing tips in your inbox every week for a year. Each tip is based on my
-                                        work with organisations to provide proven mental health and wellbeing solutions. They
-                                        are designed to help you increase your productivity, health, creativity and resilience.
-                                    </p>
-                                    <div id="w-node-_780a3ef1-266a-8e4d-ad4f-6ce5fbad4577-0862c5d4" className="w-form">
-                                        <form id="wf-form-Wellbeing-Tips-Form" name="wf-form-Wellbeing-Tips-Form"
-                                            data-name="Wellbeing Tips Form" method="get">
-                                            <div className="w-layout-grid grid-two tips">
-                                                <div><label for="Tips-Firstname">First Name</label><input type="text"
-                                                    className="input w-input" maxlength="256" name="Tips-Firstname"
-                                                    data-name="Tips Firstname" placeholder="" id="Tips-Firstname"
-                                                    required="" /></div>
-                                                <div><label for="Tips-Last-Name">Last Name</label><input type="text"
-                                                    className="input w-input" maxlength="256" name="Tips-Last-Name"
-                                                    data-name="Tips Last Name" placeholder="" id="Tips-Last-Name"
-                                                    required="" /></div>
-                                            </div><label for="Tips-Email">Email Address</label><input type="email"
-                                                className="input gap w-input" maxlength="256" name="Tips-Email"
-                                                data-name="Tips Email" placeholder="" id="Tips-Email" required="" /><input
-                                                type="submit" value="Submit" data-wait="Please wait..."
-                                                className="button w-button" />
-                                        </form>
-                                        <div className="success-message w-form-done">
-                                            <div>Thank you! Your request has been received. You will receive your first email
-                                                shortly.</div>
-                                        </div>
-                                        <div className="w-form-fail">
-                                            <div>Oops! Something went wrong while submitting the form.</div>
-                                        </div>
-                                    </div>
-                                    <p id="w-node-_02e5f604-a338-7e9f-f73f-7cfd1bf8eb16-0862c5d4" className="small-copy">I respect
-                                        your privacy. Your data is not shared with third parties and you can unsubscribe at any
-                                        time.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
 
             <div className="top-curves-wrapper">
@@ -119,13 +67,6 @@ function LandingPage() {
                         </div>
                     </div>
                 </header>
-                
-                <section id="problem" className="xl-gap wf-section">
-                    <div class="container w-container">
-                        <h2>Mental health care for today’s workforce</h2>
-                        <blockquote>Employee well-being directly impacts productivity, culture, retention, and healthcare costs. mindwaves provides the accessible & convenient support employees need to be mentally healthy—so your people (and your business) can thrive.<br /><br />— <span className="cite">mindwaves for employees</span><span className="cite"></span></blockquote>
-                    </div>
-                </section>
 
                 <section id="MHFA" className="xl-gap wf-section">
                     <div class="container w-container">
@@ -142,8 +83,16 @@ function LandingPage() {
                     </div>
                 </section>
 
+                <section id="problem" className="xl-gap wf-section">
+                    <div class="container w-container">
+                        <h2>Mental health care for today’s workforce</h2>
+                        <p>— <span className="cite">MindWaves for Organizations</span> <br/> Employees' well-being directly impacts productivity, culture, retention, and healthcare costs. With MindWaves employers can get job satisfaction, reduce absenteeism, and increase overall workforce productivity. Our application provides the accessible & convenient support employees need to be mentally healthy — so your people (and your business) can thrive.<br /><br />— <span className="cite">MindWaves for Employees</span><br/>MindWaves helps employees who are struggling with stress, anxiety, depression, or other mental health issues to manage their symptoms and improve their overall well-being. Our application provides employees with a comprehensive solution to reduce work stress, manage their mental health and well-being, and implement a positive work-life balance.<br /><br />— <span className="cite">MindWaves for Individuals</span><br/>Individuals who aim to better their mental health and overall wellness, as well as establish positive habits, may utilize MindWaves as a means to attain their objectives.<span className="cite"></span></p>
+                    </div>
+                </section>
+
                 <section id="feature" className="xl-gap wf-section">
                     <div className="container w-container">
+                        <h2>What we Offer</h2>
                         <div className="w-layout-grid grid-four">
                             <div id="w-node-_5e6b692d-801f-8c96-0952-0b35636ec606-0862c5d4" className="relative organic-wrapper">
                                 <div data-w-id="c34f6110-7ab3-36b4-dd32-6fe61dbf3389"
@@ -174,7 +123,6 @@ function LandingPage() {
                                 <p>Equipped with a health tracker that enables individuals to monitor various aspects of their health and wellness, such as physical activity, water intake, meditation durations and heart rate.</p>
                             </div>
                         </div>
-
                     </div>
                 </section>
 
@@ -214,6 +162,7 @@ function LandingPage() {
                             </div>
                         </div>
 
+                        <br/><p style={{textAlign: "right"}}>and much more...</p>
                     </div>
                 </section>
 
@@ -266,8 +215,8 @@ function LandingPage() {
                 <section id="EAP" class="relative xxl-gap wf-section">
 
                     <div className="container w-container">
-                        <h2>Expand your EAP with mindwaves</h2>
-                        <blockquote>Employee Assistance Programs (EAPs) are an essential component of many organizations' benefits packages, providing employees with access to resources and support for a range of personal and work-related issues. mindwaves is a digital mental health platform that provides the facility of online therapy and counseling services to individuals and organizations. mindwaves offers a range of benefits that can complement and expand on existing EAP services<br /><br />— <span className="cite">mindwaves for Employee Assistance Programs</span><span className="cite"></span></blockquote>
+                        <h2>Expand your EAP with MindWaves</h2>
+                        <p>Employee Assistance Programs (EAPs) are an essential component of many organizations' benefits packages, providing employees with access to resources and support for a range of personal and work-related issues. MindWaves is a digital mental health platform that provides the facility of online therapy and counseling services to individuals and organizations. The application offers a range of benefits that can complement and expand on existing EAP services<br /><br />— <span className="cite">MindWaves for Employee Assistance Programs</span><span className="cite"></span></p>
                     </div>
                 </section>
             </main>
@@ -281,10 +230,12 @@ function LandingPage() {
                 </div>
 
                 <div className="container footer w-container">
-                    <img
-                        src={LogoWhiteLandscape}
-                        loading="lazy" alt="Great Minds Logo" className="footer-logo gap" 
-                    />
+                    <h2>
+                        <img
+                            src={LogoWhiteLandscape}
+                            loading="lazy" alt="Great Minds Logo" className="footer-logo"
+                        />
+                    </h2>
                     <div className="w-layout-grid grid-three">
                         <div>
                             <div>Gru Sisters</div>
@@ -296,7 +247,7 @@ function LandingPage() {
                         <div>
                             <a href="tel:(+91) 7999756630" className="footer-link">‭(+91) 7999756630</a>
                             <a href="mailto:hello@greatminds.training?subject=Hello%20Great%20Minds"
-                            className="footer-link">hello@mindwaves.com</a>
+                                className="footer-link">hello@mindwaves.com</a>
                         </div>
                         <div>© mindwaves<br />International Institute of professional Studies, DAVV, Indore</div>
                     </div>
