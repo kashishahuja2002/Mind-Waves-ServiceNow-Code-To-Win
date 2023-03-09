@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.269fe9d2.css",
-    "main.js": "/static/js/main.22f96625.js",
+    "main.js": "/static/js/main.c81a23d2.js",
     "static/js/787.f569386e.chunk.js": "/static/js/787.f569386e.chunk.js",
     "static/media/MeditationSound.mp3": "/static/media/MeditationSound.f049e4ee26d45213c85d.mp3",
     "static/media/Meditation.jpg": "/static/media/Meditation.82b35a57bf01799629ae.jpg",
@@ -26,11 +26,11 @@
     "index.html": "/index.html",
     "static/media/SidebarCurve.svg": "/static/media/SidebarCurve.3be3b3513a6ffce61a0ca2ca34586f06.svg",
     "main.269fe9d2.css.map": "/static/css/main.269fe9d2.css.map",
-    "main.22f96625.js.map": "/static/js/main.22f96625.js.map",
+    "main.c81a23d2.js.map": "/static/js/main.c81a23d2.js.map",
     "787.f569386e.chunk.js.map": "/static/js/787.f569386e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.269fe9d2.css",
-    "static/js/main.22f96625.js"
+    "static/js/main.c81a23d2.js"
   ]
 }
