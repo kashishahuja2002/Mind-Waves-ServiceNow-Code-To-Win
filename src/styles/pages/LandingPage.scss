@@ -1,0 +1,99 @@
+@import '../Variables.scss';
+
+[glass="1"],
+.cp-feature-hint-wrapper::after {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px)
+}
+
+@media screen and (max-width:991px) {
+    [glass="2"] {
+        -webkit-backdrop-filter: saturate(200%)blur(12px);
+        backdrop-filter: saturate(200%)blur(12px)
+    }
+}
+
+body {
+    -moz-osx-font-smoothing: grayscale
+}
+
+.subheading {
+    color: #00ACD1
+}
+
+.button:hover {
+    background-color: #00ACD1;
+}
+
+a:hover {
+    color: #00ACD1;
+}
+
+.faux-heading::after,
+h2::after {
+    content: '';
+    display: block;
+    height: 6px;
+    width: 80px;
+    background-color: #5AA1CB;
+    margin: 20px 0 20px
+}
+
+section:nth-child(2) h2::after {
+    background-color: #A8DAE6
+}
+
+footer h2::after {
+    margin: 0px 0 20px;
+    background-color: #E87DAF
+}
+
+.navbar a div {
+    position: relative;
+    display: inline-block;
+    outline: none;
+    padding-bottom: 4px;
+    text-decoration: none
+}
+
+.navbar a div::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #2A406A;
+    content: '';
+    opacity: 0;
+    transition: opacity .4s, transform .4s;
+    transform: translateY(7px)
+}
+
+.navbar a div:hover::after {
+    opacity: 1;
+    transform: translateY(0)
+}
+
+.organic {
+    border-radius: 57% 47% 45% 56%/43% 56% 50% 62%;
+}
+
+.organic-foreground {
+    border-radius: 54% 46% 30% 70%/45% 26% 74% 55%;
+}
+
+.organic-background {
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+}
+
+.organic-foreground.tips {
+    border-radius: 57% 88% 90% 73%/66% 77% 73% 52%;
+}
+
+.organic-background.tips {
+    border-radius: 57% 50% 80% 56%/34% 40% 73% 72%;
+}
+
+.employee-fontSize {
+    font-size: 30px;
+}

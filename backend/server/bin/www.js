@@ -19,6 +19,18 @@ app.set('port',port)
 const server = http.createServer(app)
 
 
+app.get('/*', (req, res) => {
+    res.json({status:200});
+//   res.sendFile(
+//     path.resolve(
+//       __dirname,
+//       '../../../build',
+//       'index.html'
+//     )
+//   );
+});
+
+
 
 server.listen(port,()=>{
   console.log("App is running on port",port)
