@@ -114,7 +114,7 @@ const Profile = () => {
                 spacing={2}
             >
                 <Grid item xs={12} sm={7} md={4.5}>
-                    <TextField id="outlined-basic" type="number" label="Hydration Goal (Number of glasses)" variant="outlined" value={goals.waterGoal} onChange={(e) => handleGoalChange(e, "waterGoal")} />
+                    <TextField id="outlined-basic" type="number" label="Hydration Goal (Glasses)" variant="outlined" value={goals.waterGoal} onChange={(e) => handleGoalChange(e, "waterGoal")} />
                 </Grid>
                 <Grid item xs={12} sm={7} md={4.5}>
                     <TextField id="outlined-basic" type="number" label="Exercise Goal (in Seconds)" variant="outlined" value={goals.exerciseGoal} onChange={(e) => handleGoalChange(e, "exerciseGoal")} />

@@ -5,7 +5,6 @@ import LogoColouredLandscape from '../../assets/images/LogoColouredLandscape.png
 import LogoWhiteLandscape from '../../assets/images/LogoWhiteLandscape.png';
 
 import '../../styles/pages/LandingPage.scss';
-import '../../styles/pages/LandingPageWebFlow.scss';
 
 const LandingPage = () => {
 

@@ -90,7 +90,7 @@ export default function WaterTracker() {
     useEffect(() => {
         let leftCard = document.querySelector("#leftCard");
         if (leftCard) {
-            setHistoryCardHeight(leftCard.clientHeight - 25);
+            setHistoryCardHeight(leftCard.clientHeight);
         }
     }, []);
 

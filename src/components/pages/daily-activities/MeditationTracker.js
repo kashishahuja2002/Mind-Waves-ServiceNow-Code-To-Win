@@ -148,7 +148,7 @@ const MeditationTracker = () => {
     useEffect(() => {
         let leftCard = document.querySelector("#leftCard");
         if (leftCard) {
-            setHistoryCardHeight(leftCard.clientHeight - 25);
+            setHistoryCardHeight(leftCard.clientHeight);
         }
     }, []);
 

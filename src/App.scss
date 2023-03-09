@@ -1,5 +1,14 @@
 @import '/src/styles/Variables.scss';
 
+body {
+  background-color: #ffffff !important;
+}
+
+.navbar{
+  margin-bottom: 0px;
+  padding-top: 0px;
+}
+
 .center {
   display: block;
   margin-left: auto;
