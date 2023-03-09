@@ -13,6 +13,7 @@ import Menu from '@mui/material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import LocalPoliceIcon from '@mui/icons-material/LocalPolice';      // Achievements Icon
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';      // Leaderboard Icon
+
 import CustomTooltip from '../common/CustomTooltip';
 
 const Navbar = (props) => {
@@ -30,7 +31,7 @@ const Navbar = (props) => {
                 text = "Dashboard";
                 break;
             case "/pages/eap":
-                text = "EAP";
+                text = "EAP - Employee Assistance Program";
                 break;
             case "/pages/set-reminders":
                 text = "Set Reminders";

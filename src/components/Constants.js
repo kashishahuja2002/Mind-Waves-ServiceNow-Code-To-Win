@@ -34,7 +34,7 @@ import Games from '../assets/images/relaxing-activities/Games.webp';
 
 export const sidebarList = [
     { name: "Dashboard", link: "/pages/dashboard", icon: <DashboardIcon /> },
-    { name: "Employee Assistance Programs", link: "/pages/eap", icon: <PsychologyIcon /> },
+    { name: "EAP", link: "/pages/eap", icon: <PsychologyIcon /> },
     // { name: "Set reminders", link: "/pages/set-reminders", icon: <ScheduleIcon /> },
     { name: "Daily activities", link: "/pages/daily-activities", icon: <VolunteerActivismIcon /> },
     { name: "Relaxing Activities", link: "/pages/relaxing-activities", icon: <ExtensionIcon /> },
@@ -44,10 +44,10 @@ export const sidebarList = [
 export const statsList = [
     { key: "stepsCount", title: "Steps Count", icon: <FontAwesomeIcon icon={faPersonWalking} />, color: "#e23270" },
     { key: "heartPoints", title: "Heart Points", icon: <FontAwesomeIcon icon={faHeartPulse} />, color: "#f60d10" },
-    { key: "caloriesBurned", title: "Calories Burned", icon: <ElectricBoltIcon />, color: "#f4d247" },
-    { key: "hydrationRate", title: "Hydration Rate", icon: <FontAwesomeIcon icon={faGlassWater} />, color: "#2e88ec" },
-    { key: "exerciseDuration", title: "Exercise Duration", icon: <FontAwesomeIcon icon={faDumbbell} />, color: "#652fa1" },
-    { key: "meditationTime", title: "Meditation Time", icon: <SelfImprovementIcon />, color: "#51ab55" },
+    { key: "caloriesBurned", title: "Calories Burnt", icon: <ElectricBoltIcon />, color: "#f4d247" },
+    { key: "hydrationRate", title: "Water Intake", icon: <FontAwesomeIcon icon={faGlassWater} />, color: "#2e88ec" },
+    { key: "exerciseDuration", title: "Exercise", icon: <FontAwesomeIcon icon={faDumbbell} />, color: "#652fa1" },
+    { key: "meditationTime", title: "Meditation", icon: <SelfImprovementIcon />, color: "#51ab55" },
     { key: "mood", title: "Mood", icon: <EmojiEmotionsIcon />, color: "#fb8c00" }
 ];
 
