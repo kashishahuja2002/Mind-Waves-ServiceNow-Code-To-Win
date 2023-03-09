@@ -20,7 +20,7 @@ const GraphCard = (obj, type, chartData) => {
           <Graph graphData={chartData[obj.key]} color={obj.color} type={type} />
         </Box>
         <Box className="title-box">
-            {type === "weekly" ? "Weekly Stats" : "Monthly Stats"}
+            {type === "weekly" ? "Current Week Stats" : "Current Month Stats"}
         </Box>
       </Box>
     </Card>

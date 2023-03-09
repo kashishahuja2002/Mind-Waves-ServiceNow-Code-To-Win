@@ -7,7 +7,6 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 import DailyStats from "./DailyStats";
-// import WeeklyStats from "./WeeklyStats";
 import StatDetails from "./StatDetails";
 import { formatDate, getStartMilliSecond, getEndMilliSecond } from "../../Helper";
 import { getGoogleFitData, getMonthlyData, getWeeklyData } from "../../../redux/dashboard/DashboardAction";
@@ -131,11 +130,6 @@ const Dashboard = () => {
                 <Typography variant="body" gutterBottom className="stat-title">{activeStat.title} details</Typography>
                 <StatDetails activeStat={activeStat} />
             </Grid>
-
-            {/* <Grid item sx={{ width: "100%" }}>
-                <Typography variant="body" gutterBottom className="stat-title">Weekly Stats</Typography>
-                <WeeklyStats />
-            </Grid> */}
         </Grid>
     );
 }
