@@ -240,7 +240,7 @@ const LandingPage = () => {
                     <div className="w-layout-grid grid-three">
                         <div>
                             <div>Gru Sisters</div>
-                            <div>• Kahish Ahuja</div>
+                            <div>• Kashish Ahuja</div>
                             <div>• Ishika Paliwal</div>
                             <div>• Drakshi Chopra</div>
                         </div>
