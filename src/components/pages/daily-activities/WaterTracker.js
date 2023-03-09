@@ -76,7 +76,7 @@ export default function WaterTracker() {
 
         const day = new Date().getDay();
         const newTargetData = [...targetData];
-        newTargetData[day - 1] = targetData[day - 1] + 1;
+        newTargetData[day - 1] = (targetData[day - 1] != undefined ? targetData[day - 1] : 0) + 1;
         setTargetData(newTargetData);
 
         const body = {

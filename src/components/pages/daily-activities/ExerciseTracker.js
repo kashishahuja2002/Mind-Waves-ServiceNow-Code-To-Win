@@ -117,7 +117,7 @@ const ExerciseTracker = () => {
         const totalSec = (currentTimeMin*60) + currentTimeSec;
         const day = new Date().getDay();
         const newTargetData = [...targetData];
-        newTargetData[day - 1] = targetData[day - 1] + totalSec;
+        newTargetData[day - 1] =  (targetData[day - 1] != undefined ? targetData[day - 1] : 0) + totalSec;
         setTargetData(newTargetData);
 
         const body = {
