@@ -1,0 +1,403 @@
+{
+	"info": {
+		"_postman_id": "3455ebc9-add6-4473-97dc-6ba43340e018",
+		"name": "Mind Waves",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22860883"
+	},
+	"item": [
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "LOGIN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Kashish\",\r\n    \"email\":\"ka@gmail.com\",\r\n    \"picture\":\"qwqewrwrwrwrwrwr\",\r\n    \"authcode\":\"a11324443\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weekly Activity",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDA0NTExMjc3MWI5M2M2NWI0MDY1N2MiLCJpYXQiOjE2NzgwMDQ0OTh9.LMdWxLhk7s80fhbIf8n2kImGhs5uAj4xQ6tAblpMo80",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/user/weeklyactivity",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"weeklyactivity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Monthly activity",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDAzNTA4OGY2MzM0OTc1YTU4MTUyMTQiLCJpYXQiOjE2Nzc5Mzg4MjR9.3dIz-lZYzM9EVcr4WU5j_rYOuzOaqq2a05rtYAIvq6I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/user/monthlyactivity",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"monthlyactivity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Water",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDAxYmM3ZTYyOGIzMjVjMjMwODE3ZDYiLCJpYXQiOjE2Nzc4MzUzOTB9.xmdE-ycYb1U58ssslAFboJkHrutXZrkTTxifp7T6WwM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"water\": 1 \r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/user/addwater",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"addwater"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Exercise",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDAxYmM3ZTYyOGIzMjVjMjMwODE3ZDYiLCJpYXQiOjE2Nzc4MzUzOTB9.xmdE-ycYb1U58ssslAFboJkHrutXZrkTTxifp7T6WwM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"exercise\":300\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/user/addexercise",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"addexercise"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Meditation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDAxYmM3ZTYyOGIzMjVjMjMwODE3ZDYiLCJpYXQiOjE2Nzc4MzUzOTB9.xmdE-ycYb1U58ssslAFboJkHrutXZrkTTxifp7T6WwM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"meditation\" : 60\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/user/addmeditation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"addmeditation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Mood",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDAzNDI1MmY2MzM0OTc1YTU4MTUyMDEiLCJpYXQiOjE2Nzc5MzUxODZ9.BBCMA0zeQEwryR5vdH6qWa5yyYq3-tw-EGgcb6QUMUA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mood\" : 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/user/addmood",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"addmood"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Badges",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDA0NTExMjc3MWI5M2M2NWI0MDY1N2MiLCJpYXQiOjE2NzgwMDQ0OTh9.LMdWxLhk7s80fhbIf8n2kImGhs5uAj4xQ6tAblpMo80",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/user/badges?stepsCount=5000&heartPoints=15&caloriesBurned=1500",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"badges"
+							],
+							"query": [
+								{
+									"key": "stepsCount",
+									"value": "5000"
+								},
+								{
+									"key": "heartPoints",
+									"value": "15"
+								},
+								{
+									"key": "caloriesBurned",
+									"value": "1500"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Info",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDAxYmM3ZTYyOGIzMjVjMjMwODE3ZDYiLCJpYXQiOjE2Nzc4MzUzOTB9.xmdE-ycYb1U58ssslAFboJkHrutXZrkTTxifp7T6WwM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/user/getinfo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"getinfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Info",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDAzNTA4OGY2MzM0OTc1YTU4MTUyMTQiLCJpYXQiOjE2Nzc5Mzg4MjR9.3dIz-lZYzM9EVcr4WU5j_rYOuzOaqq2a05rtYAIvq6I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"water\":11,\r\n    \"meditation\":3000,\r\n    \"exercise\":4700\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/user/editinfo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"editinfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Leader Board",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDA0NTExMjc3MWI5M2M2NWI0MDY1N2MiLCJpYXQiOjE2NzgwMDQ0OTh9.LMdWxLhk7s80fhbIf8n2kImGhs5uAj4xQ6tAblpMo80",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/user/leaderboard",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"leaderboard"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
