@@ -9,7 +9,7 @@
 
 
 ## Overview
-The Mind Waves project aims to keep a check and improve employees’ Mental Health and overall well-being.The core idea behind creating a mental health application for the workplace is to address the growing concerns around stress, anxiety, and mental health in the modern workplace.
+The Mind Waves project aims to keep a check and improve employees’ Mental Health and overall well-being. The core idea behind creating a mental health application for the workplace is to address the growing concerns around stress, anxiety, and mental health in the modern workplace.
 
 A deployed version can be checked here: [mindwaves.live](https://www.mindwaves.live/)
 
@@ -40,12 +40,12 @@ A deployed version can be checked here: [mindwaves.live](https://www.mindwaves.l
 
 
 ## Tech Stack and Softwares used
-- **Frontend:**  HTML5, CSS3, JavaScript, MaterialUI, React.js
-- **Backend:** Node.js 
-- **Database:** MongoDB Atlas
-- **IDE:** Visual Studio Code
-- **Version Control:** Git
-- **Deployment:** AWS
+- `Frontend:`  HTML5, CSS3, JavaScript, MaterialUI, React.js, Redux
+- `Backend:` Node.js 
+- `Database:` MongoDB Atlas
+- `IDE:` Visual Studio Code
+- `Version Control:` Git
+- `Deployment:` AWS
 
 
 ## Third-Party Integration Requirements
@@ -91,7 +91,7 @@ A deployed version can be checked here: [mindwaves.live](https://www.mindwaves.l
 ## Future Scope
 - `Admin panel`: Create an Admin panel to onboard employees and consultants & set goals for the organization.
 
-- `Option to set custom reminders`: Give the option to set custom reminders for breaks and daily activities.
+- `Custom reminders`: Add feature for users to set custom reminders for breaks and daily activities.
 
 - `Monthly Stats`: Show stats for previous months as well.
 
@@ -99,7 +99,7 @@ A deployed version can be checked here: [mindwaves.live](https://www.mindwaves.l
 
 
 ## Documentation
-A complete project report for the system with use case diagram, web flow, relational diagram, etc can be found here: [MindWaves | Project Report](/documents/ProjectReport.docx.pdf).
+A complete project report for the system with use case diagram, web flow, relational diagram, etc can be found here: [MindWaves | Project Report](/documents/ProjectReport.pdf).
 
 A presentation for the project can be found here: [MindWaves | Presentation](/documents/Presentation.pdf).
 
