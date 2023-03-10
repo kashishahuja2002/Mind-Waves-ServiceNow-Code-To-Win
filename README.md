@@ -63,28 +63,35 @@ A deployed version can be checked here: [mindwaves.live](https://www.mindwaves.l
 ## Installation/Environment Setup
 1. Clone this repository in your local system.
 * Open terminal in a new folder and enter the command given below.
-   <!-- ```
-   git clone https://github.com/kashishahuja2002/Microsoft-Intern-Engage.git
-   ``` -->
    ```
-   git clone https://github.com/kashishahuja2002/Minor-Project-Next-Up.git
+   git clone https://github.com/kashishahuja2002/ServiceNow-Code-To-Win.git
    ```
 
-2. Make sure that Python is installed and updated in your machine.
+2. Make sure that Node is installed and updated in your machine.
 
 3. Install dependencies.
-* Open terminal in the cloned folder and enter the command given below.
+* Open terminal in the cloned folder and enter the commands given below.
    ```
-   pip3 install -r requirements.txt
+   npm install
+   cd .\backend\
+   npm install
+   cd ..
    ```
-  
-4. Run the project.
-* While you are still inside the cloned folder, write the following command in terminal to run the website locally. 
+ 
+4. Create build
+* While you are still inside the cloned folder, write the following command in terminal to create build. 
    ```
-   python app.py
+   npm run build
+   ```
+
+5. Run the project.
+* Inside the cloned folder, write the following command in terminal to run the application locally. 
+   ```
+   cd .\backend\
+   npm start
    ```
    
-5. If everything is done in order, the app will be running at "http://127.0.0.1:5000"
+5. If everything is done in order, the application will be running at "http://127.0.0.1:8000" or your localhost "http://localhost:8000/".
 
 
 
@@ -103,6 +110,5 @@ A complete project report for the system with use case diagram, web flow, relati
 
 A presentation for the project can be found here: [MindWaves | Presentation](/documents/Presentation.pdf).
 
-
-<br><hr>
+<hr>
 Thank you, ServiceNow for such a wonderful hackathon ❤️
