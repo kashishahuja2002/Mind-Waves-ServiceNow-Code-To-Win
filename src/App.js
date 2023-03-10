@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
 import LinearProgress from '@mui/material/LinearProgress';
@@ -27,7 +27,7 @@ function App() {
       {loading ? <LinearProgress /> : ""}
 
       <div className="app">
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route path="/" element={<LandingPage />}></Route>
 
@@ -47,7 +47,7 @@ function App() {
 
             <Route path="*" element={<AuthContainer />} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </div>
     </Suspense>
   );

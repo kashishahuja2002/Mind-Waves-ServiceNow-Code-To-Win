@@ -247,7 +247,7 @@ const LandingPage = () => {
 
                         <div>
                             <a href="tel:(+91) 7999756630" className="footer-link">‭(+91) 7999756630</a>
-                            <a href="mailto:hello@greatminds.training?subject=Hello%20Great%20Minds"
+                            <a href="mailto:hello@mindwaves.live"
                                 className="footer-link">hello@mindwaves.live</a>
                         </div>
                         <div>© mindwaves<br />International Institute of professional Studies, DAVV, Indore</div>
