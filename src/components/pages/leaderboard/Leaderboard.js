@@ -26,15 +26,18 @@ export default function SortedTable() {
 
     useEffect(() => {
         dispatch(getLeaderboardRanks("user/leaderboard", {}));
-        let cn =  user.email.split('@')[1];
-        cn = cn.split('.')[0];
-        cn = cn.charAt(0).toUpperCase() + cn.slice(1);
+        let cn;
+        if(user.length > 0) {
+            cn = user.email != undefined ? user.email.split('@')[1] : 'employeeCompany.com';
+            cn = cn != undefined ? cn.split('.')[0] : 'employeeCompany';
+            cn = cn.charAt(0).toUpperCase() + cn.slice(1);
+        }
         setCompanyName(cn);
     }, [user]);
 
     const [rows, setRows] = useState([]);
     const [rowData, setRowData] = useState(rows);
-    const [orderDirection, setOrderDirection] = useState("desc");
+    const [orderDirection, setOrderDirection] = useState("asc");
 
     useEffect(() => {
         let data = [];
@@ -92,10 +95,10 @@ export default function SortedTable() {
                             <TableRow key={index} className={row.name === user.name ? 'bg-blue' : ''}>
 
                                 <TableCell className="curved-bg-left" component="th" scope="row" align="center">
-                                    {row.name}
+                                    {row?.name}
                                 </TableCell>
-                                <TableCell align="center">{row.rank}</TableCell>
-                                <TableCell className="curved-bg-right" align="center">{row.numOfBadges}</TableCell>
+                                <TableCell align="center">{row?.rank}</TableCell>
+                                <TableCell className="curved-bg-right" align="center">{row?.numOfBadges}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
