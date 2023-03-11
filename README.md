@@ -35,8 +35,8 @@ A deployed version can be checked here: [mindwaves.live](https://www.mindwaves.l
 
 
 ## Video
-
-
+Explore Mind Waves with this product tour video.
+[MindWaves product tour.webm](https://user-images.githubusercontent.com/55057608/224472064-79fb0635-c436-4b6b-9ed7-d7759e993a6e.webm)
 
 
 ## Tech Stack and Softwares used
