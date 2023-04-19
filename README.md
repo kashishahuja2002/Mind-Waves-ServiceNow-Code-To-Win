@@ -1,6 +1,6 @@
 # Mind Waves  - Future of Workplace
 
-<!-- ## Submission for ServiceNow CodeToWin 2023 -->
+<!-- ## Submission for WittyHacks 3.0 -->
 ## Submission for ServiceNow CodeToWin 2023 
 
 <p align="center">
@@ -112,4 +112,4 @@ A complete project report for the system with use case diagram, web flow, relati
 A presentation for the project can be found here: [MindWaves | Presentation](/documents/Presentation.pdf).
 
 <hr>
-Thank you, ServiceNow for such a wonderful hackathon ❤️
+Thank you for such a wonderful hackathon ❤️
