@@ -1,7 +1,7 @@
 # Mind Waves  - Future of Workplace
 
 <!-- ## Submission for WittyHacks 3.0 -->
-## Submission for ServiceNow CodeToWin 2023 
+## Submission for WittyHacks 3.0 
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/55057608/224425835-a1061297-eaa0-4c35-801c-ccebfc4cbf4e.png" alt="Mind Waves Logo" width="50%" />
