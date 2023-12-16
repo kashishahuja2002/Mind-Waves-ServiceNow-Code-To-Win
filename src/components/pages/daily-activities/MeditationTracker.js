@@ -123,7 +123,9 @@ const MeditationTracker = () => {
         }
 
         const totalSec = (currentTimeMin*60) + currentTimeSec;
-        const day = new Date().getDay();
+        let day = new Date().getDay();
+        if(day==0)      // sunday
+            day=7;
         const newTargetData = [...targetData];
         newTargetData[day - 1] = (targetData[day - 1] != undefined ? targetData[day - 1] : 0) + totalSec;
         setTargetData(newTargetData);
