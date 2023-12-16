@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const BaseUrl = "http://localhost:8000/";
-const BaseUrl = "https://www.mindwaves.live/";
+const BaseUrl = "http://localhost:8000/";
+// const BaseUrl = "https://www.mindwaves.live/";
 
 // For Post Api Calls And Put
 const HttpCall = async (url, method, params, body) => {
