@@ -75,10 +75,8 @@ export default function WaterTracker() {
         setDrinkTimeState();
 
         let day = new Date().getDay();
-        if(day==0)      // sunday
-            day=7;
         const newTargetData = [...targetData];
-        newTargetData[day - 1] = (targetData[day - 1] != undefined ? targetData[day - 1] : 0) + 1;
+        newTargetData[day] = (targetData[day] != undefined ? targetData[day] : 0) + 1;
         setTargetData(newTargetData);
 
         const body = {

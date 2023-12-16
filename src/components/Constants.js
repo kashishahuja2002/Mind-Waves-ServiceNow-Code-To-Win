@@ -52,13 +52,13 @@ export const statsList = [
 ];
 
 export const days = [
-    { id: 0, name: "Mon" },
-    { id: 1, name: "Tue" },
-    { id: 2, name: "Wed" },
-    { id: 3, name: "Thu" },
-    { id: 4, name: "Fri" },
-    { id: 5, name: "Sat" },
-    { id: 6, name: "Sun" },
+    { id: 1, name: "Mon" },
+    { id: 2, name: "Tue" },
+    { id: 3, name: "Wed" },
+    { id: 4, name: "Thu" },
+    { id: 5, name: "Fri" },
+    { id: 6, name: "Sat" },
+    { id: 0, name: "Sun" },
 ];
 
 export const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];

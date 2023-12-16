@@ -25,15 +25,15 @@ export default function TragetChart(props) {
                 className="chartContainer"
                 spacing={"5px"}
             >
-                {days.map((obj, index) => (
-                    <Grid key={`day-${obj.name}`} item xs={1.7} sm={1.5} md={1.3}>
-                        <CircularProgressbar value={percentData[index] != undefined ? percentData[index] : 0} stroke="#0f1315" strokeWidth="9" 
+                {days.map((obj) => (
+                    <Grid key={`day-${obj.id}`} item xs={1.7} sm={1.5} md={1.3}>
+                        <CircularProgressbar value={percentData[obj.id] != undefined ? percentData[obj.id] : 0} stroke="#0f1315" strokeWidth="9" 
                             styles={buildStyles({
                                 // Colors
                                 textColor: color,
                                 pathColor: color,
                             })}
-                            text={`${percentData[index] != undefined ? percentData[index] : 0}%`} 
+                            text={`${percentData[obj.id] != undefined ? percentData[obj.id] : 0}%`} 
                         />
                         <div className='days-txt'>{obj.name}</div>
                     </Grid>
