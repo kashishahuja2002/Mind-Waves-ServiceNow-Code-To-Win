@@ -51,6 +51,7 @@ export default function SortedTable() {
     }, [ranks])
 
     const sortArray = (arr, orderBy) => {
+        setOrderDirection(orderDirection === "asc" ? "desc" : "asc");
         switch (orderBy) {
             case "asc":
             default:
@@ -67,7 +68,6 @@ export default function SortedTable() {
 
     const handleSortRequest = () => {
         setRowData(sortArray(rows, orderDirection));
-        setOrderDirection(orderDirection === "asc" ? "desc" : "asc");
     };
 
     return (
