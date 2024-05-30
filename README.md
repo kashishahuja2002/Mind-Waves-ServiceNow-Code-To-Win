@@ -13,6 +13,12 @@ The Mind Waves project aims to keep a check and improve employees’ Mental Heal
 A deployed version can be checked here: [mindwaves.live](https://www.mindwaves.live/)
 
 
+## Demo Video
+Explore Mind Waves with this product tour video.
+
+https://user-images.githubusercontent.com/55057608/224472167-4f89bdc5-212c-4b68-9303-6caebe35330f.mp4
+
+
 ## Features
 1. Track Your Goals
 2. Employee Assistance Program (EAP)
@@ -31,12 +37,6 @@ A deployed version can be checked here: [mindwaves.live](https://www.mindwaves.l
 4. Real-time updates
 5. Data storage and retrieval
 6. Deployed product
-
-
-## Video
-Explore Mind Waves with this product tour video.
-
-https://user-images.githubusercontent.com/55057608/224472167-4f89bdc5-212c-4b68-9303-6caebe35330f.mp4
 
 
 ## Tech Stack and Softwares used
